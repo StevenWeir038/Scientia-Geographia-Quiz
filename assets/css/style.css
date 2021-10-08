@@ -46,6 +46,7 @@ body {
     font-family: 'Crimson', arial, sans-serif;
 }
 
+/* General */
 header {
     background-color: rgba(var(--theme-one), 0.85);
 }
@@ -58,6 +59,11 @@ footer {
 .social {
     font-size: 2em;
 }
+
+.social :hover {
+    color: rgba(var(--theme-two), 1);
+}
+
 
 .social :hover {
     animation: wiggle 0.6s;    
@@ -159,16 +165,14 @@ footer {
 #play-quiz-btn :hover {
     font-size: 200px;
     border-radius: 50%;
-    background-color: rgba(var(--theme-one), 0.85);
-    color: var(--theme-four);
+    background-color: rgba(var(--theme-two), 0.85);
+    color: var(--theme-two);
 }
 
 /* Game start section */
 #new-game {
     background-color: rgba(var(--theme-one), 0.85);
 }
-
-
 
 #player-name {
     font-size: 1.25em;
