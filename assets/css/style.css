@@ -95,3 +95,16 @@
 }
 
 /* Game start section */
+#new-game {
+    background-color: rgba(var(--theme-one), 0.85);
+    /* display: none; */
+    /* default value - change when site is being tested */
+}
+#player-name {
+    font-size: 1.25em;
+}
+.start-game-btn-holder {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
