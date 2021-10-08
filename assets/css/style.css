@@ -37,6 +37,13 @@
 
 body {
     color: white;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    color: white;
+    font-family: 'Crimson', arial, sans-serif;
 }
 
 header {
