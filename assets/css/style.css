@@ -87,3 +87,11 @@
 .bold {
     font-weight: bold;
 }
+
+/* Landing section */
+#play-quiz-btn {
+    font-size: 200px;
+    border-radius: 50%;
+}
+
+/* Game start section */
