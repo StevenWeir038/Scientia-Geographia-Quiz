@@ -98,6 +98,10 @@ footer {
     margin: 0;
 }
 
+.width {
+    width: 100vw;
+}
+
 .max-width {
     max-width: 600px;
 }
