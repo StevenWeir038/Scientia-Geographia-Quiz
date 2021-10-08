@@ -44,12 +44,18 @@ body {
     margin: 0;
     color: white;
     font-family: 'Crimson', arial, sans-serif;
+    background: url(../images/background.png) no-repeat center / cover;
 }
 
 /* General */
 header {
     background-color: rgba(var(--theme-one), 0.85);
 }
+
+header span {
+    color: rgb(var(--theme-two));
+}
+
 footer {
 
     background-color: rgba(var(--theme-one), 0.85);
@@ -167,11 +173,14 @@ footer {
     border-radius: 50%;
     background-color: rgba(var(--theme-two), 0.85);
     color: var(--theme-two);
+    animation: wiggle 0.6s;
 }
 
 /* Game start section */
 #new-game {
     background-color: rgba(var(--theme-one), 0.85);
+    max-width: 600px;
+    display: inline-flex;
 }
 
 #player-name {
