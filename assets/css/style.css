@@ -1,3 +1,7 @@
-body {
-    background-color: blue;
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&family=Italianno&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
