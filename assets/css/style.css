@@ -156,6 +156,12 @@ footer {
     font-size: 200px;
     border-radius: 50%;
 }
+#play-quiz-btn :hover {
+    font-size: 200px;
+    border-radius: 50%;
+    background-color: rgba(var(--theme-one), 0.85);
+    color: var(--theme-four);
+}
 
 /* Game start section */
 #new-game {
