@@ -35,6 +35,17 @@
     color: rgb(var(--theme-four));
 }
 
+body {
+    color: white;
+}
+
+header {
+    background-color: rgba(var(--theme-one), 0.85);
+}
+footer {
+
+    background-color: rgba(var(--theme-one), 0.85);
+}
 
 /* General styling classes for reuse */
 .social {
