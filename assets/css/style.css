@@ -5,3 +5,30 @@
 *::after {
     box-sizing: border-box;
 }
+
+:root {
+    /* navy blue */
+    --theme-one: 26, 29, 44;
+    /* sky blue */
+    --theme-two: 18, 233, 251;
+    /* light green */
+    --theme-three: 2, 71, 50;
+    /* yellow */
+    --theme-four: 252, 252, 0;
+}
+
+/* Color classes */
+.navy-blue {
+    color: rgb(var(--theme-one));
+}
+
+.sky-blue {
+    color: rgb(var(--theme-two));
+}
+.light-green {
+    color: rgb(var(--theme-three));
+}
+
+.yellow {
+    color: rgb(var(--theme-four));
+}
