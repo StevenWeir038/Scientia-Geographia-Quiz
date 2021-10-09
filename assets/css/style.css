@@ -248,6 +248,20 @@ footer p {
     background-color: rgba(var(--theme-one), 0.85);
 }
 
+#total-time {
+    display: inline-block;
+    width: 30%;
+    height: 20px;
+    border: 2px solid var(--theme-one);
+    background: lightgray;
+}
+
+#time-left {
+    background: linear-gradient(to red, yellow, orange, green);
+    height: 20px;
+    width: 0.3%;
+}
+
 
 /* Results section */
 #results {
