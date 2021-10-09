@@ -1,3 +1,56 @@
+const quizQuestions = [
+    {
+      question: "Question 1",
+      choices: {
+        a: "Answer 1a",
+        b: "Answer 1b",
+        c: "Answer 1c",
+        d: "Answer 1d"
+      },
+      correctAns: "a"
+    },
+    {
+        question: "Question 2",
+        choices: {
+          a: "Answer 2a",
+          b: "Answer 2b",
+          c: "Answer 2c",
+          d: "Answer 2d"
+        },
+        correctAns: "b"
+      },
+      {
+        question: "Question 3",
+        choices: {
+          a: "Answer 3a",
+          b: "Answer 3b",
+          c: "Answer 3c",
+          d: "Answer 3d"
+        },
+        correctAns: "c"
+      },
+      {
+        question: "Question 4",
+        choices: {
+          a: "Answer 4a",
+          b: "Answer 4b",
+          c: "Answer 4c",
+          d: "Answer 4d"
+        },
+        correctAns: "d"
+      },
+      {
+        question: "Question 5",
+        choices: {
+          a: "Answer 5a",
+          b: "Answer 5b",
+          c: "Answer 5c",
+          d: "Answer 5d"
+        },
+        correctAns: "a"
+      }
+  ];
+
 const landingSection =  document.getElementById('landing');
 const newGameSection =  document.getElementById('new-game');
 const playQuizButton = document.getElementById('play-quiz-btn');
