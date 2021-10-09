@@ -186,7 +186,7 @@ footer p {
 
 /* Landing section */
 #landing {
-    display: none; /* default value is block when opening page */
+    display: inline-flex; /* default value is block when opening page */
 }
 
 #play-quiz-btn {
@@ -206,8 +206,7 @@ footer p {
 #new-game {
     background-color: rgba(var(--theme-one), 0.85);
     width: 350px;
-    display: none; /* default value is none when opening page */
-    /* display: inline-flex; display inline flex after display block/none to keep element centered on page */
+    display: none; /* display inline flex or none to keep element centered on page or hidden */
 }
 
 #player-name {
@@ -232,8 +231,7 @@ footer p {
 
 /* Quiz section */
 #quiz {
-    display: block; /* default value is none when opening page */
-    display: inline-flex; /* display inline flex after display block/none to keep element centered on page */
+    display: none; /* display inline flex or none to keep element centered on page or hidden */
 }
 
 .quiz-info-top {
@@ -311,6 +309,5 @@ footer p {
 
 /* Results section */
 #results {
-    display: none; /* default value is none when opening page */
-    /* display: inline-flex; display inline flex after display block/none to keep element centered on page */
+    display: none;  /* display inline flex or none to keep element centered on page or hidden */
 }
