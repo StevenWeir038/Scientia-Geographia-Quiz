@@ -40,7 +40,14 @@ function quizStart() {
         quizSection.style.display = 'inline-flex';
         newGameSection.style.display = 'none';
         console.log('open the quiz');
+        startTimer();    // only call / start timer when quiz begins
     }
 }
 
 quizStartBtn.addEventListener('click', quizStart);
+
+
+// Timer set to 30 seconds
+let timeLeft = 30;
+const counter = document.getElementById('counter');
+let timer;
