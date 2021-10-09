@@ -56,7 +56,7 @@ const quizQuestions = [
       }
   ];
 
-let questionCount ; // as we want to display first question when building quiz
+let questionCount = 0; // as we want to display first question when first building quiz and increment thereafter
 const landingSection = document.getElementById('landing');
 const newGameSection = document.getElementById('new-game');
 const playQuizButton = document.getElementById('play-quiz-btn');
@@ -70,6 +70,7 @@ const choiceOne = document.getElementById('answer1');
 const choiceTwo = document.getElementById('answer2');
 const choiceThree = document.getElementById('answer3');
 const choiceFour = document.getElementById('answer4');
+
 
 function startNewGame() {
     landingSection.style.display = 'none';
@@ -104,7 +105,6 @@ function quizStart() {
         quizSection.style.display = 'inline-flex';
         newGameSection.style.display = 'none';
         console.log('open the quiz');
-        questionCount = 0;
         buildQuiz(questionCount);
         startTimer();    // only call / start timer when quiz begins
     }
@@ -129,6 +129,7 @@ function startTimer() {
     if (timeLeft <= 0) {
       clearInterval(timer);
       counter.innerHTML = `0`;
+      nextQuestion();
     } else {
       counter.innerHTML = timeLeft;
       timeLeft-=1;
@@ -151,3 +152,14 @@ function buildQuiz(questionID) {
     choiceThree.innerHTML =  quizQuestions[questionID].choices[2];
     choiceFour.innerHTML =  quizQuestions[questionID].choices[3];
 }
+
+
+function nextQuestion(questionID) {
+  console.log('nextQuestion function called');
+  // if (questionCount < quizQuestions.length) {
+  //   questionCount += 1;
+  // }
+}
+
+const nextBtn = document.getElementById('next-btn');
+nextBtn.addEventListener('click', nextQuestion);  // need to pass current questionCount value from this handler to nextQuestion function
