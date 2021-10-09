@@ -45,11 +45,14 @@ body {
     color: white;
     font-family: 'Crimson', arial, sans-serif;
     background: url(../images/background.png) no-repeat center / cover;
+    min-height: 100vh;
 }
 
 /* General */
 header {
     background-color: rgba(var(--theme-one), 0.85);
+    position: fixed;
+    top: 0;
 }
 
 header h1 {
@@ -64,11 +67,17 @@ header span {
 
 header p {
     margin-top: 0;
+    font-size: 0.8em;
 }
 
 footer {
-
     background-color: rgba(var(--theme-one), 0.85);
+    position: fixed;
+    bottom: 0;
+}
+
+footer p {
+    margin: 0.5em 0;
 }
 
 /* General styling classes for reuse */
