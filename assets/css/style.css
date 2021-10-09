@@ -48,7 +48,7 @@ body {
     min-height: 100vh;
 }
 
-/* General */
+/* Header & Footer styling */
 header {
     background-color: rgba(var(--theme-one), 0.85);
     position: fixed;
@@ -198,15 +198,25 @@ footer p {
 /* Game start section */
 #new-game {
     background-color: rgba(var(--theme-one), 0.85);
-    max-width: 600px;
+    width: 350px;
     display: inline-flex;
 }
 
 #player-name {
     font-size: 1.25em;
+    width: calc(100% - 1em)
 }
 .start-game-btn-holder {
     display: flex;
     justify-content: space-evenly;
-    width: 100%;
+    width: calc(100% - 1em)
+}
+
+#quiz-start-btn,
+#quiz-leave-btn {
+    background-color: rgba(var(--theme-three), 0.85);
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    padding: 0 0.5em;
 }
