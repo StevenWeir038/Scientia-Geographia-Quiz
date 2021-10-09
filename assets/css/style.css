@@ -1,6 +1,7 @@
 /* import google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text&family=Italianno&display=swap');
 
+
 /* root */
 *,
 *::before,
@@ -19,6 +20,7 @@
     --theme-four: 252, 252, 0;
 }
 
+
 /* Color classes */
 .navy-blue {
     color: rgb(var(--theme-one));
@@ -34,6 +36,7 @@
 .yellow {
     color: rgb(var(--theme-four));
 }
+
 
 /* Body, Header, Footer styling */
 body {
@@ -79,6 +82,7 @@ footer {
 footer p {
     margin: 0.5em 0;
 }
+
 
 /* General styling classes for reuse */
 .social {
@@ -141,6 +145,7 @@ footer p {
     font-weight: bold;
 }
 
+
 /* Animations */
 .wiggle {
     animation: wiggle 0.6s;
@@ -182,6 +187,7 @@ footer p {
     }
 }
 
+
 /* Landing section */
 #landing {
     display: none; /* default value is block when opening page */
@@ -198,6 +204,7 @@ footer p {
     color: rgba(var(--theme-two), 1);
     animation: wiggle 0.6s;
 }
+
 
 /* Game start section */
 #new-game {
@@ -226,14 +233,18 @@ footer p {
     padding: 0 0.5em;
 }
 
+
 /* Quiz section */
 #quiz {
-    display: none; /* default value is none when opening page */
+    display: block; /* default value is none when opening page */
     /* display: inline-flex; display inline flex after display block/none to keep element centered on page */
 }
+
+
+
 
 /* Results section */
 #results {
     display: none; /* default value is none when opening page */
-    display: inline-flex; /* display inline flex after display block/none to keep element centered on page */
+    /* display: inline-flex; display inline flex after display block/none to keep element centered on page */
 }
