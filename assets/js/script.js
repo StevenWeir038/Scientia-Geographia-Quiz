@@ -68,3 +68,9 @@ function startTimer() {
       timeLeft-=1;
     }
   }
+
+// Timer reset, call when next question begins
+function resetTimer() {
+    clearInterval(countdown);
+    console.log('resetTimer function called')
+  }
