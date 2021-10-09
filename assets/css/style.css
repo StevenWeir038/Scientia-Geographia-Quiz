@@ -263,7 +263,7 @@ footer p {
 }
 
 #question-box {
-    background-color: rgb(var(--theme-three), 1);
+    background-color: rgb(var(--theme-three), 0.85);
     border: 2px solid rgb(var(--theme-one));
     color: white;
     display: inline-flex;
@@ -284,6 +284,15 @@ footer p {
     border: 2px solid rgb(var(--theme-one));
     margin: 1em 0;
     width: 80vw;
+}
+
+#quiz-nav {
+    display: inline-flex;
+}
+
+#next-btn{
+    background-color: rgba(var(--theme-one), 0.85);
+    font-size: 1.25em;
 }
 
 
