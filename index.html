@@ -30,6 +30,7 @@
         </section>
         <!-- Quiz section -->
         <section id="quiz" class="flex-column flex-center rounded-border max-width">
+            <!-- quiz information -->
             <section class="quiz-info-top flex-center margin rounded-border max-width">
                 <section id="question-number">
                     <p>Question <span id="current-question" class="bold">-</span> of <span id="total-questions" class="bold">-</span></p>
@@ -41,6 +42,12 @@
                 <!-- progress bar -->
                 <section id="total-time" class="rounded-border">
                     <section id="time-left" class="rounded-border"></section>
+                </section>
+            </section>
+            <!-- quiz container - this section will house html questions and answers and be manipulated using template literals -->
+            <section id="quiz-container" class="flex-column flex-center text-center margin-zero rounded-border max-width">
+                <section id="question-box" class="flex-center text-center margin-zero rounded-border max-width">
+                    <p>QUESTION TEXT GOES HERE</p>
                 </section>
             </section>
         </section>
