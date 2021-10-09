@@ -58,6 +58,7 @@ const playerName = document.getElementById('player-name');
 const quizLeaveBtn = document.getElementById('quiz-leave-btn');
 const quizStartBtn = document.getElementById('quiz-start-btn');
 const quizSection =  document.getElementById('quiz');
+const quizContainer = document.getElementById('quiz-container');
 
 
 function startNewGame() {
@@ -93,6 +94,7 @@ function quizStart() {
         quizSection.style.display = 'inline-flex';
         newGameSection.style.display = 'none';
         console.log('open the quiz');
+        buildQuiz();
         startTimer();    // only call / start timer when quiz begins
     }
 }
@@ -127,3 +129,8 @@ function resetTimer() {
     clearInterval(countdown);
     console.log('resetTimer function called')
   }
+
+
+function buildQuiz() {
+    
+}
