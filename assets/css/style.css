@@ -266,8 +266,24 @@ footer p {
     background-color: rgb(var(--theme-three), 1);
     border: 2px solid rgb(var(--theme-one));
     color: white;
-    width: 80vw;
     display: inline-flex;
+    width: 80vw;
+}
+
+#answers-box {
+    display: inline-flex;
+    width: 80vw;
+    margin: 1em 0;
+}
+
+.answer {
+    background-color: white;
+    color: black;
+    border: 2px solid rgb(var(--theme-one));
+    border-radius: 15px;
+    border: 2px solid rgb(var(--theme-one));
+    margin: 1em 0;
+    width: 80vw;
 }
 
 
