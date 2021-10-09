@@ -183,6 +183,10 @@ footer p {
 }
 
 /* Landing section */
+#landing {
+    display: none; /* default value is block when opening page */
+}
+
 #play-quiz-btn {
     font-size: 200px;
     border-radius: 50%;
@@ -199,8 +203,8 @@ footer p {
 #new-game {
     background-color: rgba(var(--theme-one), 0.85);
     width: 350px;
-    display: inline-flex;
     display: none; /* default value is none when opening page */
+    /* display: inline-flex; display inline flex after display block/none to keep element centered on page */
 }
 
 #player-name {
@@ -225,9 +229,11 @@ footer p {
 /* Quiz section */
 #quiz {
     display: none; /* default value is none when opening page */
+    /* display: inline-flex; display inline flex after display block/none to keep element centered on page */
 }
 
 /* Results section */
 #results {
     display: none; /* default value is none when opening page */
+    display: inline-flex; /* display inline flex after display block/none to keep element centered on page */
 }
