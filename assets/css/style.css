@@ -240,6 +240,14 @@ footer p {
     display: inline-flex; /* display inline flex after display block/none to keep element centered on page */
 }
 
+.quiz-info-top {
+    display: inline-flex;
+    justify-content: space-around;
+    width: 80vw;
+    margin-bottom: 1.5em;
+    background-color: rgba(var(--theme-one), 0.85);
+}
+
 
 /* Results section */
 #results {
