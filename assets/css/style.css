@@ -52,8 +52,18 @@ header {
     background-color: rgba(var(--theme-one), 0.85);
 }
 
+header h1 {
+    margin-bottom: 0;
+}
+
 header span {
     color: rgb(var(--theme-two));
+    font-size: 1.25em;
+    font-family: 'Italianno';
+}
+
+header p {
+    margin-top: 0;
 }
 
 footer {
