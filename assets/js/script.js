@@ -51,3 +51,20 @@ quizStartBtn.addEventListener('click', quizStart);
 let timeLeft = 30;
 const counter = document.getElementById('counter');
 let timer;
+
+function startTimer() {
+    timer = setInterval(function() {countdown()}, 1000);
+    }  // easier tio read when countdown kept as a separate function to startTimer.
+  
+  // every 1 second (1000ms) run the countdown function to change the value in the timer element on the webpage
+  function countdown() {
+    console.log('startTimer called');
+  
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      counter.innerHTML = `0`;
+    } else {
+      counter.innerHTML = timeLeft;
+      timeLeft-=1;
+    }
+  }
