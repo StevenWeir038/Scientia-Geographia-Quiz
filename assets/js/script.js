@@ -1,65 +1,75 @@
 const quizQuestions = [
     {
-      question: "Question 1",
-      choices: {
-        a: "Answer 1a",
-        b: "Answer 1b",
-        c: "Answer 1c",
-        d: "Answer 1d"
-      },
-      correctAns: "a"
+        questionNum: '0',
+        questionText: "Question 1",
+        choices: [
+            "Answer 1a",
+            "Answer 1b",
+            "Answer 1c",
+            "Answer 1d"
+        ],
+      correctAns: "Answer 1a"
     },
     {
-        question: "Question 2",
-        choices: {
-          a: "Answer 2a",
-          b: "Answer 2b",
-          c: "Answer 2c",
-          d: "Answer 2d"
-        },
-        correctAns: "b"
+        questionNum: '1',
+        questionText: "Question 2",
+        choices: [
+          "Answer 2a",
+          "Answer 2b",
+          "Answer 2c",
+          "Answer 2d"
+        ],
+        correctAns: "Answer 2b"
       },
       {
-        question: "Question 3",
-        choices: {
-          a: "Answer 3a",
-          b: "Answer 3b",
-          c: "Answer 3c",
-          d: "Answer 3d"
-        },
-        correctAns: "c"
+        questionNum: '2',
+        questionText: "Question 3",
+        choices: [
+          "Answer 3a",
+          "Answer 3b",
+          "Answer 3c",
+          "Answer 3d"
+        ],
+        correctAns: "Answer 3c"
       },
       {
-        question: "Question 4",
-        choices: {
-          a: "Answer 4a",
-          b: "Answer 4b",
-          c: "Answer 4c",
-          d: "Answer 4d"
-        },
-        correctAns: "d"
+        questionNum: '3',
+        questionText: "Question 4",
+        choices: [
+          "Answer 4a",
+          "Answer 4b",
+          "Answer 4c",
+          "Answer 4d"
+        ],
+        correctAns: "Answer 4d"
       },
       {
-        question: "Question 5",
-        choices: {
-          a: "Answer 5a",
-          b: "Answer 5b",
-          c: "Answer 5c",
-          d: "Answer 5d"
-        },
-        correctAns: "a"
+        questionNum: '4',
+        questionText: "Question 5",
+        choices: [
+          "Answer 5a",
+          "Answer 5b",
+          "Answer 5c",
+          "Answer 5d"
+        ],
+        correctAns: "Answer 5a"
       }
   ];
 
-const landingSection =  document.getElementById('landing');
-const newGameSection =  document.getElementById('new-game');
+let questionCount ; // as we want to display first question when building quiz
+const landingSection = document.getElementById('landing');
+const newGameSection = document.getElementById('new-game');
 const playQuizButton = document.getElementById('play-quiz-btn');
 const playerName = document.getElementById('player-name');
 const quizLeaveBtn = document.getElementById('quiz-leave-btn');
 const quizStartBtn = document.getElementById('quiz-start-btn');
-const quizSection =  document.getElementById('quiz');
+const quizSection = document.getElementById('quiz');
 const quizContainer = document.getElementById('quiz-container');
-
+const question = document.getElementById('question-box');
+const choiceOne = document.getElementById('answer1');
+const choiceTwo = document.getElementById('answer2');
+const choiceThree = document.getElementById('answer3');
+const choiceFour = document.getElementById('answer4');
 
 function startNewGame() {
     landingSection.style.display = 'none';
@@ -94,7 +104,8 @@ function quizStart() {
         quizSection.style.display = 'inline-flex';
         newGameSection.style.display = 'none';
         console.log('open the quiz');
-        buildQuiz();
+        questionCount = 0;
+        buildQuiz(questionCount);
         startTimer();    // only call / start timer when quiz begins
     }
 }
@@ -109,7 +120,7 @@ let timer;
 
 function startTimer() {
     timer = setInterval(function() {countdown()}, 1000);
-    }  // easier tio read when countdown kept as a separate function to startTimer.
+    }  // easier to read when countdown kept as a separate function to startTimer.
   
   // every 1 second (1000ms) run the countdown function to change the value in the timer element on the webpage
   function countdown() {
@@ -131,6 +142,12 @@ function resetTimer() {
   }
 
 
-function buildQuiz() {
-    
+function buildQuiz(questionID) {
+    // this function sets the first question and corresponding answers. questionID passed from questionCount variable
+    console.log('buildQuiz function called')
+    question.innerHTML = quizQuestions[questionID].questionText;
+    choiceOne.innerHTML =  quizQuestions[questionID].choices[0];
+    choiceTwo.innerHTML =  quizQuestions[questionID].choices[1];
+    choiceThree.innerHTML =  quizQuestions[questionID].choices[2];
+    choiceFour.innerHTML =  quizQuestions[questionID].choices[3];
 }
