@@ -262,6 +262,14 @@ footer p {
     width: 0.3%;
 }
 
+#question-box {
+    background-color: rgb(var(--theme-three), 1);
+    border: 2px solid rgb(var(--theme-one));
+    color: white;
+    width: 80vw;
+    display: inline-flex;
+}
+
 
 /* Results section */
 #results {
