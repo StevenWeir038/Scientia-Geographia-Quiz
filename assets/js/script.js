@@ -3,6 +3,9 @@ const newGameSection =  document.getElementById('new-game');
 const playQuizButton = document.getElementById('play-quiz-btn');
 const playerName = document.getElementById('player-name');
 const quizLeaveBtn = document.getElementById('quiz-leave-btn');
+const quizStartBtn = document.getElementById('quiz-start-btn');
+const quizSection =  document.getElementById('quiz');
+
 
 function startNewGame() {
     landingSection.style.display = 'none';
@@ -25,3 +28,19 @@ function quizLeave() {
 }
 
 quizLeaveBtn.addEventListener('click', quizLeave);
+
+
+function quizStart() {
+    console.log('quizStart function called');
+    if (playerName.value == '' || playerName.value == null || playerName.value == undefined) {
+        console.log('quizStart Errorhandler - user name required ');
+        // set style properties for input box to draw users attention, refocus input element?
+        playerName.style.borderColor = 'red';
+    } else {
+        quizSection.style.display = 'inline-flex';
+        newGameSection.style.display = 'none';
+        console.log('open the quiz');
+    }
+}
+
+quizStartBtn.addEventListener('click', quizStart);
