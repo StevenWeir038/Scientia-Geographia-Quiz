@@ -91,11 +91,7 @@ footer p {
 
 .social :hover {
     color: rgba(var(--theme-two), 1);
-}
-
-
-.social :hover {
-    animation: wiggle 0.6s;    
+    animation: wiggle 0.6s;  
 }
 
 .italianno {
@@ -293,6 +289,23 @@ footer p {
 #next-btn{
     background-color: rgba(var(--theme-one), 0.85);
     font-size: 1.25em;
+}
+#score-tracker {
+    display: inline-flex;
+    justify-content: space-around;
+    margin-bottom: 0.5em;
+    background-color: rgba(var(--theme-one), 0.85);
+    border-radius: 15px;
+    width: 80vw;
+}
+
+.circle {
+    height: 25px;
+    width: 25px;
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: white;
+    margin: 0.5em 0;
 }
 
 
