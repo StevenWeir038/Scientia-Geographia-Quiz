@@ -35,6 +35,7 @@
     color: rgb(var(--theme-four));
 }
 
+/* Body, Header, Footer styling */
 body {
     color: white;
     top: 0;
@@ -48,7 +49,6 @@ body {
     min-height: 100vh;
 }
 
-/* Header & Footer styling */
 header {
     background-color: rgba(var(--theme-one), 0.85);
     position: fixed;
@@ -200,6 +200,7 @@ footer p {
     background-color: rgba(var(--theme-one), 0.85);
     width: 350px;
     display: inline-flex;
+    display: none; /* default value is none when opening page */
 }
 
 #player-name {
@@ -219,4 +220,14 @@ footer p {
     font-size: 2em;
     text-align: center;
     padding: 0 0.5em;
+}
+
+/* Quiz section */
+#quiz {
+    display: none; /* default value is none when opening page */
+}
+
+/* Results section */
+#results {
+    display: none; /* default value is none when opening page */
 }
