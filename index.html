@@ -20,7 +20,7 @@
         </section>
         <section>
         <!-- Game start section -->
-        <section id="new-game" class="flex-column flex-center rounded-border">
+        <section id="new-game" class="flex-column flex-center rounded-border max-width">
             <p class="yellow margin-zero padding">Player name</p>
             <input type="text" id="player-name" required class="text-center padding rounded-border">
             <section class="start-game-btn-holder margin">
@@ -28,8 +28,15 @@
                 <button type="button" id="quiz-leave-btn" class="margin-zero rounded-border italianno">Leave</button>
             </section>
         </section>
+        <!-- Quiz section -->
+        <section id="quiz" class="flex-column flex-center rounded-border max-width">
+            <section class="quiz-info-top flex-center margin rounded-border max-width">
+                <section id="question-number">
+                    <p>Question <span id="current-question" class="bold">-</span> of <span id="total-questions" class="bold">-</span></p>
+                </section>
+            </section>
         </section>
-        <section id="quiz">QUIZ</section>
+        
         <section id="results">RESULTS</section>
     </main>
     <footer class="width">

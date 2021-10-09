@@ -237,10 +237,8 @@ footer p {
 /* Quiz section */
 #quiz {
     display: block; /* default value is none when opening page */
-    /* display: inline-flex; display inline flex after display block/none to keep element centered on page */
+    display: inline-flex; /* display inline flex after display block/none to keep element centered on page */
 }
-
-
 
 
 /* Results section */
