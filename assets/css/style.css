@@ -171,8 +171,8 @@ footer {
 #play-quiz-btn :hover {
     font-size: 200px;
     border-radius: 50%;
-    background-color: rgba(var(--theme-two), 0.85);
-    color: var(--theme-two);
+    background-color: rgba(var(--theme-one), 0.85);
+    color: rgba(var(--theme-two), 1);
     animation: wiggle 0.6s;
 }
 
