@@ -1,5 +1,5 @@
 const quizQuestions = [{
-    questionNum: '0',
+    questionNum: '1',
     questionText: "Question 1",
     choices: [
       "Answer 1a",
@@ -10,7 +10,7 @@ const quizQuestions = [{
     correctAns: "Answer 1a"
   },
   {
-    questionNum: '1',
+    questionNum: '2',
     questionText: "Question 2",
     choices: [
       "Answer 2a",
@@ -21,7 +21,7 @@ const quizQuestions = [{
     correctAns: "Answer 2b"
   },
   {
-    questionNum: '2',
+    questionNum: '3',
     questionText: "Question 3",
     choices: [
       "Answer 3a",
@@ -32,7 +32,7 @@ const quizQuestions = [{
     correctAns: "Answer 3c"
   },
   {
-    questionNum: '3',
+    questionNum: '4',
     questionText: "Question 4",
     choices: [
       "Answer 4a",
@@ -43,7 +43,7 @@ const quizQuestions = [{
     correctAns: "Answer 4d"
   },
   {
-    questionNum: '4',
+    questionNum: '5',
     questionText: "Question 5",
     choices: [
       "Answer 5a",
@@ -147,7 +147,15 @@ function resetTimer() {
 
 function buildQuizQuestion(questionID) {
   // this function sets the first question and corresponding answers. questionID passed from questionCount variable
-  console.log('buildQuizQuestion function called')
+  console.log('buildQuizQuestion function called');
+  console.log(questionCount);
+  // set text content for quiz current question# & total questions in quiz-top-info section
+  let currentQuestionNum = document.getElementById('current-question');
+  let totalQuestions = document.getElementById('total-questions');
+  currentQuestionNum.innerHTML = quizQuestions[questionID].questionNum;
+  totalQuestions.innerHTML = quizQuestions.length;
+
+  // set text content for quiz Q&As
   question.innerHTML = quizQuestions[questionID].questionText;
   choiceOne.innerHTML = quizQuestions[questionID].choices[0];
   choiceTwo.innerHTML = quizQuestions[questionID].choices[1];
@@ -159,9 +167,8 @@ function buildQuizQuestion(questionID) {
 function nextQuestion() {
   console.log('nextQuestion function called');
   resetTimer();
+  questionCount += 1;
   if (questionCount < quizQuestions.length) {
-    questionCount += 1;
-    console.log(questionCount);
     buildQuizQuestion(questionCount);
     startTimer();
   } else {
@@ -169,9 +176,9 @@ function nextQuestion() {
      *'script.js:149 Uncaught TypeError: Cannot read properties of undefined (reading 'questionText')'
      * as we are going to go back into buildQuizQuestion function. 
      */
+    console.log('end of quiz, give user feedback/results');
   }
 
 }
 
 nextBtn.addEventListener('click', nextQuestion);
-
