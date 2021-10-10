@@ -247,13 +247,14 @@ footer p {
     width: 30%;
     height: 20px;
     border: 2px solid var(--theme-one);
-    background: lightgray;
+    background: linear-gradient(to right red, orange, yellow, green);
 }
 
 #time-left {
-    background: linear-gradient(to red, yellow, orange, green);
+    background: lightgray;
     height: 20px;
     width: 0.3%;
+    float: right;
 }
 
 #question-box {

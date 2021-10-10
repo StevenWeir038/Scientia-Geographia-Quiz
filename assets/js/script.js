@@ -1,5 +1,4 @@
-const quizQuestions = [
-  {
+const quizQuestions = [{
     questionNum: '1',
     questionText: "Question 1",
     choices: [
@@ -163,6 +162,7 @@ function quizStart() {
     console.log('open the quiz');
     buildQuizQuestion(questionCount);
     progressIndicator();
+    initBarCount();
     startTimer(); // only call / start timer when quiz begins
   }
 }
@@ -178,14 +178,14 @@ let timer;
 function startTimer() {
   timeLeft = 30;
   timer = setInterval(function () {
-    countdown()
+    countdown();
   }, 1000);
 } // easier to read when countdown kept as a separate function to startTimer.
 
 // every 1 second (1000ms) run the countdown function to change the value in the timer element on the webpage
 function countdown() {
   console.log('startTimer called');
-
+  initBarCount();
   if (timeLeft === 0) {
     counter.innerHTML = `0`;
     nextQuestion();
@@ -228,13 +228,14 @@ function nextQuestion() {
   progressIndicator(questionCount);
   if (questionCount < quizQuestions.length) {
     buildQuizQuestion(questionCount);
+    initBarCount();
     startTimer();
   } else {
     /** this is were you'll call a quiz end/show result type function to give user feedback as all questions answered. This will catch
      *'script.js:149 Uncaught TypeError: Cannot read properties of undefined (reading 'questionText')'
      * as we are going to go back into buildQuizQuestion function. 
      */
-     counter.innerHTML = ``;
+    counter.innerHTML = ``;
     console.log('end of quiz, give user feedback/results');
   }
 
@@ -246,34 +247,49 @@ nextBtn.addEventListener('click', nextQuestion);
 function progressIndicator(questionCount) {
   console.log('call progressIndicator function show question with yellow background on question circle');
   switch (questionCount) {
-case  1:
-  document.getElementsByClassName('circle')[1].style.backgroundColor = "yellow";
-  break;
-case 2:
-  document.getElementsByClassName('circle')[2].style.backgroundColor = "yellow";
-  break;
-case 3:
-  document.getElementsByClassName('circle')[3].style.backgroundColor = "yellow";
-  break;
-case 4:
-  document.getElementsByClassName('circle')[4].style.backgroundColor = "yellow";
-  break;
-case 5:
-  document.getElementsByClassName('circle')[5].style.backgroundColor = "yellow";
-  break;
-case 6:
-  document.getElementsByClassName('circle')[6].style.backgroundColor = "yellow";
-  break;
-case 7:
-  document.getElementsByClassName('circle')[7].style.backgroundColor = "yellow";
-  break;
-case 8:
-  document.getElementsByClassName('circle')[8].style.backgroundColor = "yellow";
-  break;
-case 9:
-  document.getElementsByClassName('circle')[9].style.backgroundColor = "yellow";
-  break;
-default:
-  document.getElementsByClassName('circle')[0].style.backgroundColor = "yellow";
+    case 1:
+      document.getElementsByClassName('circle')[1].style.backgroundColor = "yellow";
+      break;
+    case 2:
+      document.getElementsByClassName('circle')[2].style.backgroundColor = "yellow";
+      break;
+    case 3:
+      document.getElementsByClassName('circle')[3].style.backgroundColor = "yellow";
+      break;
+    case 4:
+      document.getElementsByClassName('circle')[4].style.backgroundColor = "yellow";
+      break;
+    case 5:
+      document.getElementsByClassName('circle')[5].style.backgroundColor = "yellow";
+      break;
+    case 6:
+      document.getElementsByClassName('circle')[6].style.backgroundColor = "yellow";
+      break;
+    case 7:
+      document.getElementsByClassName('circle')[7].style.backgroundColor = "yellow";
+      break;
+    case 8:
+      document.getElementsByClassName('circle')[8].style.backgroundColor = "yellow";
+      break;
+    case 9:
+      document.getElementsByClassName('circle')[9].style.backgroundColor = "yellow";
+      break;
+    default:
+      document.getElementsByClassName('circle')[0].style.backgroundColor = "yellow";
+  }
+}
+
+function initBarCount() {
+  let divTimeLeft = document.getElementById('time-left');
+  let totalTime = document.getElementById('total-time');
+  let startTimer = setInterval(barCount, 2400);
+
+  function barCount() {
+    if (divTimeLeft.clientWidth < totalTime.clientWidth) {
+      divTimeLeft.style.width = divTimeLeft.clientWidth + 1 + 'px';
+    } else {
+      divTimeLeft.style.width = totalTime.clientWidth + 'px';
+      clearInterval(startTimer);
+    }
   }
 }
