@@ -162,7 +162,7 @@ function quizStart() {
     newGameSection.style.display = 'none';
     console.log('open the quiz');
     buildQuizQuestion(questionCount);
-    // progressIndicator();
+    progressIndicator();
     startTimer(); // only call / start timer when quiz begins
   }
 }
@@ -225,7 +225,7 @@ function nextQuestion() {
   console.log('nextQuestion function called');
   resetTimer();
   questionCount += 1;
-  // progressIndicator(questionCount);
+  progressIndicator(questionCount);
   if (questionCount < quizQuestions.length) {
     buildQuizQuestion(questionCount);
     startTimer();
@@ -243,36 +243,37 @@ function nextQuestion() {
 nextBtn.addEventListener('click', nextQuestion);
 
 // display current question on score tracker below quiz answers/ next button
-// function progressIndicator(number) {
-//   switch (questionCount) {
-// case questionCount = 2:
-//   document.getElementsByClassName('circle')[1].classList.add('yellow');
-// break;
-// case questionCount = 3:
-//   document.getElementsByClassName('class')[2];
-// break;
-// case questionCount = 4:
-//   document.getElementsByClassName('circle')[3];
-// break;
-// case questionCount = 5:
-//   document.getElementsByClassName('circle')[4];
-// break;
-// case questionCount = 6:
-//   document.getElementsByClassName('circle')[5];
-// break;
-// case questionCount = 7:
-//   document.getElementsByClassName('circle')[6];
-// break;
-// case questionCount = 8:
-//   document.getElementsByClassName('circle')[7];
-// break;
-// case questionCount = 9:
-//   document.getElementsByClassName('circle')[8];
-// break;
-// case questionCount = 10:
-//   document.getElementsByClassName('circle')[9];
-// break;
-// default:
-//   document.getElementsByClassName('circle')[0].classList.add('yellow');
-//   }
-// }
+function progressIndicator(questionCount) {
+  console.log('call progressIndicator function show question with yellow background on question circle');
+  switch (questionCount) {
+case  1:
+  document.getElementsByClassName('circle')[1].style.backgroundColor = "yellow";
+  break;
+case 2:
+  document.getElementsByClassName('circle')[2].style.backgroundColor = "yellow";
+  break;
+case 3:
+  document.getElementsByClassName('circle')[3].style.backgroundColor = "yellow";
+  break;
+case 4:
+  document.getElementsByClassName('circle')[4].style.backgroundColor = "yellow";
+  break;
+case 5:
+  document.getElementsByClassName('circle')[5].style.backgroundColor = "yellow";
+  break;
+case 6:
+  document.getElementsByClassName('circle')[6].style.backgroundColor = "yellow";
+  break;
+case 7:
+  document.getElementsByClassName('circle')[7].style.backgroundColor = "yellow";
+  break;
+case 8:
+  document.getElementsByClassName('circle')[8].style.backgroundColor = "yellow";
+  break;
+case 9:
+  document.getElementsByClassName('circle')[9].style.backgroundColor = "yellow";
+  break;
+default:
+  document.getElementsByClassName('circle')[0].style.backgroundColor = "yellow";
+  }
+}
