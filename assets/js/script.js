@@ -162,6 +162,7 @@ function quizStart() {
     newGameSection.style.display = 'none';
     console.log('open the quiz');
     buildQuizQuestion(questionCount);
+    progressIndicator();
     startTimer(); // only call / start timer when quiz begins
   }
 }
@@ -224,6 +225,7 @@ function nextQuestion() {
   console.log('nextQuestion function called');
   resetTimer();
   questionCount += 1;
+  progressIndicator(questionCount);
   if (questionCount < quizQuestions.length) {
     buildQuizQuestion(questionCount);
     startTimer();
@@ -240,3 +242,36 @@ function nextQuestion() {
 nextBtn.addEventListener('click', nextQuestion);
 
 // display current question on score tracker below quiz answers/ next button
+function progressIndicator(number) {
+  switch (qNum) {
+case 2:
+  // code block
+break;
+case 3:
+
+break;
+case 4:
+
+break;
+case 5:
+
+break;
+case 6:
+
+break;
+case 7:
+
+break;
+case 8:
+
+break;
+case 9:
+
+break;
+case 10:
+
+break;
+default:
+  // default result
+  }
+}
