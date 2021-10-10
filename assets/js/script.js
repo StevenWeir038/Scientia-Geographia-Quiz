@@ -105,7 +105,7 @@ function quizStart() {
         quizSection.style.display = 'inline-flex';
         newGameSection.style.display = 'none';
         console.log('open the quiz');
-        buildQuiz(questionCount);
+        buildQuizQuestion(questionCount);
         startTimer();    // only call / start timer when quiz begins
     }
 }
@@ -114,12 +114,13 @@ quizStartBtn.addEventListener('click', quizStart);
 
 
 // Timer set to 30 seconds
-let timeLeft = 30;
+let timeLeft;
 const counter = document.getElementById('counter');
 let timer;
 
 function startTimer() {
-    timer = setInterval(function() {countdown()}, 1000);
+  timeLeft = 30;
+  timer = setInterval(function() {countdown()}, 1000);
     }  // easier to read when countdown kept as a separate function to startTimer.
   
   // every 1 second (1000ms) run the countdown function to change the value in the timer element on the webpage
@@ -143,9 +144,9 @@ function resetTimer() {
   }
 
 
-function buildQuiz(questionID) {
+function buildQuizQuestion(questionID) {
     // this function sets the first question and corresponding answers. questionID passed from questionCount variable
-    console.log('buildQuiz function called')
+    console.log('buildQuizQuestion function called')
     question.innerHTML = quizQuestions[questionID].questionText;
     choiceOne.innerHTML =  quizQuestions[questionID].choices[0];
     choiceTwo.innerHTML =  quizQuestions[questionID].choices[1];
@@ -154,12 +155,15 @@ function buildQuiz(questionID) {
 }
 
 
-function nextQuestion(questionID) {
+function nextQuestion() {
   console.log('nextQuestion function called');
-  // if (questionCount < quizQuestions.length) {
-  //   questionCount += 1;
-  // }
+  if (questionCount < quizQuestions.length) {
+    questionCount += 1;
+  }
+  console.log(questionCount);
+  buildQuizQuestion(questionCount);
+  startTimer();
 }
 
 const nextBtn = document.getElementById('next-btn');
-nextBtn.addEventListener('click', nextQuestion);  // need to pass current questionCount value from this handler to nextQuestion function
+nextBtn.addEventListener('click', nextQuestion);
