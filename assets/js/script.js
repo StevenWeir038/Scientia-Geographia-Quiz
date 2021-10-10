@@ -1,4 +1,5 @@
-const quizQuestions = [{
+const quizQuestions = [
+  {
     questionNum: '1',
     questionText: "Question 1",
     choices: [
@@ -52,6 +53,61 @@ const quizQuestions = [{
       "Answer 5d"
     ],
     correctAns: "Answer 5a"
+  },
+  {
+    questionNum: '6',
+    questionText: "Question 6",
+    choices: [
+      "Answer 6a",
+      "Answer 6b",
+      "Answer 6c",
+      "Answer 6d"
+    ],
+    correctAns: "Answer 6a"
+  },
+  {
+    questionNum: '7',
+    questionText: "Question 7",
+    choices: [
+      "Answer 7a",
+      "Answer 7b",
+      "Answer 7c",
+      "Answer 7d"
+    ],
+    correctAns: "Answer 7b"
+  },
+  {
+    questionNum: '8',
+    questionText: "Question 8",
+    choices: [
+      "Answer 8a",
+      "Answer 8b",
+      "Answer 8c",
+      "Answer 8d"
+    ],
+    correctAns: "Answer 8c"
+  },
+  {
+    questionNum: '9',
+    questionText: "Question 9",
+    choices: [
+      "Answer 9a",
+      "Answer 9b",
+      "Answer 9c",
+      "Answer 9d"
+    ],
+    correctAns: "Answer 9d"
+  },
+  {
+    questionNum: '10',
+    questionText: "Question 10",
+    choices: [
+      "Answer 10a",
+      "Answer 10b",
+      "Answer 10c",
+      "Answer 10d"
+    ],
+    correctAns: "Answer 10a"
   }
 ];
 
@@ -182,3 +238,5 @@ function nextQuestion() {
 }
 
 nextBtn.addEventListener('click', nextQuestion);
+
+// display current question on score tracker below quiz answers/ next button
