@@ -238,7 +238,7 @@ footer p {
     display: inline-flex;
     justify-content: space-around;
     width: 80vw;
-    margin: 2.5em 0;
+    margin: 2.25em 0;
     background-color: rgba(var(--theme-one), 0.85);
 }
 
@@ -288,6 +288,7 @@ footer p {
     background-color: rgba(var(--theme-one), 0.85);
     font-size: 1.25em;
 }
+
 #score-tracker {
     display: inline-flex;
     justify-content: space-around;
