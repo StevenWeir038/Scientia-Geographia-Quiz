@@ -162,7 +162,7 @@ function quizStart() {
     newGameSection.style.display = 'none';
     console.log('open the quiz');
     buildQuizQuestion(questionCount);
-    progressIndicator();
+    // progressIndicator();
     startTimer(); // only call / start timer when quiz begins
   }
 }
@@ -225,7 +225,7 @@ function nextQuestion() {
   console.log('nextQuestion function called');
   resetTimer();
   questionCount += 1;
-  progressIndicator(questionCount);
+  // progressIndicator(questionCount);
   if (questionCount < quizQuestions.length) {
     buildQuizQuestion(questionCount);
     startTimer();
@@ -234,6 +234,7 @@ function nextQuestion() {
      *'script.js:149 Uncaught TypeError: Cannot read properties of undefined (reading 'questionText')'
      * as we are going to go back into buildQuizQuestion function. 
      */
+     counter.innerHTML = ``;
     console.log('end of quiz, give user feedback/results');
   }
 
@@ -242,36 +243,36 @@ function nextQuestion() {
 nextBtn.addEventListener('click', nextQuestion);
 
 // display current question on score tracker below quiz answers/ next button
-function progressIndicator(number) {
-  switch (qNum) {
-case 2:
-  // code block
-break;
-case 3:
-
-break;
-case 4:
-
-break;
-case 5:
-
-break;
-case 6:
-
-break;
-case 7:
-
-break;
-case 8:
-
-break;
-case 9:
-
-break;
-case 10:
-
-break;
-default:
-  // default result
-  }
-}
+// function progressIndicator(number) {
+//   switch (questionCount) {
+// case questionCount = 2:
+//   document.getElementsByClassName('circle')[1].classList.add('yellow');
+// break;
+// case questionCount = 3:
+//   document.getElementsByClassName('class')[2];
+// break;
+// case questionCount = 4:
+//   document.getElementsByClassName('circle')[3];
+// break;
+// case questionCount = 5:
+//   document.getElementsByClassName('circle')[4];
+// break;
+// case questionCount = 6:
+//   document.getElementsByClassName('circle')[5];
+// break;
+// case questionCount = 7:
+//   document.getElementsByClassName('circle')[6];
+// break;
+// case questionCount = 8:
+//   document.getElementsByClassName('circle')[7];
+// break;
+// case questionCount = 9:
+//   document.getElementsByClassName('circle')[8];
+// break;
+// case questionCount = 10:
+//   document.getElementsByClassName('circle')[9];
+// break;
+// default:
+//   document.getElementsByClassName('circle')[0].classList.add('yellow');
+//   }
+// }
