@@ -278,18 +278,3 @@ function progressIndicator(questionCount) {
       document.getElementsByClassName('circle')[0].style.backgroundColor = "yellow";
   }
 }
-
-function initBarCount() {
-  let divTimeLeft = document.getElementById('time-left');
-  let totalTime = document.getElementById('total-time');
-  let startTimer = setInterval(barCount, 2400);
-
-  function barCount() {
-    if (divTimeLeft.clientWidth < totalTime.clientWidth) {
-      divTimeLeft.style.width = divTimeLeft.clientWidth + 1 + 'px';
-    } else {
-      divTimeLeft.style.width = totalTime.clientWidth + 'px';
-      clearInterval(startTimer);
-    }
-  }
-}
