@@ -243,18 +243,18 @@ footer p {
 }
 
 #total-time {
-    display: inline-block;
-    width: 30%;
+    /* display: inline-block; */
+    width: 90px;
     height: 20px;
     border: 2px solid var(--theme-one);
-    background: linear-gradient(to right red, orange, yellow, green);
+    background: lightgray;
 }
 
 #time-left {
-    background: lightgray;
     height: 20px;
-    width: 0.3%;
-    float: right;
+    width: 90px;
+    background: rgba(var(--theme-two), 0.85);
+    /* background: linear-gradient(to right red, orange, yellow, green); */
 }
 
 #question-box {
