@@ -125,6 +125,7 @@ const choiceTwo = document.getElementById('answer2');
 const choiceThree = document.getElementById('answer3');
 const choiceFour = document.getElementById('answer4');
 const nextBtn = document.getElementById('next-btn');
+const resultsSection = document.getElementById('results');
 
 
 function startNewGame() {
@@ -193,7 +194,6 @@ function countdown() {
   }
 }
 
-
 // Timer reset, call when next question begins
 function resetTimer() {
   clearInterval(timer);
@@ -233,6 +233,8 @@ function nextQuestion() {
      *'script.js:149 Uncaught TypeError: Cannot read properties of undefined (reading 'questionText')'
      * as we are going to go back into buildQuizQuestion function. 
      */
+    endOfQuiz();
+
     counter.innerHTML = ``;
     console.log('end of quiz, give user feedback/results');
   }
@@ -290,4 +292,8 @@ function progressIndicator(questionCount) {
 
 // progress(30, 30, $('#total-time'));
 
-
+function endOfQuiz() {
+  quizSection.style.display = 'none';
+  resultsSection.style.display = 'inline-flex';
+  console.log('endOfQuiz function called');
+}
