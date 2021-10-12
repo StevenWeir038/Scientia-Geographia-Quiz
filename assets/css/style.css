@@ -251,10 +251,11 @@ footer p {
 }
 
 #time-left {
-    height: 20px;
-    width: 90px;
-    background: rgba(var(--theme-two), 0.85);
-    /* background: linear-gradient(to right red, orange, yellow, green); */
+    height: 100%;
+    width: 0;
+    text-align: right;
+    color: white;
+    background-image: linear-gradient(to right, red, orange, yellow, green);
 }
 
 #question-box {
