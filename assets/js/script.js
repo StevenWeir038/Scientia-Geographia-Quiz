@@ -162,7 +162,6 @@ function quizStart() {
     console.log('open the quiz');
     buildQuizQuestion(questionCount);
     progressIndicator();
-    initBarCount();
     startTimer(); // only call / start timer when quiz begins
   }
 }
@@ -185,7 +184,6 @@ function startTimer() {
 // every 1 second (1000ms) run the countdown function to change the value in the timer element on the webpage
 function countdown() {
   console.log('startTimer called');
-  initBarCount();
   if (timeLeft === 0) {
     counter.innerHTML = `0`;
     nextQuestion();
@@ -194,6 +192,7 @@ function countdown() {
     timeLeft -= 1;
   }
 }
+
 
 // Timer reset, call when next question begins
 function resetTimer() {
@@ -228,7 +227,6 @@ function nextQuestion() {
   progressIndicator(questionCount);
   if (questionCount < quizQuestions.length) {
     buildQuizQuestion(questionCount);
-    initBarCount();
     startTimer();
   } else {
     /** this is were you'll call a quiz end/show result type function to give user feedback as all questions answered. This will catch
@@ -278,3 +276,18 @@ function progressIndicator(questionCount) {
       document.getElementsByClassName('circle')[0].style.backgroundColor = "yellow";
   }
 }
+
+// progress bar for countdown timer REVIEW THIS TO GET TO WORK
+// function progress(timeleft, timetotal, $element) {
+//   let progressBarWidth = timeleft * $element.width() / timetotal;
+//   $element.find('#time-left').animate({ width: progressBarWidth }, 500).html(timeleft);
+//   if(timeleft <= 0) {
+//       setTimeout(function() {
+//           progress(timeleft - 1, timetotal, $element);
+//       }, 1000);
+//   }
+// };
+
+// progress(30, 30, $('#total-time'));
+
+
