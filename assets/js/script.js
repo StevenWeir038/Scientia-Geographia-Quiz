@@ -120,12 +120,14 @@ const quizStartBtn = document.getElementById('quiz-start-btn');
 const quizSection = document.getElementById('quiz');
 const quizContainer = document.getElementById('quiz-container');
 const question = document.getElementById('question-box');
-const choiceOne = document.getElementById('answer1');
-const choiceTwo = document.getElementById('answer2');
-const choiceThree = document.getElementById('answer3');
-const choiceFour = document.getElementById('answer4');
+const choiceOne = document.getElementById('answer1'); // don't need?
+const choiceTwo = document.getElementById('answer2'); // don't need?
+const choiceThree = document.getElementById('answer3'); // don't need?
+const choiceFour = document.getElementById('answer4'); // don't need?
 const nextBtn = document.getElementById('next-btn');
 const resultsSection = document.getElementById('results');
+const answerBox = document.getElementById('answers-box');
+const answerOptions = answerBox.querySelectorAll('.answer');
 
 
 function startNewGame() {
@@ -222,6 +224,7 @@ function buildQuizQuestion(questionID) {
 
 function nextQuestion() {
   console.log('nextQuestion function called');
+  resetAnswerStyles();
   resetTimer();
   questionCount += 1;
   progressIndicator(questionCount);
@@ -229,19 +232,13 @@ function nextQuestion() {
     buildQuizQuestion(questionCount);
     startTimer();
   } else {
-    /** this is were you'll call a quiz end/show result type function to give user feedback as all questions answered. This will catch
-     *'script.js:149 Uncaught TypeError: Cannot read properties of undefined (reading 'questionText')'
-     * as we are going to go back into buildQuizQuestion function. 
-     */
-    endOfQuiz();
-
     counter.innerHTML = ``;
-    console.log('end of quiz, give user feedback/results');
+    endOfQuiz();
   }
-
 }
 
 nextBtn.addEventListener('click', nextQuestion);
+
 
 // display current question on score tracker below quiz answers/ next button
 function progressIndicator(questionCount) {
@@ -296,4 +293,77 @@ function endOfQuiz() {
   quizSection.style.display = 'none';
   resultsSection.style.display = 'inline-flex';
   console.log('endOfQuiz function called');
+}
+
+
+/**
+ * Begin logic for correct/incorrect user answer selection and store correct answer count for results feedback at end of quiz.
+ * Also give user some current feedback.  Depending on answer change circles below to green/red.
+ * see below for the sort of logic we are looking for.
+ * 
+ * need a way to refer to the DOM objects - DONE
+ * need eventlistener for 'answer' class. - DONE
+ * create variable to hold number of correct answers for results at end of quiz - DONE
+ * create variable to hold number of questions for results at end of quiz - DONE
+ * 
+ * loop the following logic for each question (use 'evaluateAnswer' function) --- 
+ * target the users answer selection - DONE
+ * change the button style for selector using and ClassListAdd function - DONE 
+ * remove selector from other button incase user selected moe than one answer.
+ * what is the correct answer from the quizQuestion array currentQuestion
+ * compare user vs correct answer - DONE
+ * if correct +1 point - DONE
+ * if wrong 0 points - NO ACTION REQUIRED
+ * on clicking next and moving to next question, color users answer as green/red in previous questions score tracker.  
+ *    This will overwritew the yellow style but not give the user a clue to the correct answer too early.
+ * 
+ */
+
+
+
+// to refer to the DOM objects well be evaluating/manipulating
+  // placed in const list at top
+
+// eventlisteners
+  // incorporate into answer class loop
+
+// store for number of correct answers
+let correctNum = 0;
+
+// store for number of total questions
+  // use questionCount variable for this, already created
+
+
+// begin loop of answer class
+answerOptions.forEach(answer => answer.addEventListener('click', evaluateAnswer)
+);
+
+function evaluateAnswer(event) {
+  // Errorhandler if no user makes no selection
+  // event.PreventDefault();  -- REVIEW TYPEERROR
+  
+  // store the value the element that was selected by the user and the correct answer from the current object displayed from the quizQuestion array
+  let userAnswer = event.target.value;
+  let correctAnswer = quizQuestions[questionCount].correctAns;
+  
+  // style the user's selection
+  event.target.style.backgroundColor = "black";
+  event.target.style.color = "white";
+
+  //evaluate if user's answer is correct & add 1 point to total
+  if (userAnswer === correctAnswer) {
+    correctNum++;
+  }
+}
+
+function resetAnswerStyles() {
+  console.log('resetAnswerStyles function called');
+  for (answer of answerOptions) {
+    if (answer.style.backgroundColor = "black") {
+      answer.style.backgroundColor = "white";
+    }
+    if (answer.style.color = "white") {
+      answer.style.color = "black";
+    }   
+  }
 }
