@@ -313,4 +313,8 @@ footer p {
 /* Results section */
 #results {
     display: none;  /* display inline flex or none to keep element centered on page or hidden */
+    justify-content: space-around;
+    width: 80vw;
+    margin: 2.25em 0;
+    background-color: rgba(var(--theme-one), 0.85);
 }
