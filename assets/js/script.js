@@ -207,7 +207,7 @@ function resetTimer() {
 function buildQuizQuestion(questionID) {
   // this function sets the first question and corresponding answers. questionID passed from questionCount variable
   console.log('buildQuizQuestion function called');
-  console.log(questionCount);
+  console.log('using quizQuestion ' + questionCount);
   // set text content for quiz current question# & total questions in quiz-top-info section
   let currentQuestionNum = document.getElementById('current-question');
   let totalQuestions = document.getElementById('total-questions');
@@ -311,15 +311,14 @@ function endOfQuiz() {
  * target the users answer selection - DONE
  * change the button style for selector using and ClassListAdd function - DONE 
  * remove selector from other button incase user selected moe than one answer.
- * what is the correct answer from the quizQuestion array currentQuestion
+ * what is the correct answer from the quizQuestion array currentQuestion - DONE
  * compare user vs correct answer - DONE
  * if correct +1 point - DONE
- * if wrong 0 points - NO ACTION REQUIRED
+ * if wrong 0 points - DONE, NFA
  * on clicking next and moving to next question, color users answer as green/red in previous questions score tracker.  
  *    This will overwritew the yellow style but not give the user a clue to the correct answer too early.
  * 
  */
-
 
 
 // to refer to the DOM objects well be evaluating/manipulating
@@ -353,14 +352,15 @@ function evaluateAnswer(event) {
   // style the user's selection
   event.target.style.backgroundColor = "black";
   event.target.style.color = "white";
-  console.log('user answer is ' + userAnswer);
+  console.log('user answered is ' + userAnswer);
+  console.log('correct answer is ' + correctAnswer);
 
   //evaluate if user's answer is correct & add 1 point to total
   if (correctAnswer === userAnswer) {
     correctNum++;
-    console.log('correct answer, score is ' + correctNum);
+    console.log('the user score moves to ' + correctNum);
   } else {
-    console.log('wrong answer, score is ' + correctNum);
+    console.log('the user score remains at ' + correctNum);
   }
 }
 
