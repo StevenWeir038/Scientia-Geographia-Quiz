@@ -189,6 +189,7 @@ function countdown() {
   console.log('startTimer called');
   if (timeLeft === 0) {
     counter.innerHTML = `0`;
+    console.log('out of time, question point forfeited');
     nextQuestion();
   } else {
     counter.innerHTML = timeLeft;
@@ -242,7 +243,7 @@ nextBtn.addEventListener('click', nextQuestion);
 
 // display current question on score tracker below quiz answers/ next button
 function progressIndicator(questionCount) {
-  console.log('call progressIndicator function show question with yellow background on question circle');
+  console.log('progressIndicator function called, indicate question number with yellow question circle');
   switch (questionCount) {
     case 1:
       document.getElementsByClassName('circle')[1].style.backgroundColor = "yellow";
@@ -335,26 +336,34 @@ let correctNum = 0;
 
 
 // begin loop of answer class
-answerOptions.forEach(answer => answer.addEventListener('click', evaluateAnswer)
-);
+// answerOptions.forEach(answer => answer.addEventListener('click', evaluateAnswer));
+for (let answer of answerOptions) {
+  answer.addEventListener('click', evaluateAnswer);
+}
 
 function evaluateAnswer(event) {
+  console.log('evaluateAnswer function called');
   // Errorhandler if no user makes no selection
   // event.PreventDefault();  -- REVIEW TYPEERROR
   
   // store the value the element that was selected by the user and the correct answer from the current object displayed from the quizQuestion array
-  let userAnswer = event.target.value;
+  let userAnswer = event.target.innerText;
   let correctAnswer = quizQuestions[questionCount].correctAns;
   
   // style the user's selection
   event.target.style.backgroundColor = "black";
   event.target.style.color = "white";
+  console.log('user answer is ' + userAnswer);
 
   //evaluate if user's answer is correct & add 1 point to total
-  if (userAnswer === correctAnswer) {
+  if (correctAnswer === userAnswer) {
     correctNum++;
+    console.log('correct answer, score is ' + correctNum);
+  } else {
+    console.log('wrong answer, score is ' + correctNum);
   }
 }
+
 
 function resetAnswerStyles() {
   console.log('resetAnswerStyles function called');
