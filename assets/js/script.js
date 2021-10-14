@@ -111,6 +111,7 @@ const quizQuestions = [{
 ];
 
 let questionCount = 0; // as we want to display first question when first building quiz and increment thereafter
+let correctNum = 0; // number of correct user answers
 const landingSection = document.getElementById('landing');
 const newGameSection = document.getElementById('new-game');
 const playQuizButton = document.getElementById('play-quiz-btn');
@@ -328,7 +329,7 @@ function endOfQuiz() {
   // incorporate into answer class loop
 
 // store for number of correct answers
-let correctNum = 0;
+  // moved to const area at top
 
 // store for number of total questions
   // use questionCount variable for this, already created
@@ -359,8 +360,12 @@ function evaluateAnswer(event) {
   if (correctAnswer === userAnswer) {
     correctNum++;
     console.log('the user score moves to ' + correctNum);
+    document.getElementsByClassName('circle')[questionCount].style.backgroundColor = "green";
+    console.log('update progress indicator with green for correct answer');
   } else {
-    console.log('the user score remains at ' + correctNum);
+    console.log('the user score remains at ' + correctNum)
+    document.getElementsByClassName('circle')[questionCount].style.backgroundColor = "red";
+    console.log('update progress indicator with red for incorrect answer');
   }
 }
 
@@ -376,3 +381,19 @@ function resetAnswerStyles() {
     }   
   }
 }
+
+
+// Results
+
+// variable needed to refer to / display score in #result-score element
+const resultScore = document.querySelector('#result-score');
+
+// variable to create custom html output, we are using a template literal.
+let resultOutput = `Scored ${correctNum} / ${questionCount}`;
+
+// display resultOutput in resultScore location in DOM
+resultScore.innerHTML = resultOutput;
+
+
+
+// fix results not pulling thru
