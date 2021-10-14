@@ -394,4 +394,28 @@ function userResults() {
   let resultOutput = `${correctNum} / ${questionCount}`;
   // display resultOutput in resultScore location in DOM
   resultScore.innerHTML = resultOutput;
+
+  /**
+   * display an attainment level for the user
+   * <= 3 - You're no al-Idrisi are you... 
+   * <= 6 - A Mercator in the making...
+   * <= 8 - Roger F. Tomlinson would be proud...
+   * = 9 - Too good Eratosthenes...
+   * = 10 - Globetrotting with Tim!
+   */
+
+  // variable needed to refer to / display score in #user-feedback element
+  const userFeedback = document.querySelector('#user-feedback');
+  // loop to select attainment level based upon the user's score & display resultOutput in resultScore location in DOM
+  if (correctNum <= 3) {
+    userFeedback.innerHTML = `You're no al-Idrisi are you...`;
+  } else if (correctNum <= 6) {
+    userFeedback.innerHTML = `A Mercator in the making...`;
+  } else if (correctNum <= 8) {
+    userFeedback.innerHTML = `Roger F. Tomlinson would be proud...`;
+  } else if (correctNum < 10) {
+    userFeedback.innerHTML = `Too good Eratosthenes...`;
+  } else if (correctNum >= 10) {
+    userFeedback.innerHTML = `Globetrotting with Tim. Who is Tim?`;
+}
 }
