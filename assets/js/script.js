@@ -191,6 +191,8 @@ function countdown() {
   if (timeLeft === 0) {
     counter.innerHTML = `0`;
     console.log('out of time, question point forfeited');
+    // progressIndicotor defaults to red for an answered no answered on time by the user before moving to next question
+    document.getElementsByClassName('circle')[questionCount].style.backgroundColor = "red";
     nextQuestion();
   } else {
     counter.innerHTML = timeLeft;
