@@ -297,6 +297,7 @@ function endOfQuiz() {
   quizSection.style.display = 'none';
   resultsSection.style.display = 'inline-flex';
   console.log('endOfQuiz function called');
+  userResults();
 }
 
 
@@ -386,16 +387,11 @@ function resetAnswerStyles() {
 
 
 // Results
-
-// variable needed to refer to / display score in #result-score element
-const resultScore = document.querySelector('#result-score');
-
-// variable to create custom html output, we are using a template literal.
-let resultOutput = `Scored ${correctNum} / ${questionCount}`;
-
-// display resultOutput in resultScore location in DOM
-resultScore.innerHTML = resultOutput;
-
-
-
-// fix results not pulling thru
+function userResults() {
+  // variable needed to refer to / display score in #result-score element
+  const resultScore = document.querySelector('#result-score');
+  // variable to create custom html output, we are using a template literal.
+  let resultOutput = `${correctNum} / ${questionCount}`;
+  // display resultOutput in resultScore location in DOM
+  resultScore.innerHTML = resultOutput;
+}
