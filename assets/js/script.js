@@ -416,6 +416,6 @@ function userResults() {
   } else if (correctNum < 10) {
     userFeedback.innerHTML = `Too good Eratosthenes...`;
   } else if (correctNum >= 10) {
-    userFeedback.innerHTML = `Globetrotting with Tim. Who is Tim?`;
+    userFeedback.innerHTML = `<a href='https://tim.2bn.dev/' target="_blank">Globetrotting with Tim. Who is Tim?</a>`;
 }
 }

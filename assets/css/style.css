@@ -318,3 +318,8 @@ footer p {
     margin: 2.25em 0;
     background-color: rgba(var(--theme-one), 0.85);
 }
+
+#user-feedback a {
+    text-decoration: none;
+    color: white;
+}
