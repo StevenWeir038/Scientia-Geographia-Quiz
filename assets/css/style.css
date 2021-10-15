@@ -319,7 +319,8 @@ footer p {
     background-color: rgba(var(--theme-one), 0.85);
 }
 
-#user-feedback a {
+#user-feedback a,
+#home-link a {
     text-decoration: none;
     color: white;
 }
