@@ -164,7 +164,7 @@ function quizStart() {
     quizSection.style.display = 'inline-flex';
     newGameSection.style.display = 'none';
     console.log('start the quiz');
-    // shuffle(quizQuestions);
+    shuffle(quizQuestions);
     buildQuizQuestion(questionCount);
     progressIndicator();
     startTimer(); // only call / start timer when quiz begins
@@ -208,30 +208,25 @@ function resetTimer() {
 }
 
 
-
-
-// use 'Fisher-Yates' shuffle to reorder quiz questions IN PLACE, call only once at start of quiz - 
-function shuffle(array) {
-  let counter = array.length;
-
-  // While there are elements in the array
-  while (counter > 0) {
-      // Pick a random index
-      let index = Math.floor(Math.random() * counter);
-
-      // Decrease counter by 1
-      counter--;
-
-      // And swap the last element with it
-      let temp = array[counter];
-      array[counter] = array[index];
-      array[index] = temp;
+// use 'Fisher-Yates' shuffle to reorder quiz questions IN PLACE, call only once at start of quiz - credit to https://bost.ocks.org/mike/shuffle/
+  function shuffle(array) {
+  console.log('shuffle function called');    
+    var m = array.length, t, i;
+  
+    // While there remain elements to shuffle…
+    while (m) {
+  
+      // Pick a remaining element…
+      i = Math.floor(Math.random() * m--);
+  
+      // And swap it with the current element.
+      t = array[m];
+      array[m] = array[i];
+      array[i] = t;
+    }
+  
+    return array;
   }
-
-  return array;
-}
-
-
 
 
 function buildQuizQuestion(questionID) {
@@ -307,6 +302,7 @@ function progressIndicator(questionCount) {
   }
 }
 
+
 // progress bar for countdown timer REVIEW THIS TO GET TO WORK
 // function progress(timeleft, timetotal, $element) {
 //   let progressBarWidth = timeleft * $element.width() / timetotal;
@@ -319,6 +315,7 @@ function progressIndicator(questionCount) {
 // };
 
 // progress(30, 30, $('#total-time'));
+
 
 function endOfQuiz() {
   quizSection.style.display = 'none';
@@ -421,15 +418,6 @@ function userResults() {
   let resultOutput = `${correctNum} / ${questionCount}`;
   // display resultOutput in resultScore location in DOM
   resultScore.innerHTML = resultOutput;
-
-  /**
-   * display an attainment level for the user
-   * <= 3 - You're no al-Idrisi are you... 
-   * <= 6 - A Mercator in the making...
-   * <= 8 - Roger F. Tomlinson would be proud...
-   * = 9 - Too good Eratosthenes...
-   * = 10 - Globetrotting with Tim!
-   */
 
   // variable needed to refer to / display score in #user-feedback element
   const userFeedback = document.querySelector('#user-feedback');

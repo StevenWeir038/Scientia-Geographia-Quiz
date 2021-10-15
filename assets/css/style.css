@@ -322,5 +322,5 @@ footer p {
 #user-feedback a,
 #home-link a {
     text-decoration: none;
-    color: white;
+    color: rgba(var(--theme-two), 1);
 }
