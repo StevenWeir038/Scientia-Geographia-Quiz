@@ -121,6 +121,7 @@ const quizQuestions = [{
   }
 ];
 
+const quizLength = 10;
 let questionCount = 0; // as we want to display first question when first building quiz and increment thereafter
 let correctNum = 0; // number of correct user answers
 const landingSection = document.getElementById('landing');
@@ -248,7 +249,7 @@ function buildQuizQuestion(questionID) {
   let currentQuestionNum = document.getElementById('current-question');
   let totalQuestions = document.getElementById('total-questions');
   currentQuestionNum.innerHTML = questionCount +1;
-  totalQuestions.innerHTML = 10    // was quizQuestions.length but we want a quiz of 10 questions only and want option of wider question selection;
+  totalQuestions.innerHTML = quizLength    // was quizQuestions.length but we want a quiz of 10 questions only and want option of wider question selection;
 
   // set text content for quiz Q&As
   question.innerHTML = quizQuestions[questionID].questionText;
@@ -264,7 +265,7 @@ function nextQuestion() {
   resetAnswerStyles();
   resetTimer();
   questionCount += 1;
-  if (questionCount < 10) {
+  if (questionCount < quizLength) {
     buildQuizQuestion(questionCount);
     startTimer();
     progressIndicator(questionCount);
