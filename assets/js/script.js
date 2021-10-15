@@ -107,6 +107,17 @@ const quizQuestions = [{
       "Answer 10d"
     ],
     correctAns: "Answer 10a"
+  },
+  {
+    questionNum: '11',
+    questionText: "Question 11",
+    choices: [
+      "Answer 11a",
+      "Answer 11b",
+      "Answer 11c",
+      "Answer 11d"
+    ],
+    correctAns: "Answer 11b"
   }
 ];
 
@@ -208,7 +219,7 @@ function resetTimer() {
 }
 
 
-// use 'Fisher-Yates' shuffle to reorder quiz questions IN PLACE, call only once at start of quiz - credit to https://bost.ocks.org/mike/shuffle/
+// use 'Fisher-Yates' shuffle to reorder quiz questions array IN PLACE, call only once at start of quiz - credit to https://bost.ocks.org/mike/shuffle/
   function shuffle(array) {
   console.log('shuffle function called');    
     var m = array.length, t, i;
@@ -232,12 +243,12 @@ function resetTimer() {
 function buildQuizQuestion(questionID) {
   // this function sets the first question and corresponding answers. questionID passed from questionCount variable
   console.log('buildQuizQuestion function called');
-  console.log('using quizQuestion ' + questionCount);
+  console.log('using quizQuestion ' + questionCount +1 + `, ` + questionCount + ` on quizQuestion array`);
   // set text content for quiz current question# & total questions in quiz-top-info section
   let currentQuestionNum = document.getElementById('current-question');
   let totalQuestions = document.getElementById('total-questions');
-  currentQuestionNum.innerHTML = quizQuestions[questionID].questionNum;
-  totalQuestions.innerHTML = quizQuestions.length;
+  currentQuestionNum.innerHTML = questionCount +1;
+  totalQuestions.innerHTML = 10    // was quizQuestions.length but we want a quiz of 10 questions only and want option of wider question selection;
 
   // set text content for quiz Q&As
   question.innerHTML = quizQuestions[questionID].questionText;
@@ -253,10 +264,10 @@ function nextQuestion() {
   resetAnswerStyles();
   resetTimer();
   questionCount += 1;
-  progressIndicator(questionCount);
-  if (questionCount < quizQuestions.length) {
+  if (questionCount < 10) {
     buildQuizQuestion(questionCount);
     startTimer();
+    progressIndicator(questionCount);
   } else {
     counter.innerHTML = ``;
     endOfQuiz();
