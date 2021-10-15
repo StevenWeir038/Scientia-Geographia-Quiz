@@ -203,15 +203,19 @@ function countdown() {
   console.log('startTimer called');
   if (timeLeft === 0) {
     counter.innerHTML = `0`;
-    console.log('out of time, question point forfeited');
+    console.log('out of time, question point forfeited, marrk circle with gray color');
+    // assume no answer is a wrong answer therefore style circle gray.  Will stay gray to show user thay failed to answer.
+    document.getElementsByClassName('circle')[questionCount].style.backgroundColor = "gray";
     // progressIndicator defaults to red for an answered no answered on time by the user before moving to next question
-    document.getElementsByClassName('circle')[questionCount].style.backgroundColor = "red";
-    nextQuestion();
-  } else {
+    // alternatively for better user experience if thay have selected correct answer but not manually selected next question don't
+    // penalise them.  call the evaluateAnswer function when countdown reaches 0 seconds.
+    nextQuestion();   
+    } else {
     counter.innerHTML = timeLeft;
     timeLeft -= 1;
   }
 }
+
 
 // Timer reset, call when next question begins
 function resetTimer() {
@@ -244,7 +248,6 @@ function resetTimer() {
 function buildQuizQuestion(questionID) {
   // this function sets the first question and corresponding answers. questionID passed from questionCount variable
   console.log('buildQuizQuestion function called');
-  console.log('using quizQuestion ' + questionCount +1 + `, ` + questionCount + ` on quizQuestion array`);
   // set text content for quiz current question# & total questions in quiz-top-info section
   let currentQuestionNum = document.getElementById('current-question');
   let totalQuestions = document.getElementById('total-questions');
@@ -276,6 +279,11 @@ function nextQuestion() {
 }
 
 nextBtn.addEventListener('click', nextQuestion);
+
+
+
+// better to take correct/incorrect answer indicator out of click event relating to evaluateAnswer as that gives the user a clue.
+// instead perform red / green formatting when timer runs out or next question is selected.  Place that in a function an call it.
 
 
 // display current question on score tracker below quiz answers/ next button
@@ -375,10 +383,10 @@ function endOfQuiz() {
 
 
 // begin loop of answer class
-// answerOptions.forEach(answer => answer.addEventListener('click', evaluateAnswer));
 for (let answer of answerOptions) {
   answer.addEventListener('click', evaluateAnswer);
 }
+
 
 function evaluateAnswer(event) {
   console.log('evaluateAnswer function called');
@@ -436,14 +444,14 @@ function userResults() {
   let player = playerName.value;
   // loop to select attainment level based upon the user's score & display resultOutput in resultScore location in DOM
   if (correctNum <= 3) {
-    userFeedback.innerHTML = `You're no al-Idrisi are you ${player} ...`;
+    userFeedback.innerHTML = `You're no al-Idrisi are you ${player}...`;
   } else if (correctNum <= 6) {
     userFeedback.innerHTML = `${player}, a Mercator in the making...`;
   } else if (correctNum <= 8) {
-    userFeedback.innerHTML = `Roger F. Tomlinson would be proud ${player} ...`;
+    userFeedback.innerHTML = `Roger F. Tomlinson would be proud ${player}...`;
   } else if (correctNum < 10) {
     userFeedback.innerHTML = `${player} = Eratosthenes...`;
   } else if (correctNum >= 10) {
-    userFeedback.innerHTML = `<a href='https://tim.2bn.dev/' target="_blank">${player} has been globetrotting with Tim. Who is Tim?</a>`;
-}
+    userFeedback.innerHTML = `<a href='https://tim.2bn.dev/' target="_blank">${player} has been globetrotting like Tim.</a>`;
+  }
 }
