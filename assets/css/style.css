@@ -310,13 +310,41 @@ footer p {
 }
 
 
-/* Results section */
+/* Results section css border effect courtesy of https://www.youtube.com/watch?v=LYgQXOV-x24*/
 #results {
     display: none;  /* display inline flex or none to keep element centered on page or hidden */
     justify-content: space-around;
     width: 80vw;
     margin: 2.25em 0;
     background-color: rgba(var(--theme-one), 0.85);
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+#results > * {
+    z-index: 1;
+}
+
+#results::before {
+    content: '';
+    position: absolute;
+    width: 10vw;
+    height: 195%;
+    background: linear-gradient(rgba(var(--theme-two), 0.85), rgba(var(--theme-four), 0.85));
+    animation: animate 3s linear infinite;
+}
+
+#results::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background: rgb(var(--theme-one));
+}
+
+@keyframes animate {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
 }
 
 #user-feedback a,
