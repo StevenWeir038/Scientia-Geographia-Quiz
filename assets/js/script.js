@@ -163,7 +163,8 @@ function quizStart() {
   } else {
     quizSection.style.display = 'inline-flex';
     newGameSection.style.display = 'none';
-    console.log('open the quiz');
+    console.log('start the quiz');
+    // shuffle(quizQuestions);
     buildQuizQuestion(questionCount);
     progressIndicator();
     startTimer(); // only call / start timer when quiz begins
@@ -191,7 +192,7 @@ function countdown() {
   if (timeLeft === 0) {
     counter.innerHTML = `0`;
     console.log('out of time, question point forfeited');
-    // progressIndicotor defaults to red for an answered no answered on time by the user before moving to next question
+    // progressIndicator defaults to red for an answered no answered on time by the user before moving to next question
     document.getElementsByClassName('circle')[questionCount].style.backgroundColor = "red";
     nextQuestion();
   } else {
@@ -205,6 +206,32 @@ function resetTimer() {
   clearInterval(timer);
   console.log('resetTimer function called')
 }
+
+
+
+
+// use 'Fisher-Yates' shuffle to reorder quiz questions IN PLACE, call only once at start of quiz - 
+function shuffle(array) {
+  let counter = array.length;
+
+  // While there are elements in the array
+  while (counter > 0) {
+      // Pick a random index
+      let index = Math.floor(Math.random() * counter);
+
+      // Decrease counter by 1
+      counter--;
+
+      // And swap the last element with it
+      let temp = array[counter];
+      array[counter] = array[index];
+      array[index] = temp;
+  }
+
+  return array;
+}
+
+
 
 
 function buildQuizQuestion(questionID) {
@@ -406,16 +433,17 @@ function userResults() {
 
   // variable needed to refer to / display score in #user-feedback element
   const userFeedback = document.querySelector('#user-feedback');
+  let player = playerName.value;
   // loop to select attainment level based upon the user's score & display resultOutput in resultScore location in DOM
   if (correctNum <= 3) {
-    userFeedback.innerHTML = `You're no al-Idrisi are you...`;
+    userFeedback.innerHTML = `You're no al-Idrisi are you ${player} ...`;
   } else if (correctNum <= 6) {
-    userFeedback.innerHTML = `A Mercator in the making...`;
+    userFeedback.innerHTML = `${player}, a Mercator in the making...`;
   } else if (correctNum <= 8) {
-    userFeedback.innerHTML = `Roger F. Tomlinson would be proud...`;
+    userFeedback.innerHTML = `Roger F. Tomlinson would be proud ${player} ...`;
   } else if (correctNum < 10) {
-    userFeedback.innerHTML = `Too good Eratosthenes...`;
+    userFeedback.innerHTML = `${player} = Eratosthenes...`;
   } else if (correctNum >= 10) {
-    userFeedback.innerHTML = `<a href='https://tim.2bn.dev/' target="_blank">Globetrotting with Tim. Who is Tim?</a>`;
+    userFeedback.innerHTML = `<a href='https://tim.2bn.dev/' target="_blank">${player} has been globetrotting with Tim. Who is Tim?</a>`;
 }
 }
