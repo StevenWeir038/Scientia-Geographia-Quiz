@@ -184,6 +184,11 @@ function quizStart() {
 }
 
 quizStartBtn.addEventListener('click', quizStart);
+playerName.addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') {
+    quizStart();
+  }
+});
 
 
 // Timer set to 30 seconds
@@ -203,7 +208,7 @@ function countdown() {
   console.log('startTimer called');
   if (timeLeft === 0) {
     counter.innerHTML = `0`;
-    console.log('out of time, question point forfeited, marrk circle with gray color');
+    console.log('no answer confirmed within timeframe, question point forfeited, mark circle with gray color');
     // assume no answer is a wrong answer therefore style circle gray.  Will stay gray to show user thay failed to answer.
     document.getElementsByClassName('circle')[questionCount].style.backgroundColor = "gray";
     // progressIndicator defaults to red for an answered no answered on time by the user before moving to next question
@@ -279,7 +284,6 @@ function nextQuestion() {
 }
 
 nextBtn.addEventListener('click', nextQuestion);
-
 
 
 // better to take correct/incorrect answer indicator out of click event relating to evaluateAnswer as that gives the user a clue.
@@ -455,3 +459,27 @@ function userResults() {
     userFeedback.innerHTML = `<a href='https://tim.2bn.dev/' target="_blank">${player} has been globetrotting like Tim.</a>`;
   }
 }
+
+
+// Leaderboard
+// We want to 'store the user's name & user's score for each instance of the game
+// So we need a variables to store user name, user score and game
+// each game should be an object within the leaderboard array containing user name and user score
+// sort the array by score
+
+
+// var playerName;
+// var playerScore;
+// var gameResult = {};
+// var highscoreList = [];
+
+// function toHighscoreList() {
+//     playerName = $('#nameTag').text();   // for example value "Henry"
+//     playerScore = guessedWrong.length;   // for example value 3
+
+//     gameResult = {player: playerName, score: playerScore};
+//     highscoreList.push(gameResult);
+//     highscoreList.sort(function(a,b) { return (b.score - a.score ) });
+
+//     $('#score1').text(highscoreList[0].player + " - score: "+ highscoreList[0].score);
+// };
