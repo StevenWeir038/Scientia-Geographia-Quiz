@@ -282,6 +282,15 @@ footer p {
     width: 80vw;
 }
 
+.answer-selected {
+    background-color: rgba(var(--theme-one), 0.85);
+    color: white;
+    border-radius: 15px;
+    border: 2px solid rgba(var(--theme-three));
+    margin: 1em 0;
+    width: 80vw;
+}
+
 #quiz-nav {
     display: inline-flex;
 }
