@@ -133,10 +133,10 @@ const quizStartBtn = document.getElementById('quiz-start-btn');
 const quizSection = document.getElementById('quiz');
 const quizContainer = document.getElementById('quiz-container');
 const question = document.getElementById('question-box');
-const choiceOne = document.getElementById('answer1'); // don't need?
-const choiceTwo = document.getElementById('answer2'); // don't need?
-const choiceThree = document.getElementById('answer3'); // don't need?
-const choiceFour = document.getElementById('answer4'); // don't need?
+const choiceOne = document.getElementById('answer1');
+const choiceTwo = document.getElementById('answer2');
+const choiceThree = document.getElementById('answer3');
+const choiceFour = document.getElementById('answer4');
 const nextBtn = document.getElementById('next-btn');
 const resultsSection = document.getElementById('results');
 const answerBox = document.getElementById('answers-box');
@@ -179,7 +179,7 @@ function quizStart() {
     shuffle(quizQuestions);
     buildQuizQuestion(questionCount);
     progressIndicator();
-    startTimer(); // only call / start timer when quiz begins
+    startTimer();
   }
 }
 
@@ -199,27 +199,30 @@ let timer;
 function startTimer() {
   timeLeft = 30;
   timer = setInterval(function () {
-    countdown();
+    countdown(timeLeft);
   }, 1000);
-} // easier to read when countdown kept as a separate function to startTimer.
+}
 
-// every 1 second (1000ms) run the countdown function to change the value in the timer element on the webpage
-function countdown() {
+function countdown(seconds) {
   console.log('startTimer called');
-  if (timeLeft === 0) {
+  if (seconds === 0) {
     counter.innerHTML = `0`;
     console.log('no answer confirmed within timeframe, question point forfeited, mark circle with gray color');
     // assume no answer is a wrong answer therefore style circle gray.  Will stay gray to show user thay failed to answer.
     document.getElementsByClassName('circle')[questionCount].style.backgroundColor = "gray";
-    // progressIndicator defaults to red for an answered no answered on time by the user before moving to next question
     // alternatively for better user experience if thay have selected correct answer but not manually selected next question don't
     // penalise them.  call the evaluateAnswer function when countdown reaches 0 seconds.
     nextQuestion();   
     } else {
     counter.innerHTML = timeLeft;
+    
+    // let timeLeftBarWidth = timeLeft * timeLeftBar.width() / 30;
+    // timeLeftBar.animate({width: timeLeftBarWidth}, 500);
     timeLeft -= 1;
   }
 }
+
+const timeLeftBar = document.getElementById('total-time');
 
 
 // Timer reset, call when next question begins
@@ -230,24 +233,24 @@ function resetTimer() {
 
 
 // use 'Fisher-Yates' shuffle to reorder quiz questions array IN PLACE, call only once at start of quiz - credit to https://bost.ocks.org/mike/shuffle/
-  function shuffle(array) {
-  console.log('shuffle function called');    
-    var m = array.length, t, i;
-  
-    // While there remain elements to shuffle…
-    while (m) {
-  
-      // Pick a remaining element…
-      i = Math.floor(Math.random() * m--);
-  
-      // And swap it with the current element.
-      t = array[m];
-      array[m] = array[i];
-      array[i] = t;
-    }
-  
-    return array;
+function shuffle(array) {
+  console.log('shuffle function called (only once at quizStart)');    
+  let m = array.length, t, i;
+
+  // While there remain elements to shuffle…
+  while (m) {
+
+    // Pick a remaining element…
+    i = Math.floor(Math.random() * m--);
+
+    // And swap it with the current element.
+    t = array[m];
+    array[m] = array[i];
+    array[i] = t;
   }
+
+  return array;
+}
 
 
 function buildQuizQuestion(questionID) {
@@ -327,20 +330,6 @@ function progressIndicator(questionCount) {
 }
 
 
-// progress bar for countdown timer REVIEW THIS TO GET TO WORK
-// function progress(timeleft, timetotal, $element) {
-//   let progressBarWidth = timeleft * $element.width() / timetotal;
-//   $element.find('#time-left').animate({ width: progressBarWidth }, 500).html(timeleft);
-//   if(timeleft <= 0) {
-//       setTimeout(function() {
-//           progress(timeleft - 1, timetotal, $element);
-//       }, 1000);
-//   }
-// };
-
-// progress(30, 30, $('#total-time'));
-
-
 function endOfQuiz() {
   quizSection.style.display = 'none';
   resultsSection.style.display = 'inline-flex';
@@ -386,13 +375,28 @@ function endOfQuiz() {
   // use questionCount variable for this, already created
 
 
-// begin loop of answer class
+// eventlistener loop of .answer class
 for (let answer of answerOptions) {
-  answer.addEventListener('click', evaluateAnswer);
+  answer.addEventListener('click', choiceAnswer);  //function called formerly evaluateAnswer() do this function from choiceAnswer();
+}
+
+// style the user's selection
+function choiceAnswer(event) {
+resetAnswerStyles(); // reset style for all answer buttons before setting selected style on clicked answer.  Therefore only 1 answer appears selected at all times
+this.setAttribute("class", "answer-selected")
+targetID = event.target.id;
+evaluateAnswer(targetID);
+}
+
+function resetAnswerStyles() {
+  console.log('resetAnswerStyles function called');
+  for (let answer of answerOptions) {
+    answer.setAttribute("class", "answer");
+  }
 }
 
 
-function evaluateAnswer(event) {
+function evaluateAnswer(targetID) {
   console.log('evaluateAnswer function called');
   // Errorhandler if no user makes no selection
   // event.PreventDefault();  -- REVIEW TYPEERROR
@@ -400,36 +404,15 @@ function evaluateAnswer(event) {
   // store the value the element that was selected by the user and the correct answer from the current object displayed from the quizQuestion array
   let userAnswer = event.target.innerText;
   let correctAnswer = quizQuestions[questionCount].correctAns;
-  
-  // style the user's selection
-  event.target.style.backgroundColor = "black";
-  event.target.style.color = "white";
-  console.log('user answered is ' + userAnswer);
+  console.log('user answer is ' + userAnswer);
   console.log('correct answer is ' + correctAnswer);
 
-  //evaluate if user's answer is correct & add 1 point to total
+  //evaluate if user's answer is correct & add 1 point to total, if incorrect do not add 1 point to total
   if (correctAnswer === userAnswer) {
     correctNum++;
     console.log('the user score moves to ' + correctNum);
-    document.getElementsByClassName('circle')[questionCount].style.backgroundColor = "green";
-    console.log('update progress indicator with green for correct answer');
   } else {
     console.log('the user score remains at ' + correctNum)
-    document.getElementsByClassName('circle')[questionCount].style.backgroundColor = "red";
-    console.log('update progress indicator with red for incorrect answer');
-  }
-}
-
-
-function resetAnswerStyles() {
-  console.log('resetAnswerStyles function called');
-  for (answer of answerOptions) {
-    if (answer.style.backgroundColor = "black") {
-      answer.style.backgroundColor = "white";
-    }
-    if (answer.style.color = "white") {
-      answer.style.color = "black";
-    }   
   }
 }
 
