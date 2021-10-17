@@ -62,7 +62,7 @@ const quizQuestions = [{
       "Answer 6c",
       "Answer 6d"
     ],
-    correctAns: "Answer 6a"
+    correctAns: "Answer 6b"
   },
   {
     questionNum: '7',
@@ -73,7 +73,7 @@ const quizQuestions = [{
       "Answer 7c",
       "Answer 7d"
     ],
-    correctAns: "Answer 7b"
+    correctAns: "Answer 7c"
   },
   {
     questionNum: '8',
@@ -84,7 +84,7 @@ const quizQuestions = [{
       "Answer 8c",
       "Answer 8d"
     ],
-    correctAns: "Answer 8c"
+    correctAns: "Answer 8d"
   },
   {
     questionNum: '9',
@@ -95,7 +95,7 @@ const quizQuestions = [{
       "Answer 9c",
       "Answer 9d"
     ],
-    correctAns: "Answer 9d"
+    correctAns: "Answer 9a"
   },
   {
     questionNum: '10',
@@ -106,7 +106,7 @@ const quizQuestions = [{
       "Answer 10c",
       "Answer 10d"
     ],
-    correctAns: "Answer 10a"
+    correctAns: "Answer 10b"
   },
   {
     questionNum: '11',
@@ -117,8 +117,107 @@ const quizQuestions = [{
       "Answer 11c",
       "Answer 11d"
     ],
-    correctAns: "Answer 11b"
-  }
+    correctAns: "Answer 11c"
+  },
+  {
+  questionNum: '12',
+  questionText: "Question 12",
+  choices: [
+    "Answer 12a",
+    "Answer 12b",
+    "Answer 12c",
+    "Answer 12d"
+  ],
+  correctAns: "Answer 12d"
+},
+{
+questionNum: '13',
+questionText: "Question 13",
+choices: [
+  "Answer 13a",
+  "Answer 13b",
+  "Answer 13c",
+  "Answer 13d"
+],
+correctAns: "Answer 13a"
+},
+{
+questionNum: '14',
+questionText: "Question 14",
+choices: [
+  "Answer 14a",
+  "Answer 14b",
+  "Answer 14c",
+  "Answer 14d"
+],
+correctAns: "Answer 14b"
+},
+{
+questionNum: '15',
+questionText: "Question 15",
+choices: [
+  "Answer 15a",
+  "Answer 15b",
+  "Answer 15c",
+  "Answer 15d"
+],
+correctAns: "Answer 15c"
+},
+{
+questionNum: '16',
+questionText: "Question 16",
+choices: [
+  "Answer 16a",
+  "Answer 16b",
+  "Answer 16c",
+  "Answer 16d"
+],
+correctAns: "Answer 16d"
+},
+{
+questionNum: '17',
+questionText: "Question 17",
+choices: [
+  "Answer 17a",
+  "Answer 17b",
+  "Answer 17c",
+  "Answer 17d"
+],
+correctAns: "Answer 17a"
+},
+{
+questionNum: '18',
+questionText: "Question 18",
+choices: [
+  "Answer 18a",
+  "Answer 18b",
+  "Answer 18c",
+  "Answer 18d"
+],
+correctAns: "Answer 18b"
+},
+{
+questionNum: '19',
+questionText: "Question 19",
+choices: [
+  "Answer 19a",
+  "Answer 19b",
+  "Answer 19c",
+  "Answer 19d"
+],
+correctAns: "Answer 19c"
+},
+{
+questionNum: '20',
+questionText: "Question 20",
+choices: [
+  "Answer 20a",
+  "Answer 20b",
+  "Answer 20c",
+  "Answer 20d"
+],
+correctAns: "Answer 20d"
+}
 ];
 
 const quizLength = 10;
@@ -260,8 +359,8 @@ function buildQuizQuestion(questionID) {
   let currentQuestionNum = document.getElementById('current-question');
   let totalQuestions = document.getElementById('total-questions');
   currentQuestionNum.innerHTML = questionCount +1;
-  totalQuestions.innerHTML = quizLength    // was quizQuestions.length but we want a quiz of 10 questions only and want option of wider question selection;
-
+  // was quizQuestions.length but we want a quiz of 10 questions only and want option of wider question selection;
+  totalQuestions.innerHTML = quizLength;
   // set text content for quiz Q&As
   question.innerHTML = quizQuestions[questionID].questionText;
   choiceOne.innerHTML = quizQuestions[questionID].choices[0];
