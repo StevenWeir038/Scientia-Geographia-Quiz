@@ -1,222 +1,233 @@
 const quizQuestions = [{
     questionNum: '1',
-    questionText: "Question 1",
+    questionText: "What is the capital city of Hungary?",
     choices: [
-      "Answer 1a",
-      "Answer 1b",
-      "Answer 1c",
-      "Answer 1d"
+      "Budapest",
+      "Bratislava",
+      "Timisoara",
+      "Zagreb"
     ],
-    correctAns: "Answer 1a"
+    correctAns: "Budapest"
   },
   {
     questionNum: '2',
-    questionText: "Question 2",
+    questionText: "Which major city is located on two continents?",
     choices: [
-      "Answer 2a",
-      "Answer 2b",
-      "Answer 2c",
-      "Answer 2d"
+      "Dublin",
+      "Jakarta",
+      "Baku",
+      "Istanbul"
     ],
-    correctAns: "Answer 2b"
+    correctAns: "Istanbul"
   },
   {
     questionNum: '3',
-    questionText: "Question 3",
+    questionText: "What is the biggest city in Africa by population?",
     choices: [
-      "Answer 3a",
-      "Answer 3b",
-      "Answer 3c",
-      "Answer 3d"
+      "Cape Town",
+      "Lagos",
+      "Windhoek",
+      "Cairo"
     ],
-    correctAns: "Answer 3c"
+    correctAns: "Lagos"
   },
   {
     questionNum: '4',
-    questionText: "Question 4",
+    questionText: "What is the world's highest continent?",
     choices: [
-      "Answer 4a",
-      "Answer 4b",
-      "Answer 4c",
-      "Answer 4d"
+      "North America",
+      "Africa",
+      "Antartica",
+      "Oceania"
     ],
-    correctAns: "Answer 4d"
+    correctAns: "Antartica"
   },
   {
     questionNum: '5',
-    questionText: "Question 5",
+    questionText: "If you list the world's countries in alphabetical order, what is the second?",
     choices: [
-      "Answer 5a",
-      "Answer 5b",
-      "Answer 5c",
-      "Answer 5d"
+      "Algeria",
+      "Botswana",
+      "Zambia",
+      "Albania"
     ],
-    correctAns: "Answer 5a"
+    correctAns: "Albania"
   },
   {
     questionNum: '6',
-    questionText: "Question 6",
+    questionText: "The island of Ireland has how many counties?",
     choices: [
-      "Answer 6a",
-      "Answer 6b",
-      "Answer 6c",
-      "Answer 6d"
+      "28",
+      "32",
+      "16",
+      "25"
     ],
-    correctAns: "Answer 6b"
+    correctAns: "32"
   },
   {
     questionNum: '7',
-    questionText: "Question 7",
+    questionText: "What country has the weakest economy by GDP (2020)?",
     choices: [
-      "Answer 7a",
-      "Answer 7b",
-      "Answer 7c",
-      "Answer 7d"
+      "Costa Rica",
+      "East Timor",
+      "Burundi",
+      "South Sudan"
     ],
-    correctAns: "Answer 7c"
+    correctAns: "Burundi"
   },
   {
     questionNum: '8',
-    questionText: "Question 8",
+    questionText: "Machu Picchu can be found in which country",
     choices: [
-      "Answer 8a",
-      "Answer 8b",
-      "Answer 8c",
-      "Answer 8d"
+      "Chile",
+      "Peru",
+      "New Zealand",
+      "Equatorial Guinea"
     ],
-    correctAns: "Answer 8d"
+    correctAns: "Peru"
   },
   {
     questionNum: '9',
-    questionText: "Question 9",
+    questionText: "Great Britian has how many constituent countries?",
     choices: [
-      "Answer 9a",
-      "Answer 9b",
-      "Answer 9c",
-      "Answer 9d"
+      "One",
+      "Two",
+      "Three",
+      "Four"
     ],
-    correctAns: "Answer 9a"
+    correctAns: "Three"
   },
   {
     questionNum: '10',
-    questionText: "Question 10",
+    questionText: "The northernmost cities in the world is?",
     choices: [
-      "Answer 10a",
-      "Answer 10b",
-      "Answer 10c",
-      "Answer 10d"
+      "Longyearbyen",
+      "Barentsburg",
+      "Pyramiden",
+      "Ankara"
     ],
-    correctAns: "Answer 10b"
+    correctAns: "Pyramiden"
   },
   {
     questionNum: '11',
-    questionText: "Question 11",
+    questionText: "What percentage of the Earth's surface is covered by water?",
     choices: [
-      "Answer 11a",
-      "Answer 11b",
-      "Answer 11c",
-      "Answer 11d"
+      "71%",
+      "56%",
+      "42%",
+      "29%"
     ],
-    correctAns: "Answer 11c"
+    correctAns: "71%"
   },
   {
   questionNum: '12',
-  questionText: "Question 12",
+  questionText: "The Grand Canyon can be found in which US state?",
   choices: [
-    "Answer 12a",
-    "Answer 12b",
-    "Answer 12c",
-    "Answer 12d"
+    "Hawaii",
+    "Oregon",
+    "Arizona",
+    "Alabama"
   ],
-  correctAns: "Answer 12d"
+  correctAns: "Arizona"
 },
 {
 questionNum: '13',
-questionText: "Question 13",
+questionText: "Which two European countries does the Simplon Tunnel connect?",
 choices: [
-  "Answer 13a",
-  "Answer 13b",
-  "Answer 13c",
-  "Answer 13d"
+  "Scotland and Ireland",
+  "Denmark and Sweden",
+  "France and Italy",
+  "Switzerland and Italy"
 ],
-correctAns: "Answer 13a"
+correctAns: "Switzerland and Italy"
 },
 {
 questionNum: '14',
-questionText: "Question 14",
+questionText: "What is the longest river in Asia?",
 choices: [
-  "Answer 14a",
-  "Answer 14b",
-  "Answer 14c",
-  "Answer 14d"
+  "Yenesei",
+  "Mekong",
+  "Yangtze",
+  "Indus"
 ],
-correctAns: "Answer 14b"
+correctAns: "Yangtze"
 },
 {
 questionNum: '15',
-questionText: "Question 15",
+questionText: "Upon the U leaving the EU, how many states remain?",
 choices: [
-  "Answer 15a",
-  "Answer 15b",
-  "Answer 15c",
-  "Answer 15d"
+  "28",
+  "27",
+  "26",
+  "25"
 ],
-correctAns: "Answer 15c"
+correctAns: "27"
 },
 {
 questionNum: '16',
-questionText: "Question 16",
+questionText: "Which is the largest inland sea?",
 choices: [
-  "Answer 16a",
-  "Answer 16b",
-  "Answer 16c",
-  "Answer 16d"
+  "Caspian Sea",
+  "Bl;ack Sea",
+  "Mediterranean Sea",
+  "Dead Sea"
 ],
-correctAns: "Answer 16d"
+correctAns: "Caspain"
 },
 {
 questionNum: '17',
-questionText: "Question 17",
+questionText: " Which is the smallest independent state in the world?",
 choices: [
-  "Answer 17a",
-  "Answer 17b",
-  "Answer 17c",
-  "Answer 17d"
+  "San Marino",
+  "Luxembourg",
+  "Andorra",
+  "The Vatican"
 ],
-correctAns: "Answer 17a"
+correctAns: "The Vatican"
 },
 {
 questionNum: '18',
-questionText: "Question 18",
+questionText: "Which range of mountains separates France from Spain?",
 choices: [
-  "Answer 18a",
-  "Answer 18b",
-  "Answer 18c",
-  "Answer 18d"
+  "Alps",
+  "Pyrenees",
+  "Ural",
+  "Mournes"
 ],
-correctAns: "Answer 18b"
+correctAns: "Pyrenees"
 },
 {
 questionNum: '19',
-questionText: "Question 19",
+questionText: "What is the European equivalent GNSS version to GPS?",
 choices: [
-  "Answer 19a",
-  "Answer 19b",
-  "Answer 19c",
-  "Answer 19d"
+  "Galileo",
+  "Baidu",
+  "QZSS",
+  "GLONASS"
 ],
-correctAns: "Answer 19c"
+correctAns: "Galileo"
 },
 {
 questionNum: '20',
-questionText: "Question 20",
+questionText: "The Name Of Which Central American Country Means The Saviour In English?",
 choices: [
-  "Answer 20a",
-  "Answer 20b",
-  "Answer 20c",
-  "Answer 20d"
+  "Mexico",
+  "Honduras",
+  "El Salvador",
+  "Belize"
 ],
-correctAns: "Answer 20d"
+correctAns: "El Salvador"
+},
+{
+questionNum: '21',
+questionText: "If the COP26 (2021) fails to deliver on policy/action, the world will...",
+choices: [
+  "have a warmer climate",
+  "mass migration and competition for finite resources like water will increase",
+  "the fragile global econony will be affected",
+  "all of the above"
+],
+correctAns: "all of the above"
 }
 ];
 
