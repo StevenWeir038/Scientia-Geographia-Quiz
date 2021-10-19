@@ -88,14 +88,14 @@ const quizQuestions = [{
   },
   {
     questionNum: '9',
-    questionText: "Great Britian has how many constituent countries?",
+    questionText: "Germany has how many constituent states?",
     choices: [
-      "One",
-      "Two",
-      "Three",
-      "Four"
+      "Twenty",
+      "Twelwe",
+      "Seven",
+      "Sixteen"
     ],
-    correctAns: "Three"
+    correctAns: "Sixteen"
   },
   {
     questionNum: '10',
@@ -168,11 +168,11 @@ questionNum: '16',
 questionText: "Which is the largest inland sea?",
 choices: [
   "Caspian Sea",
-  "Bl;ack Sea",
+  "Black Sea",
   "Mediterranean Sea",
   "Dead Sea"
 ],
-correctAns: "Caspain"
+correctAns: "Caspain Sea"
 },
 {
 questionNum: '17',
@@ -198,14 +198,14 @@ correctAns: "Pyrenees"
 },
 {
 questionNum: '19',
-questionText: "What is the European equivalent GNSS version to GPS?",
+questionText: "What is not GNSS system?",
 choices: [
   "Galileo",
-  "Baidu",
-  "QZSS",
+  "Baidou",
+  "USNO",
   "GLONASS"
 ],
-correctAns: "Galileo"
+correctAns: "USNO"
 },
 {
 questionNum: '20',
@@ -220,11 +220,11 @@ correctAns: "El Salvador"
 },
 {
 questionNum: '21',
-questionText: "If the COP26 (2021) fails to deliver on policy/action, the world will...",
+questionText: "Climate change is likely to create...",
 choices: [
-  "have a warmer climate",
-  "mass migration and competition for finite resources like water will increase",
-  "the fragile global econony will be affected",
+  "more extreme weather events",
+  "mass migration and food/water insecurity",
+  "disrupt the global economy",
   "all of the above"
 ],
 correctAns: "all of the above"
