@@ -397,10 +397,6 @@ function countdown(seconds) {
   console.log('startTimer called');
   if (seconds === 0) {
     counter.innerHTML = `0`;
-    console.log('no answer confirmed within timeframe, question point forfeited, mark circle with gray color');
-
-    // alternatively for better user experience if thay have selected correct answer but not manually selected next question don't
-    // penalise them.  call the evaluateAnswer function when countdown reaches 0 seconds.
     nextQuestion();
   } else {
       timeLeftWidth = timeLeftWidth - (100 / 30);
@@ -475,7 +471,8 @@ function trackerUpdate() { // check if answer is correct or incorrect
       break;
     case null:
     case undefined:
-      // assume no answer is a wrong answer therefore style circle gray.  Will stay gray to show user thay failed to answer
+      console.log('no answer confirmed within timeframe, question point forfeited, mark circle with gray color');
+      // assume no answer is a wrong answer therefore but style circle gray to show user thay failed to provide an answer
       document.getElementsByClassName('circle')[questionCount - 1].style.backgroundColor = "gray";
       break;
   }
@@ -487,13 +484,12 @@ function nextQuestion() {
   resetAnswerStyles();
   resetTimer();
   // before questionCount increments++, style the score-tracker elements for appropriate question.  Give task a function of its own.
-  // Note we only want to p[erform htis task after user cannot influence answer of answer, ie aon next question select on timer running to zero.
-  // Also we don't want use to see green correct or red incorrect at the same time as havving toi ability to change their response to the question. 
-
-  console.log(questionCount);
+  // Also we don't want use to see green correct or red incorrect at the same time as havving toi ability to change their response to the question.
+  // better to take correct/incorrect answer indicator out of click event relating to evaluateAnswer as that gives the user a clue.
+  // instead perform red / green formatting when timer runs out or next question is selected.
   questionCount += 1;
+  console.log('move to question number ' + questionCount);
   trackerUpdate();
-  console.log(questionCount);
   if (questionCount < quizLength) {
     buildQuizQuestion(questionCount);
     startTimer();
@@ -507,46 +503,10 @@ function nextQuestion() {
 nextBtn.addEventListener('click', nextQuestion);
 
 
-// better to take correct/incorrect answer indicator out of click event relating to evaluateAnswer as that gives the user a clue.
-// instead perform red / green formatting when timer runs out or next question is selected.  Place that in a function an call it.
-
-
 // display current question on score tracker below quiz answers/ next button
 function progressIndicator(questionCount) {
-  console.log(questionCount);
   console.log('progressIndicator function called, indicate question number with yellow question circle');
   document.getElementsByClassName('circle')[questionCount].style.backgroundColor = "yellow";
-  // switch (questionCount) {
-  //   case 1:
-  //     document.getElementsByClassName('circle')[1].style.backgroundColor = "yellow";
-  //     break;
-  //   case 2:
-  //     document.getElementsByClassName('circle')[2].style.backgroundColor = "yellow";
-  //     break;
-  //   case 3:
-  //     document.getElementsByClassName('circle')[3].style.backgroundColor = "yellow";
-  //     break;
-  //   case 4:
-  //     document.getElementsByClassName('circle')[4].style.backgroundColor = "yellow";
-  //     break;
-  //   case 5:
-  //     document.getElementsByClassName('circle')[5].style.backgroundColor = "yellow";
-  //     break;
-  //   case 6:
-  //     document.getElementsByClassName('circle')[6].style.backgroundColor = "yellow";
-  //     break;
-  //   case 7:
-  //     document.getElementsByClassName('circle')[7].style.backgroundColor = "yellow";
-  //     break;
-  //   case 8:
-  //     document.getElementsByClassName('circle')[8].style.backgroundColor = "yellow";
-  //     break;
-  //   case 9:
-  //     document.getElementsByClassName('circle')[9].style.backgroundColor = "yellow";
-  //     break;
-  //   default:
-  //     document.getElementsByClassName('circle')[0].style.backgroundColor = "yellow";
-  // }
 }
 
 
