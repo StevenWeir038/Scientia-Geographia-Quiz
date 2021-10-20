@@ -1,3 +1,5 @@
+/* jshint esversion: 8 */
+
 const quizQuestions = [{
     questionNum: '1',
     questionText: "What is the capital city of Hungary?",
@@ -99,7 +101,7 @@ const quizQuestions = [{
   },
   {
     questionNum: '10',
-    questionText: "The northernmost cities in the world is?",
+    questionText: "The northernmost city in the world is?",
     choices: [
       "Longyearbyen",
       "Barentsburg",
@@ -198,7 +200,7 @@ const quizQuestions = [{
   },
   {
     questionNum: '19',
-    questionText: "What is not GNSS system?",
+    questionText: "What is not a GNSS system?",
     choices: [
       "Galileo",
       "Baidou",
@@ -319,7 +321,6 @@ const playerName = document.getElementById('player-name');
 const quizLeaveBtn = document.getElementById('quiz-leave-btn');
 const quizStartBtn = document.getElementById('quiz-start-btn');
 const quizSection = document.getElementById('quiz');
-const quizContainer = document.getElementById('quiz-container');
 const question = document.getElementById('question-box');
 const choiceOne = document.getElementById('answer1');
 const choiceTwo = document.getElementById('answer2');
@@ -329,6 +330,7 @@ const nextBtn = document.getElementById('next-btn');
 const resultsSection = document.getElementById('results');
 const answerBox = document.getElementById('answers-box');
 const answerOptions = answerBox.querySelectorAll('.answer');
+const timeLeftBar = document.getElementById('time-left');
 
 
 function startNewGame() {
@@ -399,30 +401,35 @@ function countdown(seconds) {
 
     // alternatively for better user experience if thay have selected correct answer but not manually selected next question don't
     // penalise them.  call the evaluateAnswer function when countdown reaches 0 seconds.
-    nextQuestion();   
-    } else {
-    counter.innerHTML = timeLeft;
-    // link the width of the timeLeft referenced element directly to the counter itself 
-    // let timeLeftBarWidth = timeLeft * timeLeftBar.width() / 30;
-    // timeLeftBar.animate({width: timeLeftBarWidth}, 500);
-    timeLeft -= 1;
-  }
+    nextQuestion();
+  } else {
+      timeLeftWidth = timeLeftWidth - (100 / 30);
+      timeLeft -= 1;
+      counter.innerHTML = timeLeft;
+      timeLeftBar.style.width = timeLeftWidth + '%';
+      // link the width of the timeLeft referenced element directly to the counter itself 
+      // let timeLeftBarWidth = timeLeft * timeLeftBar.width / 30;
+      // timeLeftBar.animate({width: timeLeftBarWidth}, 500);
+    }
 }
 
-const timeLeftBar = document.getElementById('total-time');
-
+let timeLeftWidth = 100;
 
 // Timer reset, call when next question begins
 function resetTimer() {
+  counter.innerHTML = `30`;
+  timeLeftWidth = 100;
+  timeLeftBar.style.width = '100%';
   clearInterval(timer);
-  console.log('resetTimer function called')
+  console.log('resetTimer function called');
 }
 
 
 // use 'Fisher-Yates' shuffle to reorder quiz questions array IN PLACE, call only once at start of quiz - credit to https://bost.ocks.org/mike/shuffle/
 function shuffle(array) {
-  console.log('shuffle function called (only once at quizStart)');    
-  let m = array.length, t, i;
+  console.log('shuffle function called (only once at quizStart)');
+  let m = array.length,
+    t, i;
 
   // While there remain elements to shuffle…
   while (m) {
@@ -468,7 +475,7 @@ function trackerUpdate() { // check if answer is correct or incorrect
       break;
     case null:
     case undefined:
-    // assume no answer is a wrong answer therefore style circle gray.  Will stay gray to show user thay failed to answer
+      // assume no answer is a wrong answer therefore style circle gray.  Will stay gray to show user thay failed to answer
       document.getElementsByClassName('circle')[questionCount - 1].style.backgroundColor = "gray";
       break;
   }
@@ -576,29 +583,29 @@ function endOfQuiz() {
 
 
 // to refer to the DOM objects well be evaluating/manipulating
-  // placed in const list at top
+// placed in const list at top
 
 // eventlisteners
-  // incorporate into answer class loop
+// incorporate into answer class loop
 
 // store for number of correct answers
-  // moved to const area at top
+// moved to const area at top
 
 // store for number of total questions
-  // use questionCount variable for this, already created
+// use questionCount variable for this, already created
 
 
 // eventlistener loop of .answer class
 for (let answer of answerOptions) {
-  answer.addEventListener('click', choiceAnswer);  //function called formerly evaluateAnswer() do this function from choiceAnswer();
+  answer.addEventListener('click', choiceAnswer); //function called formerly evaluateAnswer() do this function from choiceAnswer();
 }
 
 // style the user's selection
 function choiceAnswer(event) {
-resetAnswerStyles(); // reset style for all answer buttons before setting selected style on clicked answer.  Therefore only 1 answer appears selected at all times
-this.setAttribute("class", "answer-selected")
-targetID = event.target.id;
-evaluateAnswer(targetID);
+  resetAnswerStyles(); // reset style for all answer buttons before setting selected style on clicked answer.  Therefore only 1 answer appears selected at all times
+  this.setAttribute("class", "answer-selected");
+  let targetID = event.target.id;
+  evaluateAnswer(targetID);
 }
 
 function resetAnswerStyles() {
@@ -613,7 +620,7 @@ function evaluateAnswer(targetID) {
   console.log('evaluateAnswer function called');
   // Errorhandler if no user makes no selection
   // event.PreventDefault();  -- REVIEW TYPEERROR
-  
+
   // store the value the element that was selected by the user and the correct answer from the current object displayed from the quizQuestion array
   let userAnswer = event.target.innerText;
   let correctAnswer = quizQuestions[questionCount].correctAns;
@@ -626,7 +633,7 @@ function evaluateAnswer(targetID) {
     console.log('the user score moves to ' + correctNum);
     yaynay = 'correct';
   } else {
-    console.log('the user score remains at ' + correctNum)
+    console.log('the user score remains at ' + correctNum);
     yaynay = 'incorrect';
   }
 }
