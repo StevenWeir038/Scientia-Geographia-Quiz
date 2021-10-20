@@ -172,7 +172,7 @@ const quizQuestions = [{
       "Mediterranean Sea",
       "Dead Sea"
     ],
-    correctAns: "Caspain Sea"
+    correctAns: "Caspian Sea"
   },
   {
     questionNum: '17',
@@ -294,6 +294,17 @@ const quizQuestions = [{
       "Xia dynasty"
     ],
     correctAns: "Greeks"
+  },
+  {
+    questionNum: '28',
+    questionText: "Geography is described as the ${what} of sciences?",
+    choices: [
+      "King",
+      "Queen",
+      "Jack",
+      "Rook"
+    ],
+    correctAns: "Queen"
   }
 ];
 
@@ -391,7 +402,7 @@ function countdown(seconds) {
     nextQuestion();   
     } else {
     counter.innerHTML = timeLeft;
-    
+    // link the width of the timeLeft referenced element directly to the counter itself 
     // let timeLeftBarWidth = timeLeft * timeLeftBar.width() / 30;
     // timeLeftBar.animate({width: timeLeftBarWidth}, 500);
     timeLeft -= 1;
@@ -447,10 +458,23 @@ function buildQuizQuestion(questionID) {
 }
 
 
+function trackerUpdate() {
+  if (quizQuestions[questionCount].userAns.value = 'correct') {
+      document.getElementsByClassName('circle')[questionCount].style.backgroundColor = "green";
+  } else if (quizQuestions[questionCount].userAns.value = 'incorrect') {
+    document.getElementsByClassName('circle')[questionCount].style.backgroundColor = "red"
+}
+}
+
+
 function nextQuestion() {
   console.log('nextQuestion function called');
   resetAnswerStyles();
   resetTimer();
+  // before questionCount increments++, style the score-tracker elements for appropriate question.  Give task a function of its own.
+  // Note we only want to p[erform htis task after user cannot influence answer of answer, ie aon next question select on timer running to zero.
+  // Also we don't want use to see green correct or red incorrect at the same time as havving toi ability to change their response to the question. 
+  trackerUpdate();
   questionCount += 1;
   if (questionCount < quizLength) {
     buildQuizQuestion(questionCount);
@@ -580,17 +604,19 @@ function evaluateAnswer(targetID) {
   // store the value the element that was selected by the user and the correct answer from the current object displayed from the quizQuestion array
   let userAnswer = event.target.innerText;
   let correctAnswer = quizQuestions[questionCount].correctAns;
-  console.log('user answer is ' + userAnswer);
-  console.log('correct answer is ' + correctAnswer);
+  console.log("the user answer is '" + userAnswer + "'");
+  console.log("the correct answer is '" + correctAnswer + "'");
 
   //evaluate if user's answer is correct & add 1 point to total, if incorrect do not add 1 point to total, add/update a userAns property to the quizQuestion array
   if (correctAnswer === userAnswer) {
     correctNum++;
     console.log('the user score moves to ' + correctNum);
+    quizQuestions[questionCount].userAns = (userAnswer === correctAnswer) ? 'correct' : 'incorrect';
     console.log("set userAns property value in quizQueztions[currentQuestion] to 'correct'");
   } else {
     console.log('the user score remains at ' + correctNum)
     console.log("set userAns property value in quizQueztions[currentQuestion] to 'incorrect'");
+    quizQuestions[questionCount].userAns = (userAnswer !== correctAnswer) ? 'incorrect' : 'correct';
   }
 }
 
@@ -620,27 +646,3 @@ function userResults() {
     userFeedback.innerHTML = `<a href='https://tim.2bn.dev/' target="_blank">${player} has been globetrotting like Tim.</a>`;
   }
 }
-
-
-// Leaderboard
-// We want to 'store the user's name & user's score for each instance of the game
-// So we need a variables to store user name, user score and game
-// each game should be an object within the leaderboard array containing user name and user score
-// sort the array by score
-
-
-// var playerName;
-// var playerScore;
-// var gameResult = {};
-// var highscoreList = [];
-
-// function toHighscoreList() {
-//     playerName = $('#nameTag').text();   // for example value "Henry"
-//     playerScore = guessedWrong.length;   // for example value 3
-
-//     gameResult = {player: playerName, score: playerScore};
-//     highscoreList.push(gameResult);
-//     highscoreList.sort(function(a,b) { return (b.score - a.score ) });
-
-//     $('#score1').text(highscoreList[0].player + " - score: "+ highscoreList[0].score);
-// };
