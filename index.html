@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
     <link rel="shortcut icon" href="assets/images/earth-globe.png">
     <title>Scientia Geographia</title>
 </head>
+
 <body class="flex-column flex-center width margin-zero text-center">
     <header class="width">
         <h1>SCIENTIA <span>geographia</span></h1>
@@ -16,90 +18,96 @@
     </header>
     <main class="width">
         <section id="landing" class="landing">
-            <h1 id="play-quiz-btn" class="yellow"><i class="far fa-play-circle"></i></h1>
+            <i class="far fa-play-circle yellow" id='play-quiz-btn'></i>
         </section>
         <section>
-        <!-- Game start section -->
-        <section id="new-game" class="flex-column flex-center rounded-border max-width">
-            <p class="yellow margin-zero padding">Player name</p>
-            <input type="text" id="player-name" required class="text-center padding rounded-border">
-            <section class="start-game-btn-holder margin">
-                <button type="button" id="quiz-start-btn" class="rounded-border">Start</button>
-                <button type="button" id="quiz-leave-btn" class="rounded-border">Leave</button>
-            </section>
-        </section>
-        <!-- Quiz section -->
-        <section id="quiz" class="flex-column flex-center rounded-border max-width">
-            <!-- quiz information -->
-            <section class="quiz-info-top flex-center margin rounded-border max-width">
-                <section id="question-number">
-                    <p>Question <span id="current-question" class="bold">-</span> of <span id="total-questions" class="bold">-</span></p>
-                </section>
-                <!-- timer -->
-                <section id="timer" class="flex-column bold">
-                    <p><i class="fas fa-user-clock"></i> <span id="counter"></span></p>
-                </section>
-                <!-- progress bar -->
-                <section id="total-time" class="rounded-border">
-                    <section id="time-left" class="rounded-border"></section>
+            <!-- Game start section -->
+            <section id="new-game" class="flex-column flex-center rounded-border max-width">
+                <p class="yellow margin-zero padding">Player name</p>
+                <input type="text" id="player-name" required class="text-center padding rounded-border">
+                <section class="start-game-btn-holder margin">
+                    <button type="button" id="quiz-start-btn" class="rounded-border">Start</button>
+                    <button type="button" id="quiz-leave-btn" class="rounded-border">Leave</button>
                 </section>
             </section>
-            <!-- quiz container - this section will house html questions and answers and be manipulated using template literals -->
-            <section id="quiz-container" class="flex-column flex-center text-center margin-zero rounded-border max-width">
-                <section id="question-box" class="flex-center padding text-center margin-zero rounded-border max-width">
-                    <p>QUESTION TEXT GOES HERE</p>
+            <!-- Quiz section -->
+            <section id="quiz" class="flex-column flex-center rounded-border max-width">
+                <!-- quiz information -->
+                <section class="quiz-info-top flex-center margin rounded-border max-width">
+                    <section id="question-number">
+                        <p>Question <span id="current-question" class="bold">-</span> of <span id="total-questions"
+                                class="bold">-</span></p>
+                    </section>
+                    <!-- timer -->
+                    <section id="timer" class="flex-column bold">
+                        <p><i class="fas fa-user-clock"></i> <span id="counter">30</span></p>
+                    </section>
+                    <!-- progress bar -->
+                    <section id="total-time">
+                        <section id="time-left"></section>
+                    </section>
                 </section>
-                <section id="answers-box" class="flex-column flex-center text-center margin-zero max-width">
-                    <p id="answer1" class="answer padding text-center max-width">
-                        ANSWER1 TEXT GOES HERE
-                    </p>
-                     <p id="answer2" class="answer padding text-center max-width">
-                        ANSWER2 TEXT GOES HERE
-                    </p>
-                    <p id="answer3" class="answer padding text-center max-width">
-                        ANSWER3 TEXT GOES HERE
-                    </p>
-                    <p id="answer4" class="answer padding text-center max-width">
-                        ANSWER4 TEXT GOES HERE
-                    </p>
+                <!-- quiz container - this section will house html questions and answers and be manipulated using template literals -->
+                <section id="quiz-container"
+                    class="flex-column flex-center text-center margin-zero rounded-border max-width">
+                    <section id="question-box"
+                        class="flex-center padding text-center margin-zero rounded-border max-width">
+                        <p>QUESTION TEXT GOES HERE</p>
+                    </section>
+                    <section id="answers-box" class="flex-column flex-center text-center margin-zero max-width">
+                        <p id="answer1" class="answer padding text-center max-width">
+                            ANSWER1 TEXT GOES HERE
+                        </p>
+                        <p id="answer2" class="answer padding text-center max-width">
+                            ANSWER2 TEXT GOES HERE
+                        </p>
+                        <p id="answer3" class="answer padding text-center max-width">
+                            ANSWER3 TEXT GOES HERE
+                        </p>
+                        <p id="answer4" class="answer padding text-center max-width">
+                            ANSWER4 TEXT GOES HERE
+                        </p>
+                    </section>
+                </section>
+                <section id="quiz-nav" class=" flex-center padding text-center margin rounded-border navy-blue">
+                    <div id="next-btn" class="text-center yellow padding rounded-border">NEXT</div>
+                </section>
+                <section id="score-tracker" class="flex-center max-width">
+                    <div id="score-one" class="circle"></div>
+                    <div id="score-two" class="circle"></div>
+                    <div id="score-three" class="circle"></div>
+                    <div id="score-four" class="circle"></div>
+                    <div id="score-five" class="circle"></div>
+                    <div id="score-six" class="circle"></div>
+                    <div id="score-seven" class="circle"></div>
+                    <div id="score-eight" class="circle"></div>
+                    <div id="score-nine" class="circle"></div>
+                    <div id="score-ten" class="circle"></div>
                 </section>
             </section>
-            <section id="quiz-nav" class=" flex-center padding text-center margin rounded-border navy-blue">
-                <div id="next-btn" class="text-center yellow padding rounded-border">NEXT</div>
+
+            <section id="results" class="results flex-column flex-center rounded-border max-width">
+                <h2>RESULTS</h2>
+                <h3>You scored</h3>
+                <h2 id="result-score" class="yellow">RESULT SCORE</h2>
+                <p id="user-feedback">USER FEEDBACK</p>
+                <h3 id="home-link" class="sky-blue"><a href="index.html"><i class="fas fa-angle-double-right"></i>
+                        REPLAY <i class="fas fa-angle-double-left"></i></a></h3>
             </section>
-            <section id="score-tracker" class="flex-center max-width">
-                <div id="score-one" class="circle"></div>
-                <div id="score-two" class="circle"></div>
-                <div id="score-three" class="circle"></div>
-                <div id="score-four" class="circle"></div>
-                <div id="score-five" class="circle"></div>
-                <div id="score-six" class="circle"></div>
-                <div id="score-seven" class="circle"></div>
-                <div id="score-eight" class="circle"></div>
-                <div id="score-nine" class="circle"></div>
-                <div id="score-ten" class="circle"></div>
-            </section>
-        </section>
-        
-        <section id="results" class="results flex-column flex-center rounded-border max-width">
-            <h1>RESULTS</h1>
-            <h3>You scored</h3>
-            <h2 id="result-score" class="yellow">RESULT SCORE</h2>
-            <p id="user-feedback">USER FEEDBACK</p>
-            <h3 id="home-link" class="sky-blue"><a href="index.html"><i class="fas fa-angle-double-right"></i> REPLAY <i class="fas fa-angle-double-left"></i></a></h3>
         </section>
     </main>
     <footer class="width">
         <p>View my content at: </p>
         <!-- portfolio links -->
         <a class="social yellow" href="https://github.com/StevenWeir038" target="_blank" rel="noopener"
-        aria-label="Visit my Github page (opens in a new tab)">
-        <i class="fab fa-github-square"></i></a>
-        <a class="social yellow" href="https://www.linkedin.com/in/steven-weir-190265217/" target="_blank" rel="noopener"
-        aria-label="Visit my LinkedIn page (opens in a new tab)">
-        <i class="fab fa-linkedin"></i></a>
+            aria-label="Visit my Github page (opens in a new tab)">
+            <i class="fab fa-github-square"></i></a>
+        <a class="social yellow" href="https://www.linkedin.com/in/steven-weir-190265217/" target="_blank"
+            rel="noopener" aria-label="Visit my LinkedIn page (opens in a new tab)">
+            <i class="fab fa-linkedin"></i></a>
     </footer>
     <script src="https://kit.fontawesome.com/c7dbda0798.js"></script>
-    <script src="assets/js/script.js" type='text/javascript'></script>
+    <script src="assets/js/script.js"></script>
 </body>
+
 </html>
