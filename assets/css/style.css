@@ -223,9 +223,9 @@ footer p {
 #quiz-leave-btn {
     background-color: rgba(var(--theme-three), 0.85);
     color: white;
-    font-size: 2em;
+    font-size: 1.25em;
     text-align: center;
-    padding: 0 0.5em;
+    padding: 0.25em 0.5em;
 }
 
 
@@ -280,6 +280,7 @@ footer p {
     border: 2px solid rgb(var(--theme-one));
     margin: 1em 0;
     width: 80vw;
+    padding: 0.5em;
 }
 
 .answer-selected {
@@ -289,6 +290,7 @@ footer p {
     border: 2px solid rgba(var(--theme-three));
     margin: 1em 0;
     width: 80vw;
+    padding: 0.5em;
 }
 
 #quiz-nav {
