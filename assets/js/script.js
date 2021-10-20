@@ -384,7 +384,7 @@ const counter = document.getElementById('counter');
 let timer;
 
 function startTimer() {
-  timeLeft = 300;
+  timeLeft = 30;
   timer = setInterval(function () {
     countdown(timeLeft);
   }, 1000);
