@@ -193,7 +193,8 @@ footer p {
     font-size: 200px;
     border-radius: 50%;
 }
-#play-quiz-btn :hover {
+
+#play-quiz-btn:hover {
     font-size: 200px;
     border-radius: 50%;
     background-color: rgba(var(--theme-one), 0.85);
@@ -252,10 +253,9 @@ footer p {
 
 #time-left {
     height: 100%;
-    width: 0;
+    width: 100%;
     text-align: right;
-    color: white;
-    background-image: linear-gradient(to right, red, orange, yellow, green);
+    background-color: yellow;
 }
 
 #question-box {
@@ -278,8 +278,8 @@ footer p {
     border: 2px solid rgb(var(--theme-one));
     border-radius: 15px;
     border: 2px solid rgb(var(--theme-one));
-    margin: 1em 0;
-    width: 80vw;
+    margin: 0.5em 0;
+    width: 100%;
     padding: 0.5em;
 }
 
@@ -288,8 +288,8 @@ footer p {
     color: white;
     border-radius: 15px;
     border: 2px solid rgba(var(--theme-three));
-    margin: 1em 0;
-    width: 80vw;
+    margin: 0.5em 0;
+    width: 100%;
     padding: 0.5em;
 }
 
