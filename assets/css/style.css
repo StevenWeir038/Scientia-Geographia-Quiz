@@ -245,10 +245,11 @@ footer p {
 
 #total-time {
     /* display: inline-block; */
-    width: 90px;
+    width: 50px;
     height: 20px;
     border: 2px solid var(--theme-one);
     background: lightgray;
+    overflow: hidden;
 }
 
 #time-left {
