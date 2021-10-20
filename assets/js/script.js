@@ -459,11 +459,12 @@ function buildQuizQuestion(questionID) {
 
 
 function trackerUpdate() {
-  if (quizQuestions[questionCount].userAns.value = 'correct') {
+  if (quizQuestions[questionCount].userAns.value === 'correct') {
       document.getElementsByClassName('circle')[questionCount].style.backgroundColor = "green";
-  } else if (quizQuestions[questionCount].userAns.value = 'incorrect') {
-    document.getElementsByClassName('circle')[questionCount].style.backgroundColor = "red"
-}
+  } else if (quizQuestions[questionCount].userAns.value === 'incorrect') {
+    document.getElementsByClassName('circle')[questionCount].style.backgroundColor = "red";
+  } else (quizQuestions[questionCount].userAns.value == null || quizQuestions[questionCount].userAns.value == undefined)
+    document.getElementsByClassName('circle')[questionCount].style.backgroundColor = "gray";
 }
 
 
