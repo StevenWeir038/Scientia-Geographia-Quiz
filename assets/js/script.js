@@ -308,6 +308,7 @@ const quizQuestions = [{
   }
 ];
 
+let yaynay;
 const quizLength = 10;
 let questionCount = 0; // as we want to display first question when first building quiz and increment thereafter
 let correctNum = 0; // number of correct user answers
@@ -365,7 +366,7 @@ function quizStart() {
     console.log('start the quiz');
     shuffle(quizQuestions);
     buildQuizQuestion(questionCount);
-    progressIndicator();
+    progressIndicator(questionCount);
     startTimer();
   }
 }
@@ -395,8 +396,7 @@ function countdown(seconds) {
   if (seconds === 0) {
     counter.innerHTML = `0`;
     console.log('no answer confirmed within timeframe, question point forfeited, mark circle with gray color');
-    // assume no answer is a wrong answer therefore style circle gray.  Will stay gray to show user thay failed to answer.
-    document.getElementsByClassName('circle')[questionCount].style.backgroundColor = "gray";
+
     // alternatively for better user experience if thay have selected correct answer but not manually selected next question don't
     // penalise them.  call the evaluateAnswer function when countdown reaches 0 seconds.
     nextQuestion();   
@@ -446,7 +446,7 @@ function buildQuizQuestion(questionID) {
   // set text content for quiz current question# & total questions in quiz-top-info section
   let currentQuestionNum = document.getElementById('current-question');
   let totalQuestions = document.getElementById('total-questions');
-  currentQuestionNum.innerHTML = questionCount +1;
+  currentQuestionNum.innerHTML = questionCount + 1;
   // was quizQuestions.length but we want a quiz of 10 questions only and want option of wider question selection;
   totalQuestions.innerHTML = quizLength;
   // set text content for quiz Q&As
@@ -458,13 +458,20 @@ function buildQuizQuestion(questionID) {
 }
 
 
-function trackerUpdate() {
-  if (quizQuestions[questionCount].userAns.value === 'correct') {
-      document.getElementsByClassName('circle')[questionCount].style.backgroundColor = "green";
-  } else if (quizQuestions[questionCount].userAns.value === 'incorrect') {
-    document.getElementsByClassName('circle')[questionCount].style.backgroundColor = "red";
-  } else (quizQuestions[questionCount].userAns.value == null || quizQuestions[questionCount].userAns.value == undefined)
-    document.getElementsByClassName('circle')[questionCount].style.backgroundColor = "gray";
+function trackerUpdate() { // check if answer is correct or incorrect
+  switch (yaynay) {
+    case 'correct':
+      document.getElementsByClassName('circle')[questionCount - 1].style.backgroundColor = "green";
+      break;
+    case 'incorrect':
+      document.getElementsByClassName('circle')[questionCount - 1].style.backgroundColor = "red";
+      break;
+    case null:
+    case undefined:
+    // assume no answer is a wrong answer therefore style circle gray.  Will stay gray to show user thay failed to answer
+      document.getElementsByClassName('circle')[questionCount - 1].style.backgroundColor = "gray";
+      break;
+  }
 }
 
 
@@ -475,8 +482,11 @@ function nextQuestion() {
   // before questionCount increments++, style the score-tracker elements for appropriate question.  Give task a function of its own.
   // Note we only want to p[erform htis task after user cannot influence answer of answer, ie aon next question select on timer running to zero.
   // Also we don't want use to see green correct or red incorrect at the same time as havving toi ability to change their response to the question. 
-  trackerUpdate();
+
+  console.log(questionCount);
   questionCount += 1;
+  trackerUpdate();
+  console.log(questionCount);
   if (questionCount < quizLength) {
     buildQuizQuestion(questionCount);
     startTimer();
@@ -496,38 +506,40 @@ nextBtn.addEventListener('click', nextQuestion);
 
 // display current question on score tracker below quiz answers/ next button
 function progressIndicator(questionCount) {
+  console.log(questionCount);
   console.log('progressIndicator function called, indicate question number with yellow question circle');
-  switch (questionCount) {
-    case 1:
-      document.getElementsByClassName('circle')[1].style.backgroundColor = "yellow";
-      break;
-    case 2:
-      document.getElementsByClassName('circle')[2].style.backgroundColor = "yellow";
-      break;
-    case 3:
-      document.getElementsByClassName('circle')[3].style.backgroundColor = "yellow";
-      break;
-    case 4:
-      document.getElementsByClassName('circle')[4].style.backgroundColor = "yellow";
-      break;
-    case 5:
-      document.getElementsByClassName('circle')[5].style.backgroundColor = "yellow";
-      break;
-    case 6:
-      document.getElementsByClassName('circle')[6].style.backgroundColor = "yellow";
-      break;
-    case 7:
-      document.getElementsByClassName('circle')[7].style.backgroundColor = "yellow";
-      break;
-    case 8:
-      document.getElementsByClassName('circle')[8].style.backgroundColor = "yellow";
-      break;
-    case 9:
-      document.getElementsByClassName('circle')[9].style.backgroundColor = "yellow";
-      break;
-    default:
-      document.getElementsByClassName('circle')[0].style.backgroundColor = "yellow";
-  }
+  document.getElementsByClassName('circle')[questionCount].style.backgroundColor = "yellow";
+  // switch (questionCount) {
+  //   case 1:
+  //     document.getElementsByClassName('circle')[1].style.backgroundColor = "yellow";
+  //     break;
+  //   case 2:
+  //     document.getElementsByClassName('circle')[2].style.backgroundColor = "yellow";
+  //     break;
+  //   case 3:
+  //     document.getElementsByClassName('circle')[3].style.backgroundColor = "yellow";
+  //     break;
+  //   case 4:
+  //     document.getElementsByClassName('circle')[4].style.backgroundColor = "yellow";
+  //     break;
+  //   case 5:
+  //     document.getElementsByClassName('circle')[5].style.backgroundColor = "yellow";
+  //     break;
+  //   case 6:
+  //     document.getElementsByClassName('circle')[6].style.backgroundColor = "yellow";
+  //     break;
+  //   case 7:
+  //     document.getElementsByClassName('circle')[7].style.backgroundColor = "yellow";
+  //     break;
+  //   case 8:
+  //     document.getElementsByClassName('circle')[8].style.backgroundColor = "yellow";
+  //     break;
+  //   case 9:
+  //     document.getElementsByClassName('circle')[9].style.backgroundColor = "yellow";
+  //     break;
+  //   default:
+  //     document.getElementsByClassName('circle')[0].style.backgroundColor = "yellow";
+  // }
 }
 
 
@@ -612,12 +624,10 @@ function evaluateAnswer(targetID) {
   if (correctAnswer === userAnswer) {
     correctNum++;
     console.log('the user score moves to ' + correctNum);
-    quizQuestions[questionCount].userAns = (userAnswer === correctAnswer) ? 'correct' : 'incorrect';
-    console.log("set userAns property value in quizQueztions[currentQuestion] to 'correct'");
+    yaynay = 'correct';
   } else {
     console.log('the user score remains at ' + correctNum)
-    console.log("set userAns property value in quizQueztions[currentQuestion] to 'incorrect'");
-    quizQuestions[questionCount].userAns = (userAnswer !== correctAnswer) ? 'incorrect' : 'correct';
+    yaynay = 'incorrect';
   }
 }
 
