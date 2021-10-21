@@ -245,8 +245,8 @@ footer p {
 
 #total-time {
     /* display: inline-block; */
-    width: 50px;
-    height: 20px;
+    width: 30%;
+    height: 1em;
     border: 2px solid var(--theme-one);
     background: lightgray;
     overflow: hidden;
@@ -256,7 +256,7 @@ footer p {
     height: 100%;
     width: 100%;
     text-align: right;
-    background-color: yellow;
+    background-color: rgb(var(--theme-two), 0.85);
 }
 
 #question-box {
@@ -341,8 +341,8 @@ footer p {
 #results::before {
     content: '';
     position: absolute;
-    width: 10vw;
-    height: 195%;
+    width: 15vw;
+    height: 200%;
     background: linear-gradient(rgba(var(--theme-two), 0.85), rgba(var(--theme-four), 0.85));
     animation: animate 3s linear infinite;
 }
