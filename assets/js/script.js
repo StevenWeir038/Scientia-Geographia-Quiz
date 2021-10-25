@@ -2,8 +2,8 @@
 
 let yaynay;
 const quizLength = 10;
-let questionCount = 0; // as we want to display first question when first building quiz and increment thereafter
-let correctNum = 0; // number of correct user answers
+let questionCount = 0;
+let correctNum = 0;
 const landingSection = document.getElementById("landing");
 const newGameSection = document.getElementById("new-game");
 const playQuizButton = document.getElementById("play-quiz-btn");
@@ -34,10 +34,8 @@ playQuizButton.addEventListener("click", startNewGame);
 
 
 function quizLeave() {
-  // clear input box
   playerName.value = "";
   console.log("playerName input box cleared");
-  // hide new game section, show landing section
   landingSection.style.display = "inline-flex";
   newGameSection.style.display = "none";
   console.log("quizLeave function called");
@@ -50,7 +48,6 @@ function quizStart() {
   console.log("quizStart function called");
   if (playerName.value == "" || playerName.value == null || playerName.value == undefined) {
     console.log("quizStart Errorhandler - user name required ");
-    // set style properties for input box to draw users attention, refocus input element?
     playerName.style.borderColor = "red";
   } else {
     quizSection.style.display = "inline-flex";
@@ -71,7 +68,6 @@ playerName.addEventListener("keypress", function (e) {
 });
 
 
-// Timer set to 30 seconds
 let timeLeft;
 const counter = document.getElementById("counter");
 let timer;
@@ -93,15 +89,11 @@ function countdown(seconds) {
       timeLeft -= 1;
       counter.innerHTML = timeLeft;
       timeLeftBar.style.width = timeLeftWidth + "%";
-      // link the width of the timeLeft referenced element directly to the counter itself 
-      // let timeLeftBarWidth = timeLeft * timeLeftBar.width / 30;
-      // timeLeftBar.animate({width: timeLeftBarWidth}, 500);
     }
 }
 
 let timeLeftWidth = 100;
 
-// Timer reset, call when next question begins
 function resetTimer() {
   counter.innerHTML = `30`;
   timeLeftWidth = 100;
@@ -111,7 +103,9 @@ function resetTimer() {
 }
 
 
-// use "Fisher-Yates" shuffle to reorder quiz questions array IN PLACE, call only once at start of quiz - credit to https://bost.ocks.org/mike/shuffle/
+/**  use "Fisher-Yates" shuffle to reorder quiz questions array IN PLACE. 
+ * Call only once at start of quiz - credit to https://bost.ocks.org/mike/shuffle/
+*/
 function shuffle(array) {
   console.log("shuffle function called (only once at quizStart)");
   let m = array.length,
@@ -134,15 +128,11 @@ function shuffle(array) {
 
 
 function buildQuizQuestion(questionID) {
-  // this function sets the first question and corresponding answers. questionID passed from questionCount variable
   console.log("buildQuizQuestion function called");
-  // set text content for quiz current question# & total questions in quiz-top-info section
   let currentQuestionNum = document.getElementById("current-question");
   let totalQuestions = document.getElementById("total-questions");
   currentQuestionNum.innerHTML = questionCount + 1;
-  // was quizQuestions.length but we want a quiz of 10 questions only and want option of wider question selection;
   totalQuestions.innerHTML = quizLength;
-  // set text content for quiz Q&As
   question.innerHTML = quizQuestions[questionID].questionText;
   choiceOne.innerHTML = quizQuestions[questionID].choices[0];
   choiceTwo.innerHTML = quizQuestions[questionID].choices[1];
@@ -151,7 +141,7 @@ function buildQuizQuestion(questionID) {
 }
 
 
-function trackerUpdate() { // check if answer is correct or incorrect
+function trackerUpdate() {
   switch (yaynay) {
     case "correct":
       document.getElementsByClassName("circle")[questionCount - 1].style.backgroundColor = "green";
@@ -162,7 +152,6 @@ function trackerUpdate() { // check if answer is correct or incorrect
     case null:
     case undefined:
       console.log("no answer confirmed within timeframe, question point forfeited, mark circle with gray color");
-      // assume no answer is a wrong answer therefore but style circle gray to show user thay failed to provide an answer
       document.getElementsByClassName("circle")[questionCount - 1].style.backgroundColor = "gray";
       break;
   }
@@ -173,10 +162,6 @@ function nextQuestion() {
   console.log("nextQuestion function called");
   resetAnswerStyles();
   resetTimer();
-  // before questionCount increments++, style the score-tracker elements for appropriate question.  Give task a function of its own.
-  // Also we don"t want use to see green correct or red incorrect at the same time as havving toi ability to change their response to the question.
-  // better to take correct/incorrect answer indicator out of click event relating to evaluateAnswer as that gives the user a clue.
-  // instead perform red / green formatting when timer runs out or next question is selected.
   questionCount += 1;
   console.log("move to question number " + questionCount);
   trackerUpdate();
@@ -193,7 +178,6 @@ function nextQuestion() {
 nextBtn.addEventListener("click", nextQuestion);
 
 
-// display current question on score tracker below quiz answers/ next button
 function progressIndicator(questionCount) {
   console.log("progressIndicator function called, indicate question number with yellow question circle");
   document.getElementsByClassName("circle")[questionCount].style.backgroundColor = "yellow";
@@ -208,51 +192,12 @@ function endOfQuiz() {
 }
 
 
-/**
- * Begin logic for correct/incorrect user answer selection and store correct answer count for results feedback at end of quiz.
- * Also give user some current feedback.  Depending on answer change circles below to green/red.
- * see below for the sort of logic we are looking for.
- * 
- * need a way to refer to the DOM objects - DONE
- * need eventlistener for "answer" class. - DONE
- * create variable to hold number of correct answers for results at end of quiz - DONE
- * create variable to hold number of questions for results at end of quiz - DONE
- * 
- * loop the following logic for each question (use "evaluateAnswer" function) --- 
- * target the users answer selection - DONE
- * change the button style for selector using and ClassListAdd function - DONE 
- * remove selector from other button incase user selected moe than one answer.
- * what is the correct answer from the quizQuestion array currentQuestion - DONE
- * compare user vs correct answer - DONE
- * if correct +1 point - DONE
- * if wrong 0 points - DONE, NFA
- * on clicking next and moving to next question, color users answer as green/red in previous questions score tracker.  
- *    This will overwritew the yellow style but not give the user a clue to the correct answer too early.
- * 
- */
-
-
-// to refer to the DOM objects well be evaluating/manipulating
-// placed in const list at top
-
-// eventlisteners
-// incorporate into answer class loop
-
-// store for number of correct answers
-// moved to const area at top
-
-// store for number of total questions
-// use questionCount variable for this, already created
-
-
-// eventlistener loop of .answer class
 for (let answer of answerOptions) {
-  answer.addEventListener("click", choiceAnswer); //function called formerly evaluateAnswer() do this function from choiceAnswer();
+  answer.addEventListener("click", choiceAnswer);
 }
 
-// style the user"s selection
 function choiceAnswer(event) {
-  resetAnswerStyles(); // reset style for all answer buttons before setting selected style on clicked answer.  Therefore only 1 answer appears selected at all times
+  resetAnswerStyles();
   this.setAttribute("class", "answer-selected");
   let targetID = event.target.id;
   evaluateAnswer(targetID);
@@ -268,16 +213,11 @@ function resetAnswerStyles() {
 
 function evaluateAnswer(targetID) {
   console.log("evaluateAnswer function called");
-  // Errorhandler if no user makes no selection
-  // event.PreventDefault();  -- REVIEW TYPEERROR
-
-  // store the value the element that was selected by the user and the correct answer from the current object displayed from the quizQuestion array
   let userAnswer = event.target.innerText;
   let correctAnswer = quizQuestions[questionCount].correctAns;
   console.log("the user answer is "" + userAnswer + """);
   console.log("the correct answer is "" + correctAnswer + """);
 
-  //evaluate if user"s answer is correct & add 1 point to total, if incorrect do not add 1 point to total, add/update a userAns property to the quizQuestion array
   if (correctAnswer === userAnswer) {
     correctNum++;
     console.log("the user score moves to " + correctNum);
@@ -289,19 +229,13 @@ function evaluateAnswer(targetID) {
 }
 
 
-// Results
 function userResults() {
-  // variable needed to refer to / display score in #result-score element
   const resultScore = document.querySelector("#result-score");
-  // variable to create custom html output, we are using a template literal.
   let resultOutput = `${correctNum} / ${questionCount}`;
-  // display resultOutput in resultScore location in DOM
   resultScore.innerHTML = resultOutput;
 
-  // variable needed to refer to / display score in #user-feedback element
   const userFeedback = document.querySelector("#user-feedback");
   let player = playerName.value;
-  // loop to select attainment level based upon the user"s score & display resultOutput in resultScore location in DOM
   if (correctNum <= 3) {
     userFeedback.innerHTML = `You"re no al-Idrisi are you ${player}...`;
   } else if (correctNum <= 6) {
@@ -314,6 +248,7 @@ function userResults() {
     userFeedback.innerHTML = `<a href="https://tim.2bn.dev/" target="_blank">${player} has been globetrotting like Tim.</a>`;
   }
 }
+
 
 const quizQuestions = [{
   questionNum: "1",
@@ -350,7 +285,7 @@ const quizQuestions = [{
 },
 {
   questionNum: "4",
-  questionText: "What is the world"s highest continent?",
+  questionText: "What is the world's highest continent?",
   choices: [
     "North America",
     "Africa",
@@ -361,7 +296,7 @@ const quizQuestions = [{
 },
 {
   questionNum: "5",
-  questionText: "If you list the world"s countries in alphabetical order, what is the second?",
+  questionText: "If you list the world's countries in alphabetical order, what is the second?",
   choices: [
     "Algeria",
     "Botswana",
@@ -427,7 +362,7 @@ const quizQuestions = [{
 },
 {
   questionNum: "11",
-  questionText: "What percentage of the Earth"s surface is covered by water?",
+  questionText: "What percentage of the Earth's surface is covered by water?",
   choices: [
     "71%",
     "56%",
@@ -548,7 +483,7 @@ const quizQuestions = [{
 },
 {
   questionNum: "22",
-  questionText: "What is the world"s most remote human settlement?",
+  questionText: "What is the world's most remote human settlement?",
   choices: [
     "Tristan da Cunha",
     "Hakahau",
@@ -559,7 +494,7 @@ const quizQuestions = [{
 },
 {
   questionNum: "23",
-  questionText: "What country doesn"t share a border with North Korea?",
+  questionText: "What country doesn't share a border with North Korea?",
   choices: [
     "China",
     "South Korea",
