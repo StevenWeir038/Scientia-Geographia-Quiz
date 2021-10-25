@@ -12,11 +12,13 @@
 </head>
 
 <body class="flex-column flex-center width margin-zero text-center">
+    <!-- Header -->
     <header class="width">
         <h1>SCIENTIA <span>geographia</span></h1>
         <p class="yellow">Test your Geography knowledge</p>
     </header>
     <main class="width">
+        <!-- Landing section with call to action element -->
         <section id="landing" class="landing">
             <i class="far fa-play-circle yellow" id='play-quiz-btn'></i>
         </section>
@@ -32,22 +34,23 @@
             </section>
             <!-- Quiz section -->
             <section id="quiz" class="flex-column flex-center rounded-border max-width">
-                <!-- quiz information -->
+                <!-- Quiz information bar -->
                 <section class="quiz-info-top flex-center margin rounded-border max-width">
-                    <section id="question-number">
+                    <!-- Question indicator -->
+                    <div id="question-number">
                         <p>Question <span id="current-question" class="bold">-</span> of <span id="total-questions"
                                 class="bold">-</span></p>
-                    </section>
-                    <!-- timer -->
-                    <section id="timer" class="flex-column bold">
+                        </div>
+                    <!-- Countdown timer -->
+                    <div id="timer" class="flex-column bold">
                         <p><i class="fas fa-user-clock"></i> <span id="counter">30</span></p>
-                    </section>
-                    <!-- progress bar -->
-                    <section id="total-time" class="rounded-border">
-                        <section id="time-left" class="rounded-border"></section>
-                    </section>
+                    </div>
+                    <!-- Countdown bar -->
+                    <div id="total-time" class="rounded-border">
+                        <div id="time-left" class="rounded-border"></div>
+                    </div>
                 </section>
-                <!-- quiz container - this section will house html questions and answers and be manipulated using template literals -->
+                <!-- Question & Answer choices -->
                 <section id="quiz-container"
                     class="flex-column flex-center text-center margin-zero rounded-border max-width">
                     <section id="question-box"
@@ -69,9 +72,11 @@
                         </p>
                     </section>
                 </section>
+                <!-- Next question button -->
                 <section id="quiz-nav" class=" flex-center padding text-center margin rounded-border navy-blue">
                     <div id="next-btn" class="text-center yellow padding rounded-border">NEXT</div>
                 </section>
+                <!-- Score Tracker -->
                 <section id="score-tracker" class="flex-center max-width">
                     <div id="score-one" class="circle"></div>
                     <div id="score-two" class="circle"></div>
@@ -85,7 +90,7 @@
                     <div id="score-ten" class="circle"></div>
                 </section>
             </section>
-
+            <!-- Results -->
             <section id="results" class="results flex-column flex-center rounded-border max-width">
                 <h2>RESULTS</h2>
                 <h3>You scored</h3>
@@ -96,9 +101,10 @@
             </section>
         </section>
     </main>
+    <!-- Footer -->
     <footer class="width">
         <p>View my content at: </p>
-        <!-- portfolio links -->
+        <!-- Portfolio links -->
         <a class="social yellow" href="https://github.com/StevenWeir038" target="_blank" rel="noopener"
             aria-label="Visit my Github page (opens in a new tab)">
             <i class="fab fa-github-square"></i></a>
@@ -106,6 +112,7 @@
             rel="noopener" aria-label="Visit my LinkedIn page (opens in a new tab)">
             <i class="fab fa-linkedin"></i></a>
     </footer>
+    <!-- Script links -->
     <script src="https://kit.fontawesome.com/c7dbda0798.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
