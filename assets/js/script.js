@@ -1,7 +1,7 @@
 /* jshint esversion: 8 */
 
 const quizQuestions = [{
-    questionNum: '1',
+    questionNum: "1",
     questionText: "What is the capital city of Hungary?",
     choices: [
       "Budapest",
@@ -12,7 +12,7 @@ const quizQuestions = [{
     correctAns: "Budapest"
   },
   {
-    questionNum: '2',
+    questionNum: "2",
     questionText: "Which major city is located on two continents?",
     choices: [
       "Dublin",
@@ -23,7 +23,7 @@ const quizQuestions = [{
     correctAns: "Istanbul"
   },
   {
-    questionNum: '3',
+    questionNum: "3",
     questionText: "What is the biggest city in Africa by population?",
     choices: [
       "Cape Town",
@@ -34,7 +34,7 @@ const quizQuestions = [{
     correctAns: "Lagos"
   },
   {
-    questionNum: '4',
+    questionNum: "4",
     questionText: "What is the world's highest continent?",
     choices: [
       "North America",
@@ -45,7 +45,7 @@ const quizQuestions = [{
     correctAns: "Antartica"
   },
   {
-    questionNum: '5',
+    questionNum: "5",
     questionText: "If you list the world's countries in alphabetical order, what is the second?",
     choices: [
       "Algeria",
@@ -56,7 +56,7 @@ const quizQuestions = [{
     correctAns: "Albania"
   },
   {
-    questionNum: '6',
+    questionNum: "6",
     questionText: "The island of Ireland has how many counties?",
     choices: [
       "28",
@@ -67,7 +67,7 @@ const quizQuestions = [{
     correctAns: "32"
   },
   {
-    questionNum: '7',
+    questionNum: "7",
     questionText: "What country has the weakest economy by GDP (2020)?",
     choices: [
       "Costa Rica",
@@ -78,7 +78,7 @@ const quizQuestions = [{
     correctAns: "Burundi"
   },
   {
-    questionNum: '8',
+    questionNum: "8",
     questionText: "Machu Picchu can be found in which country",
     choices: [
       "Chile",
@@ -89,7 +89,7 @@ const quizQuestions = [{
     correctAns: "Peru"
   },
   {
-    questionNum: '9',
+    questionNum: "9",
     questionText: "Germany has how many constituent states?",
     choices: [
       "Twenty",
@@ -100,7 +100,7 @@ const quizQuestions = [{
     correctAns: "Sixteen"
   },
   {
-    questionNum: '10',
+    questionNum: "10",
     questionText: "The northernmost city in the world is?",
     choices: [
       "Longyearbyen",
@@ -111,7 +111,7 @@ const quizQuestions = [{
     correctAns: "Pyramiden"
   },
   {
-    questionNum: '11',
+    questionNum: "11",
     questionText: "What percentage of the Earth's surface is covered by water?",
     choices: [
       "71%",
@@ -122,7 +122,7 @@ const quizQuestions = [{
     correctAns: "71%"
   },
   {
-    questionNum: '12',
+    questionNum: "12",
     questionText: "The Grand Canyon can be found in which US state?",
     choices: [
       "Hawaii",
@@ -133,7 +133,7 @@ const quizQuestions = [{
     correctAns: "Arizona"
   },
   {
-    questionNum: '13',
+    questionNum: "13",
     questionText: "Which two European countries does the Simplon Tunnel connect?",
     choices: [
       "Scotland and Ireland",
@@ -144,7 +144,7 @@ const quizQuestions = [{
     correctAns: "Switzerland and Italy"
   },
   {
-    questionNum: '14',
+    questionNum: "14",
     questionText: "What is the longest river in Asia?",
     choices: [
       "Yenesei",
@@ -155,7 +155,7 @@ const quizQuestions = [{
     correctAns: "Yangtze"
   },
   {
-    questionNum: '15',
+    questionNum: "15",
     questionText: "The European Union consists of how many states?",
     choices: [
       "28",
@@ -166,7 +166,7 @@ const quizQuestions = [{
     correctAns: "27"
   },
   {
-    questionNum: '16',
+    questionNum: "16",
     questionText: "Which is the largest inland sea?",
     choices: [
       "Caspian Sea",
@@ -177,7 +177,7 @@ const quizQuestions = [{
     correctAns: "Caspian Sea"
   },
   {
-    questionNum: '17',
+    questionNum: "17",
     questionText: " Which is the smallest independent state in the world?",
     choices: [
       "San Marino",
@@ -188,7 +188,7 @@ const quizQuestions = [{
     correctAns: "The Vatican"
   },
   {
-    questionNum: '18',
+    questionNum: "18",
     questionText: "Which range of mountains separates France from Spain?",
     choices: [
       "Alps",
@@ -199,7 +199,7 @@ const quizQuestions = [{
     correctAns: "Pyrenees"
   },
   {
-    questionNum: '19',
+    questionNum: "19",
     questionText: "What is not a GNSS system?",
     choices: [
       "Galileo",
@@ -210,7 +210,7 @@ const quizQuestions = [{
     correctAns: "USNO"
   },
   {
-    questionNum: '20',
+    questionNum: "20",
     questionText: "The Name Of Which Central American Country Means The Saviour In English?",
     choices: [
       "Mexico",
@@ -221,7 +221,7 @@ const quizQuestions = [{
     correctAns: "El Salvador"
   },
   {
-    questionNum: '21',
+    questionNum: "21",
     questionText: "Climate change is likely to create...",
     choices: [
       "more extreme weather events",
@@ -232,7 +232,7 @@ const quizQuestions = [{
     correctAns: "all of the above"
   },
   {
-    questionNum: '22',
+    questionNum: "22",
     questionText: "What is the world's most remote human settlement?",
     choices: [
       "Tristan da Cunha",
@@ -243,7 +243,7 @@ const quizQuestions = [{
     correctAns: "Tristan da Cunha"
   },
   {
-    questionNum: '23',
+    questionNum: "23",
     questionText: "What country doesn't share a border with North Korea?",
     choices: [
       "China",
@@ -254,7 +254,7 @@ const quizQuestions = [{
     correctAns: "Japan"
   },
   {
-    questionNum: '24',
+    questionNum: "24",
     questionText: "Which African nation does not have a sea border?",
     choices: [
       "Benin",
@@ -265,7 +265,7 @@ const quizQuestions = [{
     correctAns: "Lesotho"
   },
   {
-    questionNum: '25',
+    questionNum: "25",
     questionText: "The Wilson cycle describes what process?",
     choices: [
       "Sea-level rise",
@@ -276,7 +276,7 @@ const quizQuestions = [{
     correctAns: "Continental drift"
   },
   {
-    questionNum: '26',
+    questionNum: "26",
     questionText: "The Chicxulub crater is associated with what deep time, mass extinction event?",
     choices: [
       "Cretaceous-tertiary",
@@ -287,7 +287,7 @@ const quizQuestions = [{
     correctAns: "Cretaceous-tertiary"
   },
   {
-    questionNum: '27',
+    questionNum: "27",
     questionText: "What civilisation is often credited with producing the first world map?",
     choices: [
       "Celts",
@@ -298,7 +298,7 @@ const quizQuestions = [{
     correctAns: "Greeks"
   },
   {
-    questionNum: '28',
+    questionNum: "28",
     questionText: "Geography is described as the ${what} of sciences?",
     choices: [
       "King",

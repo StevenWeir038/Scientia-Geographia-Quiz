@@ -1,8 +1,8 @@
-# **islandAQUAdesign**
+# **SCIENTIA geographia**
 
-Welcome to **islandAQUAdesign**. A website developed to introduce amateur aquarists to the popular sub-genre of aquascaping.
+Welcome to **SCIENTIA geographia**. A website developed to Test your Geography knowledge.
 
-![Mockup](docs/readme/website_mockup.png "Website preview at different resolutions") 
+![Mockup](docs/readme/responsive.png "Website preview at different resolutions") 
 
 
 # UX Design
