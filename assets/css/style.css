@@ -29,6 +29,7 @@
 .sky-blue {
     color: rgb(var(--theme-two));
 }
+
 .light-green {
     color: rgb(var(--theme-three));
 }
@@ -91,7 +92,7 @@ footer p {
 
 .social :hover {
     color: rgba(var(--theme-two), 1);
-    animation: wiggle 0.6s;  
+    animation: wiggle 0.6s;
 }
 
 .italianno {
@@ -151,42 +152,52 @@ footer p {
     0% {
         transform: translate(1px, 1px) rotate(0deg);
     }
+
     10% {
         transform: translate(-1px, -2px) rotate(-1deg);
     }
+
     20% {
         transform: translate(-3px, 0px) rotate(1deg);
     }
+
     30% {
         transform: translate(3px, 2px) rotate(0deg);
     }
+
     40% {
         transform: translate(1px, -1px) rotate(1deg);
     }
+
     50% {
         transform: translate(-1px, 2px) rotate(-1deg);
     }
+
     60% {
         transform: translate(-3px, 1px) rotate(0deg);
     }
+
     70% {
         transform: translate(3px, 1px) rotate(-1deg);
     }
+
     80% {
         transform: translate(-1px, -1px) rotate(1deg);
     }
+
     90% {
         transform: translate(1px, 2px) rotate(0deg);
     }
+
     100% {
         transform: translate(1px, -2px) rotate(-1deg);
     }
 }
 
 
-/* Landing section */
+/* Landing section and call to action element */
 #landing {
-    display: inline-flex; /* default value is block when opening page */
+    display: inline-flex;
 }
 
 #play-quiz-btn {
@@ -207,13 +218,14 @@ footer p {
 #new-game {
     background-color: rgba(var(--theme-one), 0.85);
     width: 350px;
-    display: none; /* display inline flex or none to keep element centered on page or hidden */
+    display: none;
 }
 
 #player-name {
     font-size: 1.25em;
     width: calc(100% - 1em)
 }
+
 .start-game-btn-holder {
     display: flex;
     justify-content: space-evenly;
@@ -232,7 +244,7 @@ footer p {
 
 /* Quiz section */
 #quiz {
-    display: none; /* display inline flex or none to keep element centered on page or hidden */
+    display: none;
 }
 
 .quiz-info-top {
@@ -244,7 +256,6 @@ footer p {
 }
 
 #total-time {
-    /* display: inline-block; */
     width: 30%;
     height: 1em;
     border: 2px solid var(--theme-one);
@@ -298,7 +309,7 @@ footer p {
     display: inline-flex;
 }
 
-#next-btn{
+#next-btn {
     background-color: rgba(var(--theme-one), 0.85);
     font-size: 1.25em;
 }
@@ -321,10 +332,9 @@ footer p {
     margin: 0.5em 0;
 }
 
-
-/* Results section css border effect courtesy of https://www.youtube.com/watch?v=LYgQXOV-x24*/
+/* Results section */
 #results {
-    display: none;  /* display inline flex or none to keep element centered on page or hidden */
+    display: none;
     justify-content: space-around;
     width: 80vw;
     margin: 2.25em 0;
@@ -334,7 +344,7 @@ footer p {
     border-radius: 10px;
 }
 
-#results > * {
+#results>* {
     z-index: 1;
 }
 
@@ -355,8 +365,13 @@ footer p {
 }
 
 @keyframes animate {
-    0% {transform: rotate(0deg);}
-    100% {transform: rotate(360deg);}
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 #user-feedback a,
