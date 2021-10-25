@@ -42,7 +42,8 @@ quizLeaveBtn.addEventListener("click", quizLeave);
 
 
 function quizStart() {
-  if (playerName.value == "" || playerName.value == null || playerName.value == undefined) {
+  if (playerName.value == "" || playerName.value == null || playerName
+    .value == undefined) {
     playerName.style.borderColor = "red";
   } else {
     quizSection.style.display = "inline-flex";
@@ -100,8 +101,7 @@ function resetTimer() {
  * Credit to https://bost.ocks.org/mike/shuffle/
  */
 function shuffle(array) {
-  let m = array.length,
-    t, i;
+  let m = array.length, t, i;
 
   // While there remain elements to shuffle…
   while (m) {
@@ -135,14 +135,17 @@ function buildQuizQuestion(questionID) {
 function trackerUpdate() {
   switch (yaynay) {
     case "correct":
-      document.getElementsByClassName("circle")[questionCount - 1].style.backgroundColor = "green";
+      document.getElementsByClassName("circle")[questionCount - 1]
+        .style.backgroundColor = "green";
       break;
     case "incorrect":
-      document.getElementsByClassName("circle")[questionCount - 1].style.backgroundColor = "red";
+      document.getElementsByClassName("circle")[questionCount - 1]
+        .style.backgroundColor = "red";
       break;
     case null:
     case undefined:
-      document.getElementsByClassName("circle")[questionCount - 1].style.backgroundColor = "gray";
+      document.getElementsByClassName("circle")[questionCount - 1]
+        .style.backgroundColor = "gray";
       break;
   }
 }
@@ -167,7 +170,8 @@ nextBtn.addEventListener("click", nextQuestion);
 
 
 function progressIndicator(questionCount) {
-  document.getElementsByClassName("circle")[questionCount].style.backgroundColor = "yellow";
+  document.getElementsByClassName("circle")[questionCount]
+    .style.backgroundColor = "yellow";
 }
 
 
@@ -190,7 +194,7 @@ function choiceAnswer(event) {
 }
 
 function resetAnswerStyles() {
-  for (let answer of answerOptions) {
+  for (answer of answerOptions) {
     answer.setAttribute("class", "answer");
   }
 }
@@ -217,15 +221,16 @@ function userResults() {
   const userFeedback = document.querySelector("#user-feedback");
   let player = playerName.value;
   if (correctNum <= 3) {
-    userFeedback.innerHTML = `You"re no al-Idrisi are you ${player}...`;
+    userFeedback.innerHTML = `You"re no al-Idrisi are you ${player}.`;
   } else if (correctNum <= 6) {
-    userFeedback.innerHTML = `${player}, a Mercator in the making...`;
+    userFeedback.innerHTML = `${player}, a Mercator in the making.`;
   } else if (correctNum <= 8) {
-    userFeedback.innerHTML = `Roger F. Tomlinson would be proud ${player}...`;
+    userFeedback.innerHTML = `Roger F. Tomlinson would be proud ${player}.`;
   } else if (correctNum < 10) {
-    userFeedback.innerHTML = `${player} = Eratosthenes...`;
+    userFeedback.innerHTML = `${player}, the next Eratosthenes...`;
   } else if (correctNum >= 10) {
-    userFeedback.innerHTML = `<a href="https://tim.2bn.dev/" target="_blank">${player} has been globetrotting like Tim.</a>`;
+    userFeedback.innerHTML = `<a href="https://tim.2bn.dev/" target="_blank">
+      ${player} has been globetrotting like Tim.</a>`;
   }
 }
 
