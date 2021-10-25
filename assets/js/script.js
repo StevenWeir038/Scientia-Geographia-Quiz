@@ -27,7 +27,6 @@ function startNewGame() {
   landingSection.style.display = "none";
   newGameSection.style.display = "inline-flex";
   playerName.focus();
-  console.log("startNewGame function called");
 }
 
 playQuizButton.addEventListener("click", startNewGame);
@@ -35,24 +34,19 @@ playQuizButton.addEventListener("click", startNewGame);
 
 function quizLeave() {
   playerName.value = "";
-  console.log("playerName input box cleared");
   landingSection.style.display = "inline-flex";
   newGameSection.style.display = "none";
-  console.log("quizLeave function called");
 }
 
 quizLeaveBtn.addEventListener("click", quizLeave);
 
 
 function quizStart() {
-  console.log("quizStart function called");
   if (playerName.value == "" || playerName.value == null || playerName.value == undefined) {
-    console.log("quizStart Errorhandler - user name required ");
     playerName.style.borderColor = "red";
   } else {
     quizSection.style.display = "inline-flex";
     newGameSection.style.display = "none";
-    console.log("start the quiz");
     shuffle(quizQuestions);
     buildQuizQuestion(questionCount);
     progressIndicator(questionCount);
@@ -80,7 +74,6 @@ function startTimer() {
 }
 
 function countdown(seconds) {
-  console.log("startTimer called");
   if (seconds === 0) {
     counter.innerHTML = `0`;
     nextQuestion();
@@ -99,7 +92,6 @@ function resetTimer() {
   timeLeftWidth = 100;
   timeLeftBar.style.width = "100%";
   clearInterval(timer);
-  console.log("resetTimer function called");
 }
 
 
@@ -107,7 +99,6 @@ function resetTimer() {
  * Call only once at start of quiz - credit to https://bost.ocks.org/mike/shuffle/
 */
 function shuffle(array) {
-  console.log("shuffle function called (only once at quizStart)");
   let m = array.length,
     t, i;
 
@@ -128,7 +119,6 @@ function shuffle(array) {
 
 
 function buildQuizQuestion(questionID) {
-  console.log("buildQuizQuestion function called");
   let currentQuestionNum = document.getElementById("current-question");
   let totalQuestions = document.getElementById("total-questions");
   currentQuestionNum.innerHTML = questionCount + 1;
@@ -151,7 +141,6 @@ function trackerUpdate() {
       break;
     case null:
     case undefined:
-      console.log("no answer confirmed within timeframe, question point forfeited, mark circle with gray color");
       document.getElementsByClassName("circle")[questionCount - 1].style.backgroundColor = "gray";
       break;
   }
@@ -159,11 +148,9 @@ function trackerUpdate() {
 
 
 function nextQuestion() {
-  console.log("nextQuestion function called");
   resetAnswerStyles();
   resetTimer();
   questionCount += 1;
-  console.log("move to question number " + questionCount);
   trackerUpdate();
   if (questionCount < quizLength) {
     buildQuizQuestion(questionCount);
@@ -179,7 +166,6 @@ nextBtn.addEventListener("click", nextQuestion);
 
 
 function progressIndicator(questionCount) {
-  console.log("progressIndicator function called, indicate question number with yellow question circle");
   document.getElementsByClassName("circle")[questionCount].style.backgroundColor = "yellow";
 }
 
@@ -187,7 +173,6 @@ function progressIndicator(questionCount) {
 function endOfQuiz() {
   quizSection.style.display = "none";
   resultsSection.style.display = "inline-flex";
-  console.log("endOfQuiz function called");
   userResults();
 }
 
@@ -204,7 +189,6 @@ function choiceAnswer(event) {
 }
 
 function resetAnswerStyles() {
-  console.log("resetAnswerStyles function called");
   for (let answer of answerOptions) {
     answer.setAttribute("class", "answer");
   }
@@ -212,18 +196,13 @@ function resetAnswerStyles() {
 
 
 function evaluateAnswer(targetID) {
-  console.log("evaluateAnswer function called");
   let userAnswer = event.target.innerText;
   let correctAnswer = quizQuestions[questionCount].correctAns;
-  console.log("the user answer is "" + userAnswer + """);
-  console.log("the correct answer is "" + correctAnswer + """);
 
   if (correctAnswer === userAnswer) {
     correctNum++;
-    console.log("the user score moves to " + correctNum);
     yaynay = "correct";
   } else {
-    console.log("the user score remains at " + correctNum);
     yaynay = "incorrect";
   }
 }
