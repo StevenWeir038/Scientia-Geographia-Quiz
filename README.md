@@ -4,13 +4,44 @@ Welcome to **SCIENTIA geographia**. A website developed to Test your Geography k
 
 ![Mockup](docs/readme/responsive.png "Website preview at different resolutions") 
 
+# Table of Contents
+- [UX Design](#ux-design)
+  - [Audience](#audience)
+  - [Site Design and User Stories](#site-design-and-user-stories)
+  - [Wireframing](#wireframing)
+  - [Color Scheme and Accessibility](#color-scheme-and-accessibility)
+  - [Code Reusability and Site Layout](#code-reusability-and-site-layout)
+- [Existing Features](#existing-features)
+ - [One Page Site and Future Implementations](#one-page-site-and-future-implementations)
+ - [Header and Background](#header-and-background)
+ - [Footer](#footer)
+ - [Landing Section](#landing-section)
+ - [Name Section](#name-section)
+ - [Quiz Section](#quiz-section)
+    - [Quiz Info Bar](#quiz-info-bar)
+    - [Questions & Answers](#questions-and-answers)
+    - [Score Tracker](#score-tracker)
+  - [Results Section](#results-section)
+- [Testing](#testing)
+  - [Fixed Bugs](#fixed-bugs)
+  - [Unfixed Bugs](#unfixed-bugs)
+  - [Browsers](#browsers)
+  - [Validator Testing](#validator-testing)
+    - [HTML](#html)
+    - [CSS](#css)
+    - [Javascript](#javascript)
+    - [Lighthouse](#lighthouse)
+- [Deployment](#deployment)
+  - [Local Deployment](#local-deployment)
+- [Credits](#credits)
+  - [Media and Content](#media-and-content)
 
 # UX Design
 The site is a fun but challenging quiz.
 ## Audience
 It is target audience is assumed to have a good level of general knowledge or have studied geography as part of their academics.
 
-## Site Design & User Stories
+## Site Design and User Stories
 The site's design is informed by the *users stories* and aims to provide:
 - An elegant yet simple and intuitive inteface
 - A place to input a name to tailor their unique results
@@ -48,7 +79,7 @@ To meet WCAG 2.0 criteria, the generated color scheme was then passed to [eights
 ![color_scheme](docs/readme/color-contrast-grid.png "Accessibility Table")
 
 
-## Code Reusability & Site Layout
+## Code Reusability and Site Layout
 Extensive use was made off flexbox to position elements and were possible classes within the html were used to inject most of the CSS styles into the page.
 This reduced the size and complexity of the CSS used.
 
@@ -65,7 +96,7 @@ border-radius: 10px;
 
 # Existing Features
 
-## One Page Site / Future Implementations
+## One Page Site and Future Implementations
 For ease, the site is limited to one page as this is my first time using Javascript (JS) within the DOM.  Given current limitations, I was still able to activate the page by showing/hiding different sections by adding event listeners to specific elements.
 This gives the appearance of the site being more complex than it actually is.
 
@@ -84,7 +115,7 @@ Further development implementations could be:
 - An option for the user to change the site color scheme. JS can easily do this by adding/removing classes on targeted elements.
 - A facility to print a certificate
 
-## Header & Background
+## Header and Background
 ![desktop](docs/readme/header.png "Header")
 
 The site follows a simple one page design therefore an anchor tag isn't required on the [header](docs/readme/header.png "Header section").
@@ -117,6 +148,7 @@ is ready for input.
 ![Name Section](docs/readme/input-name-section.png "Name Section")
 
 ## Quiz Section
+
 ### Quiz Info Bar
 ![Quiz Info Bar](docs/readme/quiz-info.png "Quiz Info Bar")
 
@@ -125,7 +157,7 @@ Features include:
 - A countdown timer with intuitive favicon showing a person and clockface
 - A countdown bar for the more visual user
 
-### Question & Answers
+### Questions and Answers
 ![Question Answer Next](docs/readme/question-answer-next.png "Question Answer Next")
 
 Features include:
@@ -148,7 +180,7 @@ Elements are color coded and mean the following:
 
 On testing this feature with family and work colleagues I found this type of feedback improved user experience as they shared their progress with the group.
 
-### Results Section
+## Results Section
 ![Results Section](docs/readme/results.png "Results Section")
 
 The results modal provides the user with:
@@ -193,7 +225,7 @@ JS directly copied and pasted into a [linter](https://www.jslint.com/) tool.
 
 ![JS Linter Check](docs/readme/linter-check.png "JS Linter Check")
 
-## Lighthouse
+### Lighthouse
 99% performance for [desktop](docs/readme/lighthouse-desktop.png "Chrome Developer Tools desktop score") site.
 
 ![desktop](docs/readme/lighthouse-desktop.png "Chrome Developer Tools desktop score")
@@ -204,7 +236,6 @@ JS directly copied and pasted into a [linter](https://www.jslint.com/) tool.
 
 
 # Deployment
-
 The site was deployed to *GitHub* pages. The steps to deploy are as follows:
 - In the GitHub repository, navigate to the *Settings* tab.
 - From the source section drop-down menu, select the Master Branch.
@@ -213,7 +244,6 @@ The site was deployed to *GitHub* pages. The steps to deploy are as follows:
 The live link can be found here - https://stevenweir038.github.io/Scientia-Geographia-Quiz/
 
 ## Local Deployment
-
 In order to make a local copy of this repository, you can clone the project by typing the follow into your IDE terminal:
 - `git clone https://github.com/StevenWeir038/Scientia-Geographia-Quiz.git`
 
@@ -221,7 +251,7 @@ Alternatively if using gitpod you can click [here](https://gitpod.io/#https://gi
 
 # Credits
 Once more a special mention is reserved for my mentor [Tim Nelson](https://github.com/TravelTimN).  Through him I'm learning that being a developer is about more than
-coding.  It is about having a calm, methodical approach and realising there is a solution to every problem.  It just takes research and perseverance.
+learning code.  It is about having a calm, methodical approach and realising there is a solution to every problem.  It just takes research and perseverance.
 
 Also I'd like to thank my fellow students and alumni at [Code Institute](https://codeinstitute.net/) for sharing their insights and approaches via Slack.
 
@@ -229,7 +259,7 @@ Special credit goes to [Britannica](https://www.britannica.com/quiz/50-capital-c
 
 Questions are based of my own general knowledge from years pouring over [Google Maps](https://www.google.com/maps/place/Code+Institute/@53.2996313,-6.1656661,11.75z/data=!4m5!3m4!1s0x48670e99733f3617:0x7ff7202fe3dea603!8m2!3d53.2981987!4d-6.178654) and watching too many videos on [Youtube](youtube.com) and [Curiosity Stream](https://curiositystream.com)!
 
-## Media & Content
+## Media and Content
 **Images**
 Body background courtesy of [Teahub](https://www.teahub.io/viewwp/iRibmT_wallpaper-globe-antiques-map-globus/).
 
