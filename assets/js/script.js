@@ -328,7 +328,7 @@ const quizQuestions = [{
     questionText: "Germany has how many constituent states?",
     choices: [
       "Twenty",
-      "Twelwe",
+      "Twelve",
       "Seven",
       "Sixteen"
     ],

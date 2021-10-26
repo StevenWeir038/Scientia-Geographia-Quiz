@@ -49,7 +49,7 @@ To meet WCAG 2.0 criteria, the generated color scheme was then passed to [eights
 
 
 ## Code Reusability & Site Layout
-Extensive use was made off flexbox to position elements and were possible classes within the html was used to inject most of the CSS styles into the page.
+Extensive use was made off flexbox to position elements and were possible classes within the html were used to inject most of the CSS styles into the page.
 This reduced the size and complexity of the CSS used.
 
 ```html
@@ -79,7 +79,10 @@ function startNewGame() {
 playQuizButton.addEventListener("click", startNewGame);
 ```
 
-Further development implementations can be a leaderboard, and an option for the user to change color scheme. JS can easily do this by adding/removing classes on targeted elements.
+Further development implementations could be: 
+- A leaderboard
+- An option for the user to change the site color scheme. JS can easily do this by adding/removing classes on targeted elements.
+- A facility to print a certificate
 
 ## Header & Background
 ![desktop](docs/readme/header.png "Header")
@@ -105,40 +108,71 @@ This section is a launch point for the user and is minimalist by design.  The ca
 
 ## Name Section
 The name section has a few useful features:
-- Autofocus on the name input element to save the user having to manually select.  This is expecially useful on mobile devices.
-- Two buttons to either start or Leave quiz and go back to landing section
-- An additional event listener on the input element for pressing enter on a keyboard or Go on a mobile device keypad.  This has the same result as Start quiz.
+- Autofocus on the name input element to save the user having to manually select.  This is expecially useful on mobile devices. The blinking cursor shows the application
+is ready for input.
+- Two buttons to either start or leave quiz and return to landing section. This gives the user added control before beginning the game.
+- An additional event listener on the input element for pressing enter on a keyboard or Go on a mobile device keypad.  This has the same result as clicking the start button.
 - An error handler that applies a red border to the input box in the event where no player name is provided.
 
 ![Name Section](docs/readme/input-name-section.png "Name Section")
 
 ## Quiz Section
 ### Quiz Info Bar
-STILL TO COMPLETE
-
 ![Quiz Info Bar](docs/readme/quiz-info.png "Quiz Info Bar")
-- question indicator
-- countdown timer
-- countdown bar
-STILL TO COMPLETE add to features - question randomiser
+
+Features include:
+- An indicator stating the current question number out of a total of the total quiz length.. 
+- A countdown timer with intuitive favicon showing a person and clockface
+- A countdown bar for the more visual user
 
 ### Question & Answers
-STILL TO COMPLETE
-
 ![Question Answer Next](docs/readme/question-answer-next.png "Question Answer Next")
 
-### Score Tracker
-STILL TO COMPLETE
+Features include:
+- One question and four multiple choice answers
+- On selected answer has a different format
+- The user can change their mind and select a different answer before clicking next button to move to next question
 
+### Score Tracker
 ![Score Tracker](docs/readme/quiz-answer-feedback.png "Score Tracker")
 
+As the quiz defaults to 10 questions, 10 elements were hard coded into the html.  The purpose of these are to give a visual cue to the user on how well they are doing.
+
+NB. a future implementation could be to change the number of quiz  questions.  It would be possible to change the score tracker element to reflect the total question count set by the ``quizLength`` variable in the JS file by means of a template literal.
+
+Elements are color coded and mean the following:
+- *Yellow* shows the question the user is currently on.  This supplements the question number display in the quiz info bar above the question
+- *Gray* shows the user didn't confirm an answer for the previous question before the 30 second countdown reached zero.
+- *Red* shows a wrong answer
+- *Green* shows a correct answer
+
+On testing this feature with family and work colleagues I found this type of feedback improved user experience as they shared their progress with the group.
 
 ### Results Section
-STILL TO COMPLETE
-
 ![Results Section](docs/readme/results.png "Results Section")
 
+The results modal provides the user with:
+- Their total score out of 10
+- A bespoke message comprised of the name they proved before the 1st question with text feedback based on their score. 
+- A REPLAY button
+
 # Testing
+## Fixed Bugs
+- Shuffle functionality added to quiz before beginning using Fisher/Yates method.  This way we can always ask the same number of questions but 
+improve their variation in the case the user plays more than once.
+- User could proceed to quiz without entering text into playerName input
+- Score Tracker displayed correct/incorrect answer before user moved onto next question.  This gave the oppurtunity to cheat.
+- Syncing the countdown bar with the countdown timer element.
+
+## Unfixed Bugs
+If the user doesn't select an answer withing 30 seconds the score tracker for the current question should default to a gray color.
+
+It was found if a question was answered correctly / incorrectly and any subsequent question wasn't answered within 30 seconds, the last answered questions
+color of red or green was assumed.  This scenario is highly unlikely to be seen by the user as they are assumed to make an effort to answer a question and 
+move on, even if they are unsure of the answer.
+
+## Browsers
+STILL TO COMPLETE
 
 ## Validator Testing
 ### HTML
@@ -172,8 +206,8 @@ JS directly copied and pasted into a [linter](https://www.jslint.com/) tool.
 # Deployment
 
 The site was deployed to *GitHub* pages. The steps to deploy are as follows:
-- In the GitHub repository, navigate to the *Settings* tab
-- From the source section drop-down menu, select the Master Branch
+- In the GitHub repository, navigate to the *Settings* tab.
+- From the source section drop-down menu, select the Master Branch.
 - Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
 
 The live link can be found here - https://stevenweir038.github.io/Scientia-Geographia-Quiz/
@@ -186,80 +220,17 @@ In order to make a local copy of this repository, you can clone the project by t
 Alternatively if using gitpod you can click [here](https://gitpod.io/#https://github.com/StevenWeir038/Scientia-Geographia-Quiz)
 
 # Credits
-Once more a special mention is reserved for my mentor [Tim Nelson](https://github.com/TravelTimN) for his inspiration and calming advice on my journey to becoming a developer.
+Once more a special mention is reserved for my mentor [Tim Nelson](https://github.com/TravelTimN).  Through him I'm learning that being a developer is about more than
+coding.  It is about having a calm, methodical approach and realising there is a solution to every problem.  It just takes research and perseverance.
 
 Also I'd like to thank my fellow students and alumni at [Code Institute](https://codeinstitute.net/) for sharing their insights and approaches via Slack.
 
-Special credit goes to [Britannica](https://www.britannica.com/quiz/50-capital-cities-at-random-quiz) which help be formulate an approach to my own project.
+Special credit goes to [Britannica](https://www.britannica.com/quiz/50-capital-cities-at-random-quiz) which helped me formulate an approach to my own project.
 
-## Media
+Questions are based of my own general knowledge from years pouring over [Google Maps](https://www.google.com/maps/place/Code+Institute/@53.2996313,-6.1656661,11.75z/data=!4m5!3m4!1s0x48670e99733f3617:0x7ff7202fe3dea603!8m2!3d53.2981987!4d-6.178654) and watching too many videos on [Youtube](youtube.com) and [Curiosity Stream](https://curiositystream.com)!
+
+## Media & Content
 **Images**
-
 Body background courtesy of [Teahub](https://www.teahub.io/viewwp/iRibmT_wallpaper-globe-antiques-map-globus/).
-## Content
 
-
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-
-
-
-## Browsers
-The site was developed and tested using Chrome.  It's also ran with no discernable issues on Firefox Developer Edition and Opera. 
-
-## Fixed Bugs
-Mobile *fixed header* obscured section links leading to a negative user experience.
-Utilised a [css only solution](https://codepen.io/cferdinandi/pen/GRJvozN) `scroll-margin-top` to scroll 121px above the section links. Incidentially this is the height of the mobile fixed header + 10px of white background space.
-
-```css
-section[id] {
-scroll-margin-top: 121px;    
-}
-```    
-
-Email field validation can be bypassed by directly clicking the submit button or pressing enter. To fix this I added `required` to the end of input tag as below.
-
-```html
-<input id="email-field" type="email" name="user-email" placeholder="Email address"
-            aria-label="Type your email address here" required>
-```
-
-For formatting purposes I wanted the video to fill 90% of the screen width at all times. Hard coding a value of 800px for the desktop rendered the iframe too large on a mobile screen.
-At higher resolutions the `.video` class dimensions became [distorted](docs/readme/distorted_video.png) from standard 16:9 aspect ratio in plants section due to being within an `iframe`.
-
-![distorted](docs/readme/distorted_video.png)
-
-The dimension issue was by solved placing the iframe inside a `div`. The iframe was styled to fit the full height and width of the div which in turn had a `padding-top` value of 56.25%.  This was calcuated using the aspect ratio (9/16 = 0.5625).
-Further testing showed the video container was exceeding the screen height due to the 90% container width. Ten percentage points were taken off using `padding-top: 46.25%;`. This gives an aspect ratio of 7.4/16.
-Note there is an experimental CSS property called `aspect-ratio`. I could have replaced the [existing solution](docs/readme/responsive_iframe_solution.png "Code to create a responsive iframe") with `aspect-ratio: 7.4 / 16;`.  I opted not to as MDN indicates it is still experimental and I want to optomise browser support.
-
-![existing solution](docs/readme/responsive_iframe_solution.png "Code to create a responsive iframe")
-
-After entering a validated email address the user is directed to a formdump page indicating their success. They are automatically taken back to main site after a predefined amount of time using the following code snippet in the `head`.
-
-```html
-<meta http-equiv="refresh" content="5; url=index.html">
-```
-
-## Unfixed Bugs
-[Mobile nav menu](docs/readme/mobile_nav.png) does not collapse after selecting link then focusing on other parts of page. The menu icon must be clicked again to uncheck the hidden checkbox.
-A review of [Stack Overflow](https://stackoverflow.com/) suggests no known fix using CSS only and that JavaScript is required.
-
-![Mobile nav menu](docs/readme/mobile_nav.png)
-
-In the [formdump](docs/readme/formdump_redirect_counter.png "Image of formdump counter showing user no action is necessary") page, the timer to indicate the site is redirecting back to home requires Javascript to change it's value in `#counter` element.  This shows the user the site is active and that they don't need to take any action to go back to homepage.
-
-![formdump](docs/readme/formdump_redirect_counter.png "Image of formdump counter showing user no action is necessary")
+Favicons from [Font Awesome](https://fontawesome.com/).
