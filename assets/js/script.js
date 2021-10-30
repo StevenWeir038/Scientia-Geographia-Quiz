@@ -201,7 +201,7 @@ function resetAnswerStyles() {
 
 
 function evaluateAnswer(targetID) {
-  let userAnswer = event.target.innerText;
+  let userAnswer = document.getElementById(targetID).innerText;
   let correctAnswer = quizQuestions[questionCount].correctAns;
 
   if (correctAnswer === userAnswer) {
