@@ -19,6 +19,7 @@ Welcome to **SCIENTIA geographia**. A website developed to Test your Geography k
  - [Name Section](#name-section)
  - [Quiz Section](#quiz-section)
     - [Quiz Info Bar](#quiz-info-bar)
+    - [Upgrade](#upgrade)
     - [Questions & Answers](#questions-and-answers)
     - [Score Tracker](#score-tracker)
   - [Results Section](#results-section)
@@ -217,12 +218,22 @@ This was fixed by changing the background color of the `#time-left` element in *
 
 A further modification was made to the countdown bar to make it's movement appear more fluid by adding `transition: all 0.5s ease-in-out;` to the `#time-left` element in *style.css*
 
-## Unfixed Bugs
-If the user doesn't select an answer withing 30 seconds the score tracker for the current question should default to a gray color.
+- If the user did not select an answer within 30 seconds the quiz moves onto the next question. The score tracker for the previous question should then default to a gray color.
 
-It was found if a question was answered correctly / incorrectly and any subsequent question wasn't answered within 30 seconds, the last answered questions
-color of red or green was assumed.  This scenario is highly unlikely to be seen by the user as they are assumed to make an effort to answer a question and 
-move on, even if they are unsure of the answer.
+If any previous question was answered then the click event on an answer element set the `yaynay` variable value to *correct* or *incorrect* using the `evaluateAnswer()` function. Note `evaluateAnswer()` is only called from a click event on an answer element making it the only means to assign the about two values to the `yaynay` variable.
+
+To default the previous questions status to *unanswered* the following was added at the end of the `trackerUpdate()` function after the color element for the previous qustion was set.  Therefore if the quiz is left idle *(at any point)* then the correct indicator shold always be displayed.
+
+``` JS
+  document.getElementsByClassName("circle")[questionCount - 1].style.backgroundColor = trackerColor;
+    yaynay = "unanswered";
+```
+
+Notably a user will likely not notice the above logic as it is assumed they will make an effort to answer each question before 
+moving on, even if they are unsure of the answer.  As a developer we have to try to account for every behaviour however.
+
+## Unfixed Bugs
+All known bugs have been addressed.
 
 ## Browsers
 STILL TO COMPLETE

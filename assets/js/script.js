@@ -83,7 +83,7 @@ function countdown(seconds) {
     timeLeft -= 1;
     counter.innerHTML = timeLeft;
     timeLeftBar.style.width = timeLeftWidth + "%";
-    if (timeLeft >=20) {
+    if (timeLeft >= 20) {
       timeLeftBar.style.backgroundColor = "green";
     } else if (timeLeft <= 10) {
       timeLeftBar.style.backgroundColor = "red";
@@ -109,7 +109,8 @@ function resetTimer() {
  * Credit to https://bost.ocks.org/mike/shuffle/
  */
 function shuffle(array) {
-  let m = array.length, t, i;
+  let m = array.length,
+    t, i;
 
   // While there remain elements to shuffle…
   while (m) {
@@ -140,25 +141,6 @@ function buildQuizQuestion(questionID) {
 }
 
 
-function trackerUpdate() {
-  switch (yaynay) {
-    case "correct":
-      document.getElementsByClassName("circle")[questionCount - 1]
-        .style.backgroundColor = "green";
-      break;
-    case "incorrect":
-      document.getElementsByClassName("circle")[questionCount - 1]
-        .style.backgroundColor = "red";
-      break;
-    case null:
-    case undefined:
-      document.getElementsByClassName("circle")[questionCount - 1]
-        .style.backgroundColor = "gray";
-      break;
-  }
-}
-
-
 function nextQuestion() {
   resetAnswerStyles();
   resetTimer();
@@ -177,16 +159,16 @@ function nextQuestion() {
 nextBtn.addEventListener("click", nextQuestion);
 
 
-function progressIndicator(questionCount) {
-  document.getElementsByClassName("circle")[questionCount]
-    .style.backgroundColor = "yellow";
+function resetAnswerStyles() {
+  for (answer of answerOptions) {
+    answer.setAttribute("class", "answer");
+  }
 }
 
 
-function endOfQuiz() {
-  quizSection.style.display = "none";
-  resultsSection.style.display = "inline-flex";
-  userResults();
+function progressIndicator(questionCount) {
+  document.getElementsByClassName("circle")[questionCount]
+    .style.backgroundColor = "yellow";
 }
 
 
@@ -199,12 +181,6 @@ function choiceAnswer(event) {
   this.setAttribute("class", "answer-selected");
   let targetID = event.target.id;
   evaluateAnswer(targetID);
-}
-
-function resetAnswerStyles() {
-  for (answer of answerOptions) {
-    answer.setAttribute("class", "answer");
-  }
 }
 
 
@@ -220,6 +196,7 @@ function evaluateAnswer(targetID) {
   }
 }
 
+
 function trackerUpdate() {
   let trackerColor;
   switch (yaynay) {
@@ -231,11 +208,21 @@ function trackerUpdate() {
       break;
     case null:
     case undefined:
+    case "unanswered":
       trackerColor = "gray";
       break;
   }
   document.getElementsByClassName("circle")[questionCount - 1].style.backgroundColor = trackerColor;
+  yaynay = "unanswered";
 }
+
+
+function endOfQuiz() {
+  quizSection.style.display = "none";
+  resultsSection.style.display = "inline-flex";
+  userResults();
+}
+
 
 function userResults() {
   const resultScore = document.querySelector("#result-score");
