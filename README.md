@@ -47,7 +47,7 @@ The site's design is informed by the *users stories* and aims to provide:
 - An elegant yet simple and intuitive inteface
 - A place to input a name to tailor their unique results
 - Be able to discern what question they are on
-- Have visual cue as to how much time is left to answer the current question
+- Have a visual cue as to how much time is left to answer the current question
 - Use a simple mouse click to select the answer to each question
 - Provide the option to change their mind before moving to the next question
 - Get feedback *during* the quiz on how they answered the previous questions
@@ -72,7 +72,7 @@ As the project developed other features were added to realise functionality. The
 
 ## Color Scheme and Accessibility
 
-The *color scheme* was derived from a piece of fabric passed through [Adobe Color](https://color.adobe.com/create/image-gradient)
+The *color scheme* was derived from a piece of family tartan passed through [Adobe Color](https://color.adobe.com/create/image-gradient)
 ![color_scheme](docs/readme/adobe-color-image.png "Color Scheme")
 
 To meet WCAG 2.0 criteria, the generated color scheme was then passed to [eightshapes.com](http://www.eightshapes.com) to generate an [*accessibility table*](docs/readme/color-contrast-grid.png "Color Accessibilty Table").
@@ -170,13 +170,13 @@ This adds a sense of panic to answer the current question before time runs out.
 
 Features include:
 - One question and four multiple choice answers
-- On selected answer has a different format
-- The user can change their mind and select a different answer before clicking next button to move to next question
+- Selected answer has a different format
+- The user can change their mind and select a different answer before clicking next button to move to next question (many similar quizes lack this feature)
 
 ### Score Tracker
 ![Score Tracker](docs/readme/quiz-answer-feedback.png "Score Tracker")
 
-As the quiz defaults to 10 questions, 10 elements were hard coded into the html.  The purpose of these are to give a visual cue to the user on how well they are doing.
+As the quiz defaults to 10 questions, 10 elements were hard coded into the html.  The purpose of these are to give a visual cue to the user on their current performance.
 
 NB. a future implementation could be to change the number of quiz  questions.  It would be possible to change the score tracker element to reflect the total question count set by the ``quizLength`` variable in the JS file by means of a template literal.
 
@@ -233,8 +233,7 @@ Notably a user will likely not notice the above logic as it is assumed they will
 moving on, even if they are unsure of the answer.  As a developer we have to try to account for every behaviour however.
 
 ## Unfixed Bugs
-All known bugs have been addressed.
-UPDATE - review yaynay not not defaulting to "unanswered"
+All known bugs have been addressed.  Please provide feedback to those I may have missed to improve the application.
 
 ## Browsers
 STILL TO COMPLETE
@@ -285,7 +284,7 @@ Alternatively if using gitpod you can click [here](https://gitpod.io/#https://gi
 # Credits
 Once more a special mention is reserved for my mentor [Tim Nelson](https://github.com/TravelTimN).  Through him I'm learning that being a developer is about more than
 learning code.  Do your research and have a calm, methodical approach to find a solution to each problem. 
-I also appreciate his insights to help me refractor as I was concerned about code it being too verbose.
+I also appreciate his insights to help me refractor as I was concerned about code being too verbose.
 
 Also I'd like to thank my fellow students and alumni at [Code Institute](https://codeinstitute.net/) for sharing their insights and approaches via Slack.  Infinite Diversity in Infinite Combinations for our fellow Trekkies.
 
