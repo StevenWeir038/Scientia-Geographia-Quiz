@@ -216,13 +216,13 @@ improve their variation in the case the user plays more than once.
 ```
 This was fixed by changing the background color of the `#time-left` element in *style.css* from `background-color: rgba(var(--theme-one), 0.85);` to  `background-color: green;` to match the color attributes being applied by the JS. Alternatively I could have applied directly from the JS resetTimer() function by adding `timeLeftBar.style.backgroundColor = "green";`.
 
-A further modification was made to the countdown bar to make it's movement appear more fluid by adding `transition: all 0.5s ease-in-out;` to the `#time-left` element in *style.css*
+- A further modification was made to the countdown bar to make it's movement appear more fluid by adding `transition: all 0.5s ease-in-out;` to the `#time-left` element in *style.css*
 
 - If the user did not select an answer within 30 seconds the quiz moves onto the next question. The score tracker for the previous question should then default to a gray color.
 
 If any previous question was answered then the click event on an answer element set the `yaynay` variable value to *correct* or *incorrect* using the `evaluateAnswer()` function. Note `evaluateAnswer()` is only called from a click event on an answer element making it the only means to assign the about two values to the `yaynay` variable.
 
-To default the previous questions status to *unanswered* the following was added at the end of the `trackerUpdate()` function after the color element for the previous qustion was set.  Therefore if the quiz is left idle *(at any point)* then the correct indicator shold always be displayed.
+To default the previous questions status to *unanswered (and therefore set the previous question indicator to a gray color)*, the following was added at the end of the `trackerUpdate()` function.  Therefore if the quiz is left idle *(at any point)* then the correct indicator of red/green/gray shold always be displayed.
 
 ``` JS
   document.getElementsByClassName("circle")[questionCount - 1].style.backgroundColor = trackerColor;
@@ -234,6 +234,7 @@ moving on, even if they are unsure of the answer.  As a developer we have to try
 
 ## Unfixed Bugs
 All known bugs have been addressed.
+UPDATE - review yaynay not not defaulting to "unanswered"
 
 ## Browsers
 STILL TO COMPLETE
