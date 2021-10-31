@@ -157,6 +157,13 @@ Features include:
 - A countdown timer with intuitive favicon showing a person and clockface
 - A countdown bar for the more visual user
 
+### *Upgrade*
+![Quiz Info Bar](docs/readme/quiz-info-bar-upgrade.png "Quiz Info Bar Upgrade")
+
+While the countdown bar was in keeping with the site color theme, it did not stand out as well as intended.
+To add value to the user's experience, a color change was triggered using JS as time ran out from green to yellow to red.
+This adds a sense of panic to answer the current question before time runs out.
+
 ### Questions and Answers
 ![Question Answer Next](docs/readme/question-answer-next.png "Question Answer Next")
 
@@ -195,6 +202,20 @@ improve their variation in the case the user plays more than once.
 - User could proceed to quiz without entering text into playerName input
 - Score Tracker displayed correct/incorrect answer before user moved onto next question.  This gave the oppurtunity to cheat.
 - Syncing the countdown bar with the countdown timer element.
+- Once the countdown bar upgrade was applied with the following code the default light blue theme color reverted back everytime the timer reset to 30 seconds.
+
+``` JS
+    if (timeLeft >=20) {
+      timeLeftBar.style.backgroundColor = "green";
+    } else if (timeLeft <= 10) {
+      timeLeftBar.style.backgroundColor = "red";
+    } else {
+      timeLeftBar.style.backgroundColor = "yellow";
+    }
+```
+This was fixed by changing the background color of the `#time-left` element in *style.css* from `background-color: rgba(var(--theme-one), 0.85);` to  `background-color: green;` to match the color attributes being applied by the JS. Alternatively I could have applied directly from the JS resetTimer() function by adding `timeLeftBar.style.backgroundColor = "green";`.
+
+A further modification was made to the countdown bar to make it's movement appear more fluid by adding `transition: all 0.5s ease-in-out;` to the `#time-left` element in *style.css*
 
 ## Unfixed Bugs
 If the user doesn't select an answer withing 30 seconds the score tracker for the current question should default to a gray color.
@@ -251,9 +272,10 @@ Alternatively if using gitpod you can click [here](https://gitpod.io/#https://gi
 
 # Credits
 Once more a special mention is reserved for my mentor [Tim Nelson](https://github.com/TravelTimN).  Through him I'm learning that being a developer is about more than
-learning code.  It is about having a calm, methodical approach and realising there is a solution to every problem.  It just takes research and perseverance.
+learning code.  Do your research and have a calm, methodical approach to find a solution to each problem. 
+I also appreciate his insights to help me refractor as I was concerned about code it being too verbose.
 
-Also I'd like to thank my fellow students and alumni at [Code Institute](https://codeinstitute.net/) for sharing their insights and approaches via Slack.
+Also I'd like to thank my fellow students and alumni at [Code Institute](https://codeinstitute.net/) for sharing their insights and approaches via Slack.  Infinite Diversity in Infinite Combinations for our fellow Trekkies.
 
 Special credit goes to [Britannica](https://www.britannica.com/quiz/50-capital-cities-at-random-quiz) which helped me formulate an approach to my own project.
 

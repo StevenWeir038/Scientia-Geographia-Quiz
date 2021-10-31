@@ -83,6 +83,13 @@ function countdown(seconds) {
     timeLeft -= 1;
     counter.innerHTML = timeLeft;
     timeLeftBar.style.width = timeLeftWidth + "%";
+    if (timeLeft >=20) {
+      timeLeftBar.style.backgroundColor = "green";
+    } else if (timeLeft <= 10) {
+      timeLeftBar.style.backgroundColor = "red";
+    } else {
+      timeLeftBar.style.backgroundColor = "yellow";
+    }
   }
 }
 
@@ -92,6 +99,7 @@ function resetTimer() {
   counter.innerHTML = `30`;
   timeLeftWidth = 100;
   timeLeftBar.style.width = "100%";
+  timeLeftBar.style.backgroundColor = "green";
   clearInterval(timer);
 }
 
@@ -212,6 +220,22 @@ function evaluateAnswer(targetID) {
   }
 }
 
+function trackerUpdate() {
+  let trackerColor;
+  switch (yaynay) {
+    case "correct":
+      trackerColor = "green";
+      break;
+    case "incorrect":
+      trackerColor = "red";
+      break;
+    case null:
+    case undefined:
+      trackerColor = "gray";
+      break;
+  }
+  document.getElementsByClassName("circle")[questionCount - 1].style.backgroundColor = trackerColor;
+}
 
 function userResults() {
   const resultScore = document.querySelector("#result-score");
