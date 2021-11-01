@@ -217,19 +217,19 @@ footer p {
 /* Game start section */
 #new-game {
     background-color: rgba(var(--theme-one), 0.85);
-    width: 350px;
+    min-width: 280px;
     display: none;
 }
 
 #player-name {
     font-size: 1.25em;
-    width: calc(100% - 1em)
+    width: calc(90% - 1em)
 }
 
 .start-game-btn-holder {
     display: flex;
     justify-content: space-evenly;
-    width: calc(100% - 1em)
+    width: calc(90% - 1em)
 }
 
 #quiz-start-btn,
@@ -242,11 +242,7 @@ footer p {
 }
 
 
-/* Quiz section */
-#quiz {
-    display: none;
-}
-
+/* Question numbers and timers */
 .quiz-info-top {
     display: inline-flex;
     justify-content: space-around;
@@ -269,6 +265,12 @@ footer p {
     text-align: right;
     background-color: green;
     transition: all 0.5s ease-in-out;
+}
+
+
+/* Quiz section */
+#quiz {
+    display: none;
 }
 
 #question-box {
@@ -315,6 +317,8 @@ footer p {
     font-size: 1.25em;
 }
 
+
+/* User feedback [during quiz] */
 #score-tracker {
     display: inline-flex;
     justify-content: space-around;
@@ -332,6 +336,7 @@ footer p {
     background-color: white;
     margin: 0.5em 0;
 }
+
 
 /* Results section */
 #results {
