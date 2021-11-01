@@ -57,8 +57,8 @@ header {
     background-color: rgba(var(--theme-one), 0.85);
     position: fixed;
     top: 0;
-    border-bottom-left-radius: 50% 50%;
-    border-bottom-right-radius: 50% 50%;
+    border-bottom-left-radius: 60% 80%;
+    border-bottom-right-radius: 60% 80%;
 }
 
 header h1 {
@@ -80,8 +80,8 @@ footer {
     background-color: rgba(var(--theme-one), 0.85);
     position: fixed;
     bottom: 0;
-    border-top-left-radius: 50% 50%;
-    border-top-right-radius: 50% 50%;
+    border-top-left-radius: 60% 80%;
+    border-top-right-radius: 60% 80%;
 }
 
 footer p {
@@ -221,7 +221,7 @@ footer p {
 /* Game start section */
 #new-game {
     background-color: rgba(var(--theme-one), 0.85);
-    min-width: 280px;
+    width: calc(90% - 1em)
     display: none;
 }
 
@@ -389,3 +389,26 @@ footer p {
     text-decoration: none;
     color: rgba(var(--theme-two), 1);
 }
+
+/* for screen resolutions less than 400px remove curved header/footer */
+@media only screen and (max-width: 768px) {
+        header {
+            background-color: rgba(var(--theme-one), 0.85);
+            position: fixed;
+            top: 0;
+            border-bottom-left-radius: 0%;
+            border-bottom-right-radius: 0%;
+        }
+
+        header p {
+            display: none;
+        }
+        
+        footer {
+            background-color: rgba(var(--theme-one), 0.85);
+            position: fixed;
+            bottom: 0;
+            border-top-left-radius: 0%;
+            border-top-right-radius: 0%;
+        }
+  }

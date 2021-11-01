@@ -130,6 +130,8 @@ Note the use of Latin and two contrasting font styles, one modern and the other 
 ## Footer
 ![footer](docs/readme/footer.png "Footer section")
 
+Late on in the project, a border radius was applied to the footer to give a rounded surface feel. An aesthetic to make the user feel they were looking over the horizon.
+
 The [*footer's*](docs/readme/footer.png "Footer section") purpose is to provide access to the developers Github repos and LinkedIn profile via the favicon links.  These open in new tabs.
 Their goal is to allow potential employers and other students to review or use the code to assist in their own projects. 
 
