@@ -263,21 +263,23 @@ function userResults() {
   let resultOutput = `${correctNum} / ${questionCount}`;
   resultScore.innerHTML = resultOutput;
 
-  // Tailor feedback with the player's name and a bespoke message dependant
-  //on upon the total score
+  /**
+   * Tailor feedback with the player's name and a bespoke message dependant
+   * on upon the total score
+   * Also provide the user links to notable geographers
+   */
   const userFeedback = document.querySelector("#user-feedback");
   let player = playerName.value;
   if (correctNum <= 3) {
-    userFeedback.innerHTML = `You"re no al-Idrisi are you ${player}.`;
+    userFeedback.innerHTML = `<a href="https://www.nationalgeographic.org/encyclopedia/al-idrisi/" target="_blank">You're no al-Idrisi are you ${player}.</a>`;
   } else if (correctNum <= 6) {
-    userFeedback.innerHTML = `${player}, a Mercator in the making.`;
+    userFeedback.innerHTML = `<a href="https://www.nationalgeographic.org/encyclopedia/gerardus-mercator/" target="_blank">${player}, a Mercator in the making.</a>`;
   } else if (correctNum <= 8) {
-    userFeedback.innerHTML = `Roger F. Tomlinson would be proud ${player}.`;
+    userFeedback.innerHTML = `<a href="http://wiki.gis.com/wiki/index.php/Roger_Tomlinson" target="_blank"> Roger F. Tomlinson would be proud ${player}.</a>`;
   } else if (correctNum < 10) {
-    userFeedback.innerHTML = `${player}, the next Eratosthenes...`;
+    userFeedback.innerHTML = `<a href="https://www.worldhistory.org/Eratosthenes/" target="_blank">${player}, the next Eratosthenes...</a>`;
   } else if (correctNum >= 10) {
-    userFeedback.innerHTML = `<a href="https://tim.2bn.dev/" target="_blank">
-      ${player} has been globetrotting like Tim.</a>`;
+    userFeedback.innerHTML = `<a href="https://tim.2bn.dev/" target="_blank">${player} has been globetrotting like Tim.</a>`;
   }
 }
 
