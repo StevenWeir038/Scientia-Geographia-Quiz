@@ -1,6 +1,7 @@
 /* jshint esversion: 8 */
 
-let yaynay;
+// Global variables
+let yaynay = "unanswered";
 const quizLength = 10;
 let questionCount = 0;
 let correctNum = 0;
@@ -23,6 +24,7 @@ const answerOptions = answerBox.querySelectorAll(".answer");
 const timeLeftBar = document.getElementById("time-left");
 
 
+// Landing section
 function startNewGame() {
   landingSection.style.display = "none";
   newGameSection.style.display = "inline-flex";
@@ -32,6 +34,7 @@ function startNewGame() {
 playQuizButton.addEventListener("click", startNewGame);
 
 
+// Game start section
 function quizLeave() {
   playerName.value = "";
   landingSection.style.display = "inline-flex";
@@ -63,6 +66,7 @@ playerName.addEventListener("keypress", function (e) {
 });
 
 
+// Timers
 let timeLeft;
 const counter = document.getElementById("counter");
 let timer;
@@ -105,7 +109,7 @@ function resetTimer() {
 
 
 /** Use "Fisher-Yates" shuffle to reorder quiz questions array IN PLACE.
- * Call only once at start of quiz.
+ * Call only ONCE at start of quiz.
  * Credit to https://bost.ocks.org/mike/shuffle/
  */
 function shuffle(array) {
@@ -128,19 +132,10 @@ function shuffle(array) {
 }
 
 
-function buildQuizQuestion(questionID) {
-  let currentQuestionNum = document.getElementById("current-question");
-  let totalQuestions = document.getElementById("total-questions");
-  currentQuestionNum.innerHTML = questionCount + 1;
-  totalQuestions.innerHTML = quizLength;
-  question.innerHTML = quizQuestions[questionID].questionText;
-  choiceOne.innerHTML = quizQuestions[questionID].choices[0];
-  choiceTwo.innerHTML = quizQuestions[questionID].choices[1];
-  choiceThree.innerHTML = quizQuestions[questionID].choices[2];
-  choiceFour.innerHTML = quizQuestions[questionID].choices[3];
-}
-
-
+/**
+ * nextQuestion() acts as a core function, calling on others to support 
+ * pagination, manipulate DOM elements and track user progress/performance
+ */
 function nextQuestion() {
   resetAnswerStyles();
   resetTimer();
@@ -159,6 +154,21 @@ function nextQuestion() {
 nextBtn.addEventListener("click", nextQuestion);
 
 
+// Display the current question in the DOM
+function buildQuizQuestion(questionID) {
+  let currentQuestionNum = document.getElementById("current-question");
+  let totalQuestions = document.getElementById("total-questions");
+  currentQuestionNum.innerHTML = questionCount + 1;
+  totalQuestions.innerHTML = quizLength;
+  question.innerHTML = quizQuestions[questionID].questionText;
+  choiceOne.innerHTML = quizQuestions[questionID].choices[0];
+  choiceTwo.innerHTML = quizQuestions[questionID].choices[1];
+  choiceThree.innerHTML = quizQuestions[questionID].choices[2];
+  choiceFour.innerHTML = quizQuestions[questionID].choices[3];
+}
+
+
+// Reset and selected answer element style to default for next question 
 function resetAnswerStyles() {
   for (answer of answerOptions) {
     answer.setAttribute("class", "answer");
@@ -166,16 +176,23 @@ function resetAnswerStyles() {
 }
 
 
+// Show yellow circle on score-tracker elem to show user current question num
 function progressIndicator(questionCount) {
   document.getElementsByClassName("circle")[questionCount]
     .style.backgroundColor = "yellow";
 }
 
 
+// Loop for answer buttons
 for (answer of answerOptions) {
   answer.addEventListener("click", choiceAnswer);
 }
 
+/**
+ * Click event passed to function to change selected button and it's style
+ * By reseting answer styles before changing selected button's class,
+ * the appearance of one selected button is always maintained.  
+ */
 function choiceAnswer(event) {
   resetAnswerStyles();
   this.setAttribute("class", "answer-selected");
@@ -183,7 +200,14 @@ function choiceAnswer(event) {
   evaluateAnswer(targetID);
 }
 
-
+/**
+ * Each time the user chooses an answer, evaluate it's value to that
+ * of the correct answer. This is stored as a property in each object
+ * within the quizQuestions array.
+ * The returned value ("correct", "incorrect") is used within the
+ * trackerUpdate() switch case to display red, green, gray feedback to the 
+ * user and to tally the number of correct answers as the quiz progresses
+ */
 function evaluateAnswer(targetID) {
   let userAnswer = document.getElementById(targetID).innerText;
   let correctAnswer = quizQuestions[questionCount].correctAns;
@@ -196,7 +220,11 @@ function evaluateAnswer(targetID) {
   }
 }
 
-
+/**
+ * Change the appearance of #score-tracker elements children depending on
+ * whether the answer was correct/incorrect (set by evaluateAnswer function)
+ * or if no answer provided, differentiate this for the user with gray color.
+ */
 function trackerUpdate() {
   let trackerColor;
   switch (yaynay) {
@@ -213,22 +241,30 @@ function trackerUpdate() {
       break;
   }
   document.getElementsByClassName("circle")[questionCount - 1].style.backgroundColor = trackerColor;
+  /**
+   * Default yaynay variable to "unanswered" value to default feedback back to
+   * gray for each question.  This is overridden only by click event passed 
+   * to the choiceAnswer function.
+  */
   yaynay = "unanswered";
 }
 
 
+// Called ONCE user answers allotted number of questions
 function endOfQuiz() {
   quizSection.style.display = "none";
   resultsSection.style.display = "inline-flex";
   userResults();
 }
 
-
+// Called only ONCE at end of quiz to give user feedback.
 function userResults() {
   const resultScore = document.querySelector("#result-score");
   let resultOutput = `${correctNum} / ${questionCount}`;
   resultScore.innerHTML = resultOutput;
 
+  // Tailor feedback with the player's name and a bespoke message dependant
+  //on upon the total score
   const userFeedback = document.querySelector("#user-feedback");
   let player = playerName.value;
   if (correctNum <= 3) {
@@ -245,7 +281,7 @@ function userResults() {
   }
 }
 
-
+// Questions array
 const quizQuestions = [{
     questionNum: "1",
     questionText: "What is the capital city of Hungary?",
