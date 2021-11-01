@@ -20,16 +20,16 @@
     <main class="width">
         <!-- Landing section with call to action element -->
         <section id="landing" class="landing">
-            <i class="far fa-play-circle yellow" id='play-quiz-btn'></i>
+            <i class="far fa-play-circle yellow" id="play-quiz-btn" aria-label="Press play"></i>
         </section>
         <section>
             <!-- Game start section -->
             <section id="new-game" class="flex-column flex-center rounded-border max-width">
                 <p class="yellow margin-zero padding">Player name</p>
-                <input type="text" id="player-name" required class="text-center padding rounded-border">
+                <input type="text" id="player-name" class="text-center padding rounded-border" aria-label="Enter player name" required>
                 <section class="start-game-btn-holder margin">
-                    <button type="button" id="quiz-start-btn" class="rounded-border">Start</button>
-                    <button type="button" id="quiz-leave-btn" class="rounded-border">Leave</button>
+                    <button type="button" id="quiz-start-btn" class="rounded-border" aria-label="Start quiz">Start</button>
+                    <button type="button" id="quiz-leave-btn" class="rounded-border" aria-label="Back to home">Leave</button>
                 </section>
             </section>
             <!-- Quiz section -->
@@ -74,7 +74,7 @@
                 </section>
                 <!-- Next question button -->
                 <section id="quiz-nav" class=" flex-center padding text-center margin rounded-border navy-blue">
-                    <div id="next-btn" class="text-center yellow padding rounded-border">NEXT</div>
+                    <div id="next-btn" class="text-center yellow padding rounded-border" aria-label="Go to next question">NEXT</div>
                 </section>
                 <!-- Score Tracker -->
                 <section id="score-tracker" class="flex-center max-width">
