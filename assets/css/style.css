@@ -221,7 +221,7 @@ footer p {
 /* Game start section */
 #new-game {
     background-color: rgba(var(--theme-one), 0.85);
-    width: calc(90% - 1em)
+    width: calc(90% - 1em);
     display: none;
 }
 
@@ -361,10 +361,10 @@ footer p {
 #results::before {
     content: '';
     position: absolute;
-    width: 15vw;
+    width: 150vw;
     height: 200%;
     background: linear-gradient(rgba(var(--theme-two), 0.85), rgba(var(--theme-four), 0.85));
-    animation: animate 3s linear infinite;
+    animation: animate 1.35s linear infinite;
 }
 
 #results::after {
@@ -372,6 +372,7 @@ footer p {
     position: absolute;
     inset: 4px;
     background: rgb(var(--theme-one));
+    border-radius: 10px;
 }
 
 @keyframes animate {
