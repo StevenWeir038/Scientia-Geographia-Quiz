@@ -183,7 +183,7 @@ Also I'd like to thank my fellow students and alumni at [Code Institute](https:/
 
 Credit goes to [Britannica](https://www.britannica.com/quiz/50-capital-cities-at-random-quiz).  This inspired me to replicate an in-quiz score tracking system into my own project.
 
-Questions are based of my own general knowledge from years pouring over [Google Maps](https://www.google.com/maps/place/Code+Institute/@53.2996313,-6.1656661,11.75z/data=!4m5!3m4!1s0x48670e99733f3617:0x7ff7202fe3dea603!8m2!3d53.2981987!4d-6.178654) and watching too many videos on [Youtube](https://www.youtube.com) and [Curiosity Stream](https://www.curiositystream.com)!
+Questions are based of my own general knowledge and many years spent studying maps and documentaries.
 
 ## Media and Content
 **External Links**
