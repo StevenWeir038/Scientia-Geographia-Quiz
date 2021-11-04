@@ -117,7 +117,7 @@ function resetTimer() {
 
 /** Use "Fisher-Yates" shuffle to reorder quiz questions array IN PLACE.
  * Call only ONCE at start of quiz.
- * Credit to https://bost.ocks.org/mike/shuffle/
+ * Credit to Mike Bostock https://bost.ocks.org/mike/shuffle/
  */
 function shuffle(array) {
   let m = array.length,

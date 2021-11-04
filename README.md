@@ -4,6 +4,33 @@ Welcome to **SCIENTIA geographia**. A website developed to Test your Geography k
 
 ![Mockup](docs/readme/responsive.png "Website preview at different resolutions") 
 
+<<<<<<< HEAD
+=======
+# Table of Contents
+- [UX Design](#ux-design)
+  - [Audience](#audience)
+  - [Site Design and User Stories](#site-design-and-user-stories)
+  - [Wireframing](#wireframing)
+  - [Color Scheme and Accessibility](#color-scheme-and-accessibility)
+  - [Code Reusability and Site Layout](#code-reusability-and-site-layout)
+- [Existing Features](#existing-features)
+ - [One Page Site and Future Implementations](#one-page-site-and-future-implementations)
+ - [Header and Background](#header-and-background)
+ - [Footer](#footer)
+ - [Landing Section](#landing-section)
+ - [Name Section](#name-section)
+ - [Quiz Section](#quiz-section)
+    - [Quiz Info Bar](#quiz-info-bar)
+    - [Questions & Answers](#questions-and-answers)
+    - [Score Tracker](#score-tracker)
+  - [Results Section](#results-section)
+- [Testing](#testing)
+- [Deployment](#deployment)
+  - [Local Deployment](#local-deployment)
+- [Credits](#credits)
+  - [Media and Content](#media-and-content)
+
+>>>>>>> d138ffd367fa7adcaa1162c15f0d352d4316ba65
 # UX Design
 The site is a fun but challenging quiz.
 ## Audience
@@ -98,7 +125,7 @@ Note the use of Latin and two contrasting font styles, one modern and the other 
 ## Footer
 ![footer](docs/readme/footer.png "Footer section")
 
-The [footer's](docs/readme/footer.png "Footer section") provides access to the developer's Github repos and LinkedIn profile via the favicon links.  These open in new tabs as per best practice.
+The [footer](docs/readme/footer.png "Footer section") provides access to the developer's Github repos and LinkedIn profile via the favicon links.  These open in new tabs as per best practice.
 
 Their goal is to allow others use the code in their own projects and have a means of contact. 
 
@@ -123,7 +150,7 @@ is ready for input.
 ![Quiz Info Bar](docs/readme/quiz-info.png "Quiz Info Bar")
 
 Features include:
-- An indicator stating the current question number out of a total of the total quiz length.. 
+- An indicator stating the current question number out of a total of the total quiz length
 - A countdown timer with intuitive favicon showing a person and clockface
 - A countdown bar for the more visual user
 
@@ -134,26 +161,26 @@ Features include:
 - One question and four multiple choice answers
 - The selected answer has a different format
 - The user can change their mind and select a different answer before clicking next button to move to next question (many similar quizes lack this feature)
-- Shuffle functionality using the [*Fisher/Yates*](https://bost.ocks.org/mike/shuffle/) method.  This enables the application to ask the same number of questions which are consistently varied each time it is played.  This was noted by regular players during testing.
+- Shuffle functionality using the *Fisher/Yates* This consistently varies the same number of questions each time the quiz runs.  This was noted by regular players during testing.
 
 ### Score Tracker
 ![Score Tracker](docs/readme/quiz-answer-feedback.png "Score Tracker")
 
-Ten elements are hard coded into the html to provide the user constant on their progress / current performance.
+Ten `circle` divs are hard coded into the html to provide the user constant on their progress / current performance.
 
 Elements are color coded and mean the following:
 - *Yellow* shows the question the user is currently on.  This supplements the question number display in the quiz info bar above the question
-- *Gray* shows the user didn't confirm an answer on the previous question before the 30 second countdown reached zero.
+- *Gray* shows the user didn't confirm an answer on the previous question before time ran out.
 - *Red* shows a wrong answer
 - *Green* shows a correct answer
 
 ## Results Section
 ![Results Section](docs/readme/results.png "Results Section")
 
-The results modal provides the user with:
-- Their total score out of 10
-- A bespoke message comprised of the name they provided with text feedback based on their score.
-- Links are provided to notable geographers through the ages to give the user an extra learning boost.  
+The results modal provides users with:
+- The total score out of 10
+- A bespoke message comprised of the player's name with text feedback based on their score.
+- Links to notable geographers through the ages to give the user an extra learning boost.  
 - A REPLAY button
 
 # Browser Testing
@@ -176,12 +203,20 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://gitpod.io/#https://github.com/StevenWeir038/Scientia-Geographia-Quiz)
 
 # Credits
-My appreciation to my mentor [Tim Nelson](https://github.com/TravelTimN) for his approachability, knowhow and assistance in refactoring.
+**People**
+
+My appreciation to my [mentor](https://github.com/TravelTimN) Tim for his approachability, knowhow and assistance in refactoring.
 Being methodical and trying new things often leads to better solutions.
 
 Also I'd like to thank my fellow students and alumni at [Code Institute](https://codeinstitute.net/) for sharing their insights and approaches via Slack.
 
-Credit goes to [Britannica](https://www.britannica.com/quiz/50-capital-cities-at-random-quiz).  This inspired me to replicate an in-quiz score tracking system into my own project.
+**Code**
+
+A citation goes to [Mike Bostock](https://bost.ocks.org/mike/shuffle/) as I used some of his code in my project. His explanation of the Fisher/Yates method to randomly shuffle an array is one of the best I have read to date.
+
+**Sites**
+
+Credit to [Britannica](https://www.britannica.com/quiz/50-capital-cities-at-random-quiz).  This inspired me to replicate an in-quiz score tracking system into my own project.
 
 Questions are based of my own general knowledge and many years spent studying maps and documentaries.
 
