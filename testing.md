@@ -1,20 +1,43 @@
-  - [Fixed Bugs](#fixed-bugs)
-  - [Unfixed Bugs](#unfixed-bugs)
-  - [Browsers](#browsers)
+  - [Live Testing](#live-testing)
+  - [Known Bugs and Fixes](#known-bugs-and-fixes)
+    - [Name Input](#name-input)
+    - [Countdown Bar](#countdown-bar)
+    - [Quiz Responsiveness](#quiz-responsiveness)
+    - [Score Tracker](#score-tracker)
+    - [Results](#results)
   - [Validator Testing](#validator-testing)
     - [HTML](#html)
     - [CSS](#css)
     - [Javascript](#javascript)
     - [Lighthouse](#lighthouse)
 
-    # Testing
-## Fixed Bugs
-- Shuffle functionality added to quiz before beginning using Fisher/Yates method.  This way we can always ask the same number of questions but 
-improve their variation in the case the user plays more than once.
-- User could proceed to quiz without entering text into playerName input
-- Score Tracker displayed correct/incorrect answer before user moved onto next question.  This gave the oppurtunity to cheat.
-- Syncing the countdown bar with the countdown timer element.
-- Once the countdown bar upgrade was applied with the following code the default light blue theme color reverted back everytime the timer reset to 30 seconds.
+A MVP (minimally viable product) has been achieved given the development timeframe.
+
+# Live Testing
+Initial testing utilised **Chrome** as this is the primary browser/dev tool used on the Code Institute course.  When the project was almost finished I then viewed the results on other leading browsers including:
+
+- Firefox Developer Edition
+- Opera
+- MS Edge
+
+Some alterations were required for cross-browser consistency.
+
+## Known Bugs and Fixes
+
+### Name Input
+**Issue 1**
+
+Users could proceed to quiz without entering their name. An error handler applies a red border to the input box in the event where no player name is provided.
+
+![name input error handler](docs/readme/name-input-eh.png "Name input error handler")
+
+### Countdown Bar
+**Issue 1**
+
+**On all browsers the countdown bar did not stand out as well as intended.** It was light blue in keeping the initial site color theme.
+
+To add value to the user's experience, a color change was triggered using JS as time ran out from green to yellow to red.
+In addition to better contrast, this adaptation adds a sense of panic to answer the each question.
 
 ``` JS
     if (timeLeft >=20) {
@@ -25,46 +48,96 @@ improve their variation in the case the user plays more than once.
       timeLeftBar.style.backgroundColor = "yellow";
     }
 ```
-This was fixed by changing the background color of the `#time-left` element in *style.css* from `background-color: rgba(var(--theme-one), 0.85);` to  `background-color: green;` to match the color attributes being applied by the JS. Alternatively I could have applied directly from the JS resetTimer() function by adding `timeLeftBar.style.backgroundColor = "green";`.
 
-- A further modification was made to the countdown bar to make it's movement appear more fluid by adding `transition: all 0.5s ease-in-out;` to the `#time-left` element in *style.css*
+![Quiz Info Bar](docs/readme/quiz-info-bar-upgrade.png "Quiz Info Bar Upgrade")
 
-- If the user did not select an answer within 30 seconds the quiz moves onto the next question. The score tracker for the previous question should then default to a gray color.
+**Issue 2**
 
-If any previous question was answered then the click event on an answer element set the `yaynay` variable value to *correct* or *incorrect* using the `evaluateAnswer()` function. Note `evaluateAnswer()` is only called from a click event on an answer element making it the only means to assign the about two values to the `yaynay` variable.
+**After applying the upgrade, the default light blue theme color reverted back everytime the timer reset to 30 seconds.**
 
-To default the previous questions status to *unanswered (and therefore set the previous question indicator to a gray color)*, the following was added at the end of the `trackerUpdate()` function.  Therefore if the quiz is left idle *(at any point)* then the correct indicator of red/green/gray shold always be displayed.
+This was overidden directly from `style.css` by changing the background color property of the `#time-left` element from `background-color: rgba(var(--theme-one), 0.85);` to  `background-color: green;`. 
 
-``` JS
-  document.getElementsByClassName("circle")[questionCount - 1].style.backgroundColor = trackerColor;
-    yaynay = "unanswered";
+An alternative solution would have been to change the property from the resetTimer() function directly from *script.js* using `timeLeftBar.style.backgroundColor = "green";`.
+
+**Issue 3**
+
+**As the timer ran down the countdown bar's movement appeared sticky.**
+
+To make it appear more fluid, `transition: all 0.5s ease-in-out;` was added to the `#time-left` element in *style.css*
+
+### Quiz Responsiveness
+**Issue 1**
+
+**On lower resolutions elements used in the quiz are hidden**
+
+When testing responsiveness down to 320px width there wasn't enough room on the screen for all elements.
+It's undesirable to make the users scroll. 
+This became an issue at approximately 465px and was overcome by:
+- hiding the header and footer elements when the quiz was in progress and reducing the margin of the `quiz-info-top` section.
+- changing text in `question-number` element from Question to Q.
+- adding a media query to hide the paragraph element on the header on resolution below 768 pixels.
+
+### Score tracker
+**Issue 1**
+
+**The score tracker feature gives immediate feedback during the quiz.**
+
+Initially the user could immediately see if their answer was incorrect providing an opportunity to change their selection.
+To prevent such dishonesty the score tracker updated only when moving onto the next question.
+In the code, this was achieved by calling `trackerUpdate()` only from the `nextQuestion()` function.
+
+**Issue 2**
+
+**Score tracker child elements not defaulting to gray color for previous unanswered question**
+
+The click event on an answer element sets the `yaynay` variable value to `"correct"` or `"incorrect"` using the `evaluateAnswer()` function. This is the only means to assign these values to the `yaynay` variable.
+
+On each new question it was necessary to default the `yaynay` value to `"unanswered"` after changing the previous questions element color. This is dependant on the switch case in `trackerUpdate()` as shown by `document.getElementsByClassName("circle")[questionCount - 1].style.backgroundColor = trackerColor;`.
+
+In the code, this works as `trackerUpdate()` is exclusively called from the `nextQuestion()` function.
+
+A user will likely not notice the above logic as it is assumed they will make an effort to answer each question before 
+moving on, even if they are unsure of the answer.  However, as a developer, we have to try to account for every behaviour.
+
+### Results
+
+**Issue 1**
+
+**On Firefox and Opera the `#results::before` pseudo-element was distracting by 'cutting off' at the corners.**
+
+This was used to show a rotating animation that displayed only on the border.  The width and height of the `#results::before` pseudo-element needed to be increased on the already hidden overflow..
+By playing with the bug I stumbled on a better effect across all browsers displaying a constant but dynamic border color change.
+
+**Issue 2**
+
+**A square interior corner on the border.**
+
+This was solved by changing the border radius property on the after pseudo-element `#results::after`to:
+
+``` css
+  inset: 4px;
+  border-radius: 10px;
 ```
-
-Notably a user will likely not notice the above logic as it is assumed they will make an effort to answer each question before 
-moving on, even if they are unsure of the answer.  As a developer we have to try to account for every behaviour however.
 
 ## Unfixed Bugs
 All known bugs have been addressed.  Please provide feedback to those I may have missed to improve the application.
 
-## Browsers
-STILL TO COMPLETE
-
 ## Validator Testing
 ### HTML
 HTML directly copied and pasted into offical [W3C Markup Validator](https://validator.w3.org/). 
-- *11 warnings* for the [page](docs/readme/html-validator-results.png "Image of validated HTML for index.html") lacking heading elements within the sections.
+- *0 errors, 13 warnings* for the [page](docs/readme/html-validator-results.png "Image of validated HTML for index.html") lacking heading elements within the sections and aria label usage.
 
 ![index](docs/readme/html-validator-results.png "Image of validated HTML for index.html")
 
 ### CSS
 CSS directly copied and pasted into the offical [W3C Jigsaw Validator](https://jigsaw.w3.org/css-validator/).
-- No errors found in the [CSS](docs/readme/jigsaw.png "Image of validated external CSS file") file.
+- *0 errors, 29 warnings* found in the [CSS](docs/readme/jigsaw.png "Image of validated external CSS file") file.
 
 ![CSS](docs/readme/jigsaw.png "Image of validated external CSS file")
 
 ### Javascript
 JS directly copied and pasted into a [linter](https://www.jslint.com/) tool.
-- *9 warnings* for the [page](docs/readme/linter-check.png "JS Linter Check")
+- *0 errors, 16 warnings* for the [page](docs/readme/linter-check.png "JS Linter Check")
 
 ![JS Linter Check](docs/readme/linter-check.png "JS Linter Check")
 

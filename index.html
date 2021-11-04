@@ -13,7 +13,7 @@
 
 <body class="flex-column flex-center width margin-zero text-center">
     <!-- Header -->
-    <header class="width">
+    <header id="header" class="width">
         <h1>SCIENTIA <span>geographia</span></h1>
         <p class="yellow">Test your Geography knowledge</p>
     </header>
@@ -26,10 +26,13 @@
             <!-- Game start section -->
             <section id="new-game" class="flex-column flex-center rounded-border max-width">
                 <p class="yellow margin-zero padding">Player name</p>
-                <input type="text" id="player-name" class="text-center padding rounded-border" aria-label="Enter player name" required>
+                <input type="text" id="player-name" class="text-center padding rounded-border"
+                    aria-label="Enter player name" required>
                 <section class="start-game-btn-holder margin">
-                    <button type="button" id="quiz-start-btn" class="rounded-border" aria-label="Start quiz">Start</button>
-                    <button type="button" id="quiz-leave-btn" class="rounded-border" aria-label="Back to home">Leave</button>
+                    <button type="button" id="quiz-start-btn" class="rounded-border"
+                        aria-label="Start quiz">Start</button>
+                    <button type="button" id="quiz-leave-btn" class="rounded-border"
+                        aria-label="Back to home">Leave</button>
                 </section>
             </section>
             <!-- Quiz section -->
@@ -38,9 +41,9 @@
                 <section class="quiz-info-top flex-center margin rounded-border max-width">
                     <!-- Question indicator -->
                     <div id="question-number">
-                        <p>Question <span id="current-question" class="bold">-</span> of <span id="total-questions"
+                        <p>Q <span id="current-question" class="bold">-</span> of <span id="total-questions"
                                 class="bold">-</span></p>
-                        </div>
+                    </div>
                     <!-- Countdown timer -->
                     <div id="timer" class="flex-column bold">
                         <p><i class="fas fa-user-clock"></i> <span id="counter">30</span></p>
@@ -74,7 +77,8 @@
                 </section>
                 <!-- Next question button -->
                 <section id="quiz-nav" class=" flex-center padding text-center margin rounded-border navy-blue">
-                    <div id="next-btn" class="text-center yellow padding rounded-border" aria-label="Go to next question">NEXT</div>
+                    <div id="next-btn" class="text-center yellow padding rounded-border" aria-label="Next question">NEXT
+                    </div>
                 </section>
                 <!-- Score Tracker -->
                 <section id="score-tracker" class="flex-center max-width">
@@ -102,7 +106,7 @@
         </section>
     </main>
     <!-- Footer -->
-    <footer class="width">
+    <footer id="footer" class="width">
         <p>View my content at: </p>
         <!-- Portfolio links -->
         <a class="social yellow" href="https://github.com/StevenWeir038" target="_blank" rel="noopener"

@@ -5,6 +5,8 @@ let yaynay = "unanswered";
 const quizLength = 10;
 let questionCount = 0;
 let correctNum = 0;
+const headerSection = document.getElementById("header");
+const footerSection = document.getElementById("footer");
 const landingSection = document.getElementById("landing");
 const newGameSection = document.getElementById("new-game");
 const playQuizButton = document.getElementById("play-quiz-btn");
@@ -51,6 +53,9 @@ function quizStart() {
   } else {
     quizSection.style.display = "inline-flex";
     newGameSection.style.display = "none";
+    // TESTING - hide header and footer as insufficient space on small screens
+    headerSection.style.display = "none";
+    footerSection.style.display = "none";
     shuffle(quizQuestions);
     buildQuizQuestion(questionCount);
     progressIndicator(questionCount);
@@ -66,7 +71,9 @@ playerName.addEventListener("keypress", function (e) {
 });
 
 
-// Timers
+/**
+ * Timer and color styling for countdown bar
+*/
 let timeLeft;
 const counter = document.getElementById("counter");
 let timer;
@@ -133,7 +140,7 @@ function shuffle(array) {
 
 
 /**
- * nextQuestion() acts as a core function, calling on others to support 
+ * nextQuestion() acts as a core function, calling on others to support
  * pagination, manipulate DOM elements and track user progress/performance
  */
 function nextQuestion() {
@@ -191,7 +198,7 @@ for (answer of answerOptions) {
 /**
  * Click event passed to function to change selected button and it's style
  * By reseting answer styles before changing selected button's class,
- * the appearance of one selected button is always maintained.  
+ * the appearance of one selected button is always maintained.
  */
 function choiceAnswer(event) {
   resetAnswerStyles();
@@ -205,7 +212,7 @@ function choiceAnswer(event) {
  * of the correct answer. This is stored as a property in each object
  * within the quizQuestions array.
  * The returned value ("correct", "incorrect") is used within the
- * trackerUpdate() switch case to display red, green, gray feedback to the 
+ * trackerUpdate() switch case to display red, green, gray feedback to the
  * user and to tally the number of correct answers as the quiz progresses
  */
 function evaluateAnswer(targetID) {
@@ -243,8 +250,8 @@ function trackerUpdate() {
   document.getElementsByClassName("circle")[questionCount - 1].style.backgroundColor = trackerColor;
   /**
    * Default yaynay variable to "unanswered" value to default feedback back to
-   * gray for each question.  This is overridden only by click event passed 
-   * to the choiceAnswer function.
+   * gray for each question.  This is overridden only by click event passed
+   * to the choiceAnswer() function which then calls evaluateAnswer().
   */
   yaynay = "unanswered";
 }
@@ -254,6 +261,8 @@ function trackerUpdate() {
 function endOfQuiz() {
   quizSection.style.display = "none";
   resultsSection.style.display = "inline-flex";
+      headerSection.style.display = "block";
+      footerSection.style.display = "block";
   userResults();
 }
 
