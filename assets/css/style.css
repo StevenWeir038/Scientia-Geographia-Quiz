@@ -361,8 +361,8 @@ footer p {
 #results::before {
     content: '';
     position: absolute;
-    width: 150vw;
-    height: 200%;
+    width: 250vw;
+    height: 250%;
     background: linear-gradient(rgba(var(--theme-two), 0.85), rgba(var(--theme-four), 0.85));
     animation: animate 1.35s linear infinite;
 }
