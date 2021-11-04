@@ -5,6 +5,7 @@
     - [Quiz Responsiveness](#quiz-responsiveness)
     - [Score Tracker](#score-tracker)
     - [Results](#results)
+  - [Unfixed Bugs](#unfixed-bugs)
   - [Validator Testing](#validator-testing)
     - [HTML](#html)
     - [CSS](#css)
@@ -150,3 +151,4 @@ JS directly copied and pasted into a [linter](https://www.jslint.com/) tool.
 
 ![mobile](docs/readme/lighthouse-mobile.png "Chrome Developer Tools mobile score")
 
+[Return to main README](README.md)
