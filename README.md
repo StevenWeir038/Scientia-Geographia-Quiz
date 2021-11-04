@@ -4,33 +4,6 @@ Welcome to **SCIENTIA geographia**. A website developed to Test your Geography k
 
 ![Mockup](docs/readme/responsive.png "Website preview at different resolutions") 
 
-<<<<<<< HEAD
-=======
-# Table of Contents
-- [UX Design](#ux-design)
-  - [Audience](#audience)
-  - [Site Design and User Stories](#site-design-and-user-stories)
-  - [Wireframing](#wireframing)
-  - [Color Scheme and Accessibility](#color-scheme-and-accessibility)
-  - [Code Reusability and Site Layout](#code-reusability-and-site-layout)
-- [Existing Features](#existing-features)
- - [One Page Site and Future Implementations](#one-page-site-and-future-implementations)
- - [Header and Background](#header-and-background)
- - [Footer](#footer)
- - [Landing Section](#landing-section)
- - [Name Section](#name-section)
- - [Quiz Section](#quiz-section)
-    - [Quiz Info Bar](#quiz-info-bar)
-    - [Questions & Answers](#questions-and-answers)
-    - [Score Tracker](#score-tracker)
-  - [Results Section](#results-section)
-- [Testing](#testing)
-- [Deployment](#deployment)
-  - [Local Deployment](#local-deployment)
-- [Credits](#credits)
-  - [Media and Content](#media-and-content)
-
->>>>>>> d138ffd367fa7adcaa1162c15f0d352d4316ba65
 # UX Design
 The site is a fun but challenging quiz.
 ## Audience
