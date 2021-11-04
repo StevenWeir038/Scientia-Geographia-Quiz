@@ -187,8 +187,8 @@ See [TESTING.md](TESTING.md) for bugs and fixes across popular browsers (2021).
 # Deployment
 The site was deployed to *GitHub* pages. The steps to deploy are as follows:
 - In the GitHub repository, navigate to the *Settings* tab.
-- From the source section drop-down menu, select the Master Branch.
-- Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
+- From the source section drop-down menu, select the Main Branch.
+- Once the Main branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
 
 The live link can be found here - https://stevenweir038.github.io/Scientia-Geographia-Quiz/
 
@@ -196,7 +196,9 @@ The live link can be found here - https://stevenweir038.github.io/Scientia-Geogr
 In order to make a local copy of this repository, you can clone the project by typing the follow into your IDE terminal:
 - `git clone https://github.com/StevenWeir038/Scientia-Geographia-Quiz.git`
 
-Alternatively if using gitpod you can click [here](https://gitpod.io/#https://github.com/StevenWeir038/Scientia-Geographia-Quiz)
+Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://gitpod.io/#https://github.com/StevenWeir038/Scientia-Geographia-Quiz)
 
 # Credits
 My appreciation to my mentor [Tim Nelson](https://github.com/TravelTimN) for his approachability, knowhow and assistance in refactoring.
