@@ -48,8 +48,10 @@ To meet WCAG 2.0 criteria, the generated color scheme was then passed to [eights
 
 
 ## Code Reusability and Site Layout
-Extensive use was made of flexbox to position elements and were possible classes within the html were used to inject most of the CSS styles into the page.
-This reduced the size and complexity of the CSS used.
+Extensive use was made of flexbox to position elements on the page.
+
+Were possible classes were applied from within the html to apply most of the CSS styles.
+This reduced the size and complexity of the CSS used and should aid maintainability of the site.
 
 ```html
 <section id="quiz" class="flex-column flex-center rounded-border max-width">
