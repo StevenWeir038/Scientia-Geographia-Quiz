@@ -182,7 +182,7 @@ The results modal provides the user with:
 - A REPLAY button
 
 # Browser Testing
-See [testing.md](testing.md) for bugs and fixes across popular browsers (2021).
+See [TESTING.md](TESTING.md) for bugs and fixes across popular browsers (2021).
 
 # Deployment
 The site was deployed to *GitHub* pages. The steps to deploy are as follows:
