@@ -9,6 +9,12 @@ Initial testing utilised **Chrome** as this is the primary browser/dev tool used
 
 Some alterations were required for cross-browser consistency.
 
+![Firefox Testing](docs/readme/firefox-testing.png "Firefox Testing")
+
+![Opera Testing](docs/readme/opera-testing.png "Opera Testing")
+
+![Edge Testing](docs/readme/edge-testing.png "Edge Testing")
+
 ## Known Bugs and Fixes
 
 ### Name Input
@@ -137,4 +143,4 @@ JS directly copied and pasted into a [linter](https://www.jslint.com/) tool.
 
 ![mobile](docs/readme/lighthouse-mobile.png "Chrome Developer Tools mobile score")
 
-[Return to main README](README.md)
+[Return to README.md](README.md)
