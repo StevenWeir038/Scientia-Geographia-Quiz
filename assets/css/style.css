@@ -227,13 +227,13 @@ footer p {
 
 #player-name {
     font-size: 1.25em;
-    width: calc(90% - 1em)
+    width: calc(90% - 1em);
 }
 
 .start-game-btn-holder {
     display: flex;
     justify-content: space-evenly;
-    width: calc(90% - 1em)
+    width: calc(90% - 1em);
 }
 
 #quiz-start-btn,
