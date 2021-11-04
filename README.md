@@ -122,7 +122,7 @@ Note the use of Latin and two contrasting font styles, one modern and the other 
 ## Footer
 ![footer](docs/readme/footer.png "Footer section")
 
-The [footer's](docs/readme/footer.png "Footer section") provides access to the developer's Github repos and LinkedIn profile via the favicon links.  These open in new tabs as per best practice.
+The [footer](docs/readme/footer.png "Footer section") provides access to the developer's Github repos and LinkedIn profile via the favicon links.  These open in new tabs as per best practice.
 
 Their goal is to allow others use the code in their own projects and have a means of contact. 
 
@@ -147,7 +147,7 @@ is ready for input.
 ![Quiz Info Bar](docs/readme/quiz-info.png "Quiz Info Bar")
 
 Features include:
-- An indicator stating the current question number out of a total of the total quiz length.. 
+- An indicator stating the current question number out of a total of the total quiz length
 - A countdown timer with intuitive favicon showing a person and clockface
 - A countdown bar for the more visual user
 
@@ -158,26 +158,26 @@ Features include:
 - One question and four multiple choice answers
 - The selected answer has a different format
 - The user can change their mind and select a different answer before clicking next button to move to next question (many similar quizes lack this feature)
-- Shuffle functionality using the [*Fisher/Yates*](https://bost.ocks.org/mike/shuffle/) method.  This enables the application to ask the same number of questions which are consistently varied each time it is played.  This was noted by regular players during testing.
+- Shuffle functionality using the *Fisher/Yates* This consistently varies the same number of questions each time the quiz runs.  This was noted by regular players during testing.
 
 ### Score Tracker
 ![Score Tracker](docs/readme/quiz-answer-feedback.png "Score Tracker")
 
-Ten elements are hard coded into the html to provide the user constant on their progress / current performance.
+Ten `circle` divs are hard coded into the html to provide the user constant on their progress / current performance.
 
 Elements are color coded and mean the following:
 - *Yellow* shows the question the user is currently on.  This supplements the question number display in the quiz info bar above the question
-- *Gray* shows the user didn't confirm an answer on the previous question before the 30 second countdown reached zero.
+- *Gray* shows the user didn't confirm an answer on the previous question before time ran out.
 - *Red* shows a wrong answer
 - *Green* shows a correct answer
 
 ## Results Section
 ![Results Section](docs/readme/results.png "Results Section")
 
-The results modal provides the user with:
-- Their total score out of 10
-- A bespoke message comprised of the name they provided with text feedback based on their score.
-- Links are provided to notable geographers through the ages to give the user an extra learning boost.  
+The results modal provides users with:
+- The total score out of 10
+- A bespoke message comprised of the player's name with text feedback based on their score.
+- Links to notable geographers through the ages to give the user an extra learning boost.  
 - A REPLAY button
 
 # Browser Testing
@@ -198,19 +198,24 @@ In order to make a local copy of this repository, you can clone the project by t
 Alternatively if using gitpod you can click [here](https://gitpod.io/#https://github.com/StevenWeir038/Scientia-Geographia-Quiz)
 
 # Credits
-My appreciation to my mentor [Tim Nelson](https://github.com/TravelTimN) for his approachability, knowhow and assistance in refactoring.
+**People**
+
+My appreciation to my [mentor](https://github.com/TravelTimN) Tim for his approachability, knowhow and assistance in refactoring.
 Being methodical and trying new things often leads to better solutions.
 
 Also I'd like to thank my fellow students and alumni at [Code Institute](https://codeinstitute.net/) for sharing their insights and approaches via Slack.
 
-Credit goes to [Britannica](https://www.britannica.com/quiz/50-capital-cities-at-random-quiz).  This inspired me to replicate an in-quiz score tracking system into my own project.
+**Code**
+
+A citation goes to [Mike Bostock](https://bost.ocks.org/mike/shuffle/) as I used some of his code in my project. His explanation of the Fisher/Yates method to randomly shuffle an array is one of the best I have read to date.
+
+**Sites**
+
+Credit to [Britannica](https://www.britannica.com/quiz/50-capital-cities-at-random-quiz).  This inspired me to replicate an in-quiz score tracking system into my own project.
 
 Questions are based of my own general knowledge from years pouring over [Google Maps](https://www.google.com/maps/place/Code+Institute/@53.2996313,-6.1656661,11.75z/data=!4m5!3m4!1s0x48670e99733f3617:0x7ff7202fe3dea603!8m2!3d53.2981987!4d-6.178654) and watching too many videos on [Youtube](https://www.youtube.com) and [Curiosity Stream](https://www.curiositystream.com)!
 
 ## Media and Content
-**Code**
-I give a citation to [Mike Bostock](https://bost.ocks.org/mike/shuffle/) for using his code in my project. His explanation of the Fisher/Yates method to randomly shuffle an array is the best In have read to date.
-
 **External Links**
 Links from the results section are credited to:
 - [National Geographic](https://www.nationalgeographic.org)
