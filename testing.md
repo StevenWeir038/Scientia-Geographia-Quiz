@@ -83,7 +83,7 @@ This became an issue at approximately 465px and was overcome by:
 
 **The score tracker feature gives immediate feedback during the quiz.**
 
-Initially the user could immediately see if their answer was incorrect providing an opportunity to change their selection.
+The user could initially see if their answer was incorrect providing an opportunity to change their selection.
 To prevent such dishonesty the score tracker updated only when moving onto the next question.
 In the code, this was achieved by calling `trackerUpdate()` only from the `nextQuestion()` function.
 
@@ -98,7 +98,7 @@ On each new question it was necessary to default the `yaynay` value to `"unanswe
 In the code, this works as `trackerUpdate()` is exclusively called from the `nextQuestion()` function.
 
 A user will likely not notice the above logic as it is assumed they will make an effort to answer each question before 
-moving on, even if they are unsure of the answer.  However, as a developer, we have to try to account for every behaviour.
+moving on, even if they are unsure of the answer.  As a developer, I must account for all behaviours.
 
 ### Results
 
@@ -106,7 +106,7 @@ moving on, even if they are unsure of the answer.  However, as a developer, we h
 
 **On Firefox and Opera the `#results::before` pseudo-element was distracting by 'cutting off' at the corners.**
 
-This was used to show a rotating animation that displayed only on the border.  The width and height of the `#results::before` pseudo-element needed to be increased on the already hidden overflow..
+This was used to show a rotating animation that displayed only on the border.  The width and height of the `#results::before` pseudo-element needed to be increased on the already hidden overflow.
 By playing with the bug I stumbled on a better effect across all browsers displaying a constant but dynamic border color change.
 
 **Issue 2**
@@ -147,7 +147,7 @@ JS directly copied and pasted into a [linter](https://www.jslint.com/) tool.
 
 ![desktop](docs/readme/lighthouse-desktop.png "Chrome Developer Tools desktop score")
 
-74% performance for [mobile](docs/readme/lighthouse-mobile.png "Chrome Developer Tools mobile score") site.
+92% performance for [mobile](docs/readme/lighthouse-mobile.png "Chrome Developer Tools mobile score") site.
 
 ![mobile](docs/readme/lighthouse-mobile.png "Chrome Developer Tools mobile score")
 
