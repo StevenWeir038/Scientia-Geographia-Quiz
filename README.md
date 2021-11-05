@@ -81,7 +81,7 @@ playQuizButton.addEventListener("click", startNewGame);
 ```
 
 Further development implementations could be: 
-- A leaderboard (initially using JSON)
+- A leaderboard (initially using JSON/localStorage())
 - An option for the user to change the site color scheme. JS can easily do this by adding/removing classes on targeted elements. Color classes are present in the  css for this eventuality.
 - A facility to print a certificate
 - Quiz length could be modified.  This would require a redraw of the `#score-tracker` element using template literals. The number of child elements would reflect the ``quizLength`` variable in the JS file.
@@ -180,20 +180,29 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 # Credits
 **People**
 
-My appreciation to my [mentor](https://github.com/TravelTimN) Tim for his approachability, knowhow and assistance in refactoring.
+My appreciation to my mentor [Tim](https://github.com/TravelTimN) for his approachability, knowhow and assistance in refactoring.
 Being methodical and trying new things often leads to better solutions.
 
 Also I'd like to thank my fellow students and alumni at [Code Institute](https://codeinstitute.net/) for sharing their insights and approaches via Slack.
 
-**Code**
+**Technologies Used**
 
-A citation goes to [Mike Bostock](https://bost.ocks.org/mike/shuffle/) as I used some of his code in my project. His explanation of the Fisher/Yates method to randomly shuffle an array is one of the best I have read to date.
+Wireframes created using [Balsamiq](https://balsamiq.com/)
+
+Use was made of *CSS root variables* and *Flexbox* to set colors, positioning and enhance code reusability.
+
+To track issues and progress during the development stage, I made rudimentary use of the *Issue* and *Project* tabs on Github.
+Linking issues found/solved into the project Kanban made the project more manageable. Through this exercise I have learned that setting priorities and compartmentalising smaller areas makes the development process more streamlined and less stressful.
+
+**Citations**
+
+Credit goes to [Mike Bostock](https://bost.ocks.org/mike/shuffle/) as I used some of his code in my project. His explanation of the Fisher/Yates method to randomly shuffle an array is one of the best I have read to date.
 
 **Sites**
 
-Credit to [Britannica](https://www.britannica.com/quiz/50-capital-cities-at-random-quiz).  This inspired me to replicate an in-quiz score tracking system into my own project.
+[Britannica](https://www.britannica.com/quiz/50-capital-cities-at-random-quiz).  An inspired site which gave me the courage to build an in-quiz score tracking system into my own project.
 
-Questions are based of my own general knowledge and many years spent studying maps and documentaries.
+Questions are based of my own general knowledge and too many years spent studying maps and documentaries.
 
 ## Media and Content
 **External Links**
