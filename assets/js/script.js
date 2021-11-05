@@ -26,7 +26,15 @@ const answerOptions = answerBox.querySelectorAll(".answer");
 const timeLeftBar = document.getElementById("time-left");
 
 
-// Landing section
+/**
+ * CSS properties default the site to hide all sections except for the landing
+ * which contains the call to action (CTA)/play button.
+ * Selecting the CTA button hides the landing section and displays the
+ * new game section containing the input box for the player to enter their name
+ * and either start the quiz or return back to the landing/home area.
+ * For now this is blank except for one button but more content can be added later.
+ * Provide quiz rules etc.
+ */
 function startNewGame() {
   landingSection.style.display = "none";
   newGameSection.style.display = "inline-flex";
@@ -46,14 +54,18 @@ function quizLeave() {
 quizLeaveBtn.addEventListener("click", quizLeave);
 
 
+/**
+ * Select CTA button to view player name input
+ * Apply errorhandler in the event of no input and highlight to user
+ * If player name is added, randomise questions, build and display first question,
+ * show player they are on the first question and start the timer
+ */
 function quizStart() {
-  if (playerName.value == "" || playerName.value == null || playerName
-    .value == undefined) {
+  if (playerName.value == "" || playerName.value == null || playerName.value == undefined) {
     playerName.style.borderColor = "red";
   } else {
     quizSection.style.display = "inline-flex";
     newGameSection.style.display = "none";
-    // TESTING - hide header and footer as insufficient space on small screens
     headerSection.style.display = "none";
     footerSection.style.display = "none";
     shuffle(quizQuestions);
@@ -63,6 +75,9 @@ function quizStart() {
   }
 }
 
+/**
+ * 
+ */
 quizStartBtn.addEventListener("click", quizStart);
 playerName.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
@@ -78,6 +93,9 @@ let timeLeft;
 const counter = document.getElementById("counter");
 let timer;
 
+/**
+ * EXPLAIN RHIS FUNCTION
+ */
 function startTimer() {
   timeLeft = 30;
   timer = setInterval(function () {
@@ -85,6 +103,10 @@ function startTimer() {
   }, 1000);
 }
 
+
+/**
+ * EXPLAIN THIS FUNCTION
+ */
 function countdown(seconds) {
   if (seconds === 0) {
     counter.innerHTML = `0`;
@@ -106,6 +128,10 @@ function countdown(seconds) {
 
 let timeLeftWidth = 100;
 
+
+/**
+ * EXPLAIN THIS FUNCTION
+ */
 function resetTimer() {
   counter.innerHTML = `30`;
   timeLeftWidth = 100;
@@ -177,7 +203,7 @@ function buildQuizQuestion(questionID) {
 
 // Reset and selected answer element style to default for next question 
 function resetAnswerStyles() {
-  for (answer of answerOptions) {
+  for (let answer of answerOptions) {
     answer.setAttribute("class", "answer");
   }
 }
@@ -191,7 +217,7 @@ function progressIndicator(questionCount) {
 
 
 // Loop for answer buttons
-for (answer of answerOptions) {
+for (let answer of answerOptions) {
   answer.addEventListener("click", choiceAnswer);
 }
 
@@ -228,7 +254,7 @@ function evaluateAnswer(targetID) {
 }
 
 /**
- * Change the appearance of #score-tracker elements children depending on
+ * Change the appearance of #score-tracker element's children depending on
  * whether the answer was correct/incorrect (set by evaluateAnswer function)
  * or if no answer provided, differentiate this for the user with gray color.
  */
@@ -257,7 +283,11 @@ function trackerUpdate() {
 }
 
 
-// Called ONCE user answers allotted number of questions
+/**
+ * Call only ONCE as quiz reaches max questions as defined by the quizLength variable
+ * Show header and footer elements again as quiz finishes and enough space freed up on smaller
+ * screens to display results section
+ */
 function endOfQuiz() {
   quizSection.style.display = "none";
   resultsSection.style.display = "inline-flex";
@@ -266,7 +296,10 @@ function endOfQuiz() {
   userResults();
 }
 
-// Called only ONCE at end of quiz to give user feedback.
+/**
+ * Call only from endOfQuiz() function
+ * Display correct questions answered by user/quiz total questions
+ */
 function userResults() {
   const resultScore = document.querySelector("#result-score");
   let resultOutput = `${correctNum} / ${questionCount}`;
