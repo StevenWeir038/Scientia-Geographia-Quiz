@@ -393,15 +393,15 @@ footer p {
 
 /* Classes for showing/hiding sections called from script.js */
 .show-section-block {
-    display: "block";
+    display: block;
 }
 
 .show-section-inline-flex {
-    display: "inline-flex";
+    display: inline-flex;
 }
 
 .hide-section {
-    display: "none";
+    display: none;
 }
 
 /* for screen resolutions less than 400px remove curved header/footer */
