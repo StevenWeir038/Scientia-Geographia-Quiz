@@ -11,7 +11,7 @@ It is target audience is assumed to have a good level of general knowledge or ha
 
 ## Site Design and User Stories
 The site's design is informed by the *users stories* and aims to provide:
-- An elegant yet simple and intuitive inteface
+- An elegant yet simple and intuitive interface
 - A place to input a name to tailor their unique results
 - Be able to discern what question they are on
 - Give a visual cue to how much time is left to answer the current question
