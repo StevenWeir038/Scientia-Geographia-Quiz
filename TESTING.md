@@ -139,7 +139,19 @@ This was solved by changing the border radius property on the after pseudo-eleme
 ```
 
 ## Unfixed Bugs
-All known bugs have been addressed.  Please provide feedback to those I may have missed to improve the application.
+The code works though one late improvement that can be made is to hide and display each section using classes rather than the existing solution below.
+
+*Current*
+``` js
+  landingSection.style.display = "none";
+  newGameSection.style.display = "inline-flex";
+```
+
+*Improvement*
+``` js
+landingSection.classList.add("hidden");
+newGameSection.classList.add("show-section-inline-flex");
+```
 
 ## Validator Testing
 ### HTML
