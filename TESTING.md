@@ -1,6 +1,5 @@
 A MVP (minimally viable product) has been achieved given the development timeframe.
 
-
 # Live Testing
 Initial testing utilised **Chrome** as this is the primary browser/dev tool used on the Code Institute course.  When the project was almost finished I then viewed the results on other leading browsers including:
 
@@ -27,6 +26,22 @@ Some alterations were required for cross-browser consistency.
 ![Edge Testing](docs/readme/edge-testing.png "Edge Testing")
 
 ## Known Bugs and Fixes
+
+### Issue Tracker
+
+To keep track of any issues I had on this project, I made use of the GitHub Issues page. There are currently no open issues, however, through the development stage, I have a total of 10 closed cases.  
+At this stage of my developemnt, I used this feature more for practice. It will need to be used for **every** issue in larger/future projects.
+
+- [#10](https://github.com/StevenWeir038/Scientia-Geographia-Quiz/issues/10) **Quiz doesn't automatically end after 10 questions**
+- [#9](https://github.com/StevenWeir038/Scientia-Geographia-Quiz/issues/9) **User has the correct answer selected but hasn't clicked next, timer runs out and assumes they submitted no/wrong answer** 
+- [#8](https://github.com/StevenWeir038/Scientia-Geographia-Quiz/issues/8) **current-question in quiz-info-top works but behaving incorrectly after applying shuffle function**
+- [#7](https://github.com/StevenWeir038/Scientia-Geographia-Quiz/issues/7) **Results displays 0 / 0 at end of quiz**
+- [#6](https://github.com/StevenWeir038/Scientia-Geographia-Quiz/issues/6) **Styling correct/incorrect answer red/green in evaluateAnswer not behaving correctly.**
+- [#5](https://github.com/StevenWeir038/Scientia-Geographia-Quiz/issues/5) **Answer styles not resetting when next question starts**
+- [#4](https://github.com/StevenWeir038/Scientia-Geographia-Quiz/issues/4) **Progress bar for countdown timer not working in #quiz-info-top**
+- [#3](https://github.com/StevenWeir038/Scientia-Geographia-Quiz/issues/3) **script.js:149 Uncaught TypeError: Cannot read properties of undefined (reading 'questionText')'**
+- [#2](https://github.com/StevenWeir038/Scientia-Geographia-Quiz/issues/2) **Timer issue when calling next question**
+- [#1](https://github.com/StevenWeir038/Scientia-Geographia-Quiz/issues/1) **#new-game position issue when setting section property to display:block**
 
 ### Name Input
 **Issue 1**
@@ -154,7 +169,7 @@ JS files directly copied and pasted into a [linter](https://jshint.com/) tool.
 
 ![desktop](docs/readme/lighthouse-desktop.png "Chrome Developer Tools desktop score")
 
-92% performance for [mobile](docs/readme/lighthouse-mobile.png "Chrome Developer Tools mobile score") site.
+90% performance for [mobile](docs/readme/lighthouse-mobile.png "Chrome Developer Tools mobile score") site.
 
 ![mobile](docs/readme/lighthouse-mobile.png "Chrome Developer Tools mobile score")
 
