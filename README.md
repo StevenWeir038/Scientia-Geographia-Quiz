@@ -175,7 +175,7 @@ In order to make a local copy of this repository, you can clone the project by t
 
 Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://gitpod.io/#https://github.com/StevenWeir038/Scientia-Geographia-Quiz)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/StevenWeir038/Scientia-Geographia-Quiz)
 
 # Credits
 **People**
@@ -189,10 +189,13 @@ Also I'd like to thank my fellow students and alumni at [Code Institute](https:/
 
 Wireframes created using [Balsamiq](https://balsamiq.com/)
 
+Images on README compressed using [TinyPNG](https://tinypng.com/) 
+
 Use was made of *CSS root variables* and *Flexbox* to set colors, positioning and enhance code reusability.
 
 To track issues and progress during the development stage, I made rudimentary use of the *Issue* and *Project* tabs on Github.
-Linking issues found/solved into the project Kanban made the project more manageable. Through this exercise I have learned that setting priorities and compartmentalising smaller areas makes the development process more streamlined and less stressful.
+Linking issues found/solved into the project Kanban made the project more manageable. 
+Through this exercise I have learned that setting priorities and compartmentalising smaller areas makes the development process more streamlined and less stressful.
 
 **Citations**
 
