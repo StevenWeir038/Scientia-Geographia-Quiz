@@ -1,5 +1,6 @@
 A MVP (minimally viable product) has been achieved given the development timeframe.
 
+
 # Live Testing
 Initial testing utilised **Chrome** as this is the primary browser/dev tool used on the Code Institute course.  When the project was almost finished I then viewed the results on other leading browsers including:
 
@@ -9,9 +10,19 @@ Initial testing utilised **Chrome** as this is the primary browser/dev tool used
 
 Some alterations were required for cross-browser consistency.
 
+*Google Chrome*
+
+![Chrome Testing](docs/readme/chrome-testing.png "Chrome Testing")
+
+*Firefox Developer Edition*
+
 ![Firefox Testing](docs/readme/firefox-testing.png "Firefox Testing")
 
+*Opera*
+
 ![Opera Testing](docs/readme/opera-testing.png "Opera Testing")
+
+*Microsoft Edge*
 
 ![Edge Testing](docs/readme/edge-testing.png "Edge Testing")
 
@@ -129,10 +140,14 @@ CSS directly copied and pasted into the offical [W3C Jigsaw Validator](https://j
 ![CSS](docs/readme/jigsaw.png "Image of validated external CSS file")
 
 ### Javascript
-JS directly copied and pasted into a [linter](https://www.jslint.com/) tool.
-- *0 errors, 16 warnings* for the [page](docs/readme/linter-check.png "JS Linter Check")
+JS files directly copied and pasted into a [linter](https://jshint.com/) tool.
+1st file was *questions.js*
 
-![JS Linter Check](docs/readme/linter-check.png "JS Linter Check")
+![jshint questions.js](docs/readme/jshint-check-questions.png "jshint Check Questions")
+
+2nd file was *script.js*
+
+![jshint script.js](docs/readme/jshint-check-script.png "JS Script Check")
 
 ### Lighthouse
 99% performance for [desktop](docs/readme/lighthouse-desktop.png "Chrome Developer Tools desktop score") site.
