@@ -55,10 +55,10 @@ quizLeaveBtn.addEventListener("click", quizLeave);
 
 
 /**
- * Select CTA button to view player name input
- * Apply errorhandler in the event of no input and highlight to user
+ * Select CTA button to view player name input.
+ * Apply errorhandler in the event of no input and highlight to user.
  * If player name is added, randomise questions, build and display first question,
- * show player they are on the first question and start the timer
+ * show player they are on the first question and start the timer.
  */
 function quizStart() {
   if (playerName.value == "" || playerName.value == null || playerName.value == undefined) {
@@ -75,9 +75,8 @@ function quizStart() {
   }
 }
 
-/**
- * 
- */
+
+// Event listeners to start quiz, left click and enter options.
 quizStartBtn.addEventListener("click", quizStart);
 playerName.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
@@ -87,14 +86,16 @@ playerName.addEventListener("keypress", function (e) {
 
 
 /**
- * Timer and color styling for countdown bar
+ * Variables required for Timer.
 */
 let timeLeft;
 const counter = document.getElementById("counter");
 let timer;
 
 /**
- * EXPLAIN RHIS FUNCTION
+ * Set duration for each question.
+ * Every second perform a loop.
+ * All functionality fo the loop in countdown() function.
  */
 function startTimer() {
   timeLeft = 30;
@@ -105,7 +106,11 @@ function startTimer() {
 
 
 /**
- * EXPLAIN THIS FUNCTION
+ * On each iteration when timer is running:
+ * evaluate if time hasn/t reach zero.
+ * If it has move along to the next question and make sure the time counter says 0.
+ * If time remains, remove 1 second from time remaining counter and
+ * decrease the width of the time left bar to reflect the new value
  */
 function countdown(seconds) {
   if (seconds === 0) {
@@ -130,7 +135,8 @@ let timeLeftWidth = 100;
 
 
 /**
- * EXPLAIN THIS FUNCTION
+ * Call only from nextQuestion() function. as timer must only to be reset
+ * when countdown reaches zero or user decides to go onto next question.
  */
 function resetTimer() {
   counter.innerHTML = `30`;
@@ -166,8 +172,14 @@ function shuffle(array) {
 
 
 /**
- * nextQuestion() acts as a core function, calling on others to support
- * pagination, manipulate DOM elements and track user progress/performance
+ * nextQuestion() acts as a core function, calling on others to:
+ * 1. Default answer/timer elements to their default style/values.
+ * 2. Support pagination/move onto next question
+ * 3. Manipulate DOM elements in the score tracker for user to see their
+ * progress/performance.
+ * 4. Restart timers and should user what question they are currently on
+ * in the score tracker.
+ * 5. Check if quiz has reached final length. 
  */
 function nextQuestion() {
   resetAnswerStyles();
@@ -187,7 +199,12 @@ function nextQuestion() {
 nextBtn.addEventListener("click", nextQuestion);
 
 
-// Display the current question in the DOM
+/**
+ * Populate the current question/answers in the DOM based of the shuffled
+ * quizQuestions array.
+ * Call only from quizStart() function (for first question)
+ * or from nextQuestion() function for remaining questions
+ */
 function buildQuizQuestion(questionID) {
   let currentQuestionNum = document.getElementById("current-question");
   let totalQuestions = document.getElementById("total-questions");
@@ -201,7 +218,10 @@ function buildQuizQuestion(questionID) {
 }
 
 
-// Reset and selected answer element style to default for next question 
+/**
+ * When called, loop through and reset and selected answer's elements.
+ * to default style for next question 
+ */
 function resetAnswerStyles() {
   for (let answer of answerOptions) {
     answer.setAttribute("class", "answer");
@@ -209,20 +229,27 @@ function resetAnswerStyles() {
 }
 
 
-// Show yellow circle on score-tracker elem to show user current question num
+/**
+ * Show yellow circle on score-tracker elem to show user current question num
+ */
 function progressIndicator(questionCount) {
   document.getElementsByClassName("circle")[questionCount]
     .style.backgroundColor = "yellow";
 }
 
 
-// Loop for answer buttons
+/**
+ * Loop for answer buttons with eventlistener.
+ * When triggered, calls the choiceAnswer() function to change the
+ * class of the selected answer.
+ * The class in turn applies css properties to make selection stand out to user.
+*/
 for (let answer of answerOptions) {
   answer.addEventListener("click", choiceAnswer);
 }
 
 /**
- * Click event passed to function to change selected button and it's style
+ * Click event passed to function to change selected button and it's style.
  * By reseting answer styles before changing selected button's class,
  * the appearance of one selected button is always maintained.
  */
@@ -239,7 +266,7 @@ function choiceAnswer(event) {
  * within the quizQuestions array.
  * The returned value ("correct", "incorrect") is used within the
  * trackerUpdate() switch case to display red, green, gray feedback to the
- * user and to tally the number of correct answers as the quiz progresses
+ * user and to tally the number of correct answers as the quiz progresses.
  */
 function evaluateAnswer(targetID) {
   let userAnswer = document.getElementById(targetID).innerText;

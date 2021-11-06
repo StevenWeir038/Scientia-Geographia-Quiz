@@ -1,6 +1,14 @@
 /* jshint esversion: 8 */
-
-// Questions array
+/**
+ * Questions
+ * Set up as an array of objects
+ * Each object to contain:
+ * 1. Question number for user display in #question-number element in quiz-info-top.  This is needed as indexes run from 0.
+ * This is unintuitive for a casual user.
+ * 2. A question, text to fill #question-box.
+ * 3. An object with an array containing 4 text answers/choices.
+ * 4. An object containing text of the correct answer.  This will be compared against the users selection from 'choices'
+ */
 const quizQuestions = [{
     questionNum: "1",
     questionText: "What is the capital city of Hungary?",
