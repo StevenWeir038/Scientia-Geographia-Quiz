@@ -125,7 +125,7 @@ is ready for input.
 ![Quiz Info Bar](docs/readme/quiz-info.png "Quiz Info Bar")
 
 Features include:
-- An indicator stating the current question number out of a total of the total quiz length
+- An indicator stating the current question number out of the total quiz length
 - A countdown timer with intuitive favicon showing a person and clockface
 - A countdown bar for the more visual user
 
@@ -136,12 +136,12 @@ Features include:
 - One question and four multiple choice answers
 - The selected answer has a different format
 - The user can change their mind and select a different answer before clicking next button to move to next question (many similar quizes lack this feature)
-- Shuffle functionality using the *Fisher/Yates* This consistently varies the same number of questions each time the quiz runs.  This was noted by regular players during testing.
+- Shuffle functionality uses the *Fisher/Yates* method. This consistently varies our questions each time the quiz runs.  This was noted by regular players during testing.
 
 ### Score Tracker
 ![Score Tracker](docs/readme/quiz-answer-feedback.png "Score Tracker")
 
-Ten `circle` divs are hard coded into the html to provide the user constant on their progress / current performance.
+Ten `circle` divs are hard coded into the html to provide the user feedback on their progress / current performance.
 
 Elements are color coded and mean the following:
 - *Yellow* shows the question the user is currently on.  This supplements the question number display in the quiz info bar above the question

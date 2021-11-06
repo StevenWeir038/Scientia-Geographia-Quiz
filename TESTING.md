@@ -28,10 +28,12 @@ Some alterations were required for cross-browser consistency.
 ## Issue Tracker and Project Kanban
 ### Issues
 
-To keep track of any issues I had on this project, I made use of the GitHub Issues page. There are currently no open issues.
-10 closed cases were closed during the development stage, .  
-I used this feature more for practice at this stage of my development and didn't use fully due to a hard deadline.
-I recognise it will need to be used for **every** issue in larger projects in future if I'm on a team.
+As a learning exercise, I made use of the GitHub Issues page.
+
+There are currently no open issues and 10 cases were closed during development. 
+
+Due to a hard project deadline, features were not used to their fullest extent.
+I recognise they will need to be used for **every** issue in larger projects in future, especially when working on a team.
 
 - [#10](https://github.com/StevenWeir038/Scientia-Geographia-Quiz/issues/10) **Quiz doesn't automatically end after 10 questions**
 - [#9](https://github.com/StevenWeir038/Scientia-Geographia-Quiz/issues/9) **User has the correct answer selected but hasn't clicked next, timer runs out and assumes they submitted no/wrong answer** 
@@ -61,7 +63,9 @@ Users could proceed to quiz without entering their name. An error handler applie
 ### Countdown Bar
 **Issue 1**
 
-**On all browsers the countdown bar did not stand out as well as intended.** It was light blue in keeping the initial site color theme.
+**On all browsers the countdown bar did not stand out as well as intended.** 
+
+It was light blue in keeping the initial site color theme.
 
 To add value to the user's experience, a color change was triggered using JS as time ran out from green to yellow to red.
 In addition to better contrast, this adaptation adds a sense of panic to answer the each question.
@@ -102,16 +106,17 @@ It's undesirable to make the users scroll.
 This became an issue at approximately 465px and was overcome by:
 - hiding the header and footer elements when the quiz was in progress and reducing the margin of the `quiz-info-top` section.
 - changing text in `question-number` element from Question to Q.
-- adding a media query to hide the paragraph element on the header on resolution below 768 pixels.
+- adding a media query to hide the paragraph element on the header on resolutions below 768 pixels.
 
 ### Score tracker
 **Issue 1**
 
 **The score tracker feature gives immediate feedback during the quiz.**
 
-The user could initially see if their answer was incorrect providing an opportunity to change their selection.
+The user could initially see if their answer was incorrect, providing an opportunity to change their selection.
 To prevent such dishonesty the score tracker updated only when moving onto the next question.
 In the code, this was achieved by calling `trackerUpdate()` only from the `nextQuestion()` function.
+This solution works as there is no previous question functionality.
 
 **Issue 2**
 
@@ -124,7 +129,7 @@ On each new question it was necessary to default the `yaynay` value to `"unanswe
 In the code, this works as `trackerUpdate()` is exclusively called from the `nextQuestion()` function.
 
 A user will likely not notice the above logic as it is assumed they will make an effort to answer each question before 
-moving on, even if they are unsure of the answer.  As a developer, I must account for all behaviours.
+moving on, even if they are unsure of the answer.  For best practice, I tried to consider all potential behaviours.
 
 ### Results
 
@@ -132,8 +137,8 @@ moving on, even if they are unsure of the answer.  As a developer, I must accoun
 
 **On Firefox and Opera the `#results::before` pseudo-element was distracting by 'cutting off' at the corners.**
 
-This was used to show a rotating animation that displayed only on the border.  The width and height of the `#results::before` pseudo-element needed to be increased on the already hidden overflow.
-By playing with the bug I stumbled on a better effect across all browsers displaying a constant but dynamic border color change.
+This shows a rotating animation that displays only on the border due to a hidden overflow.  The width and height of the `#results::before` pseudo-element needed to be increased.
+By playing with the bug I stumbled on a better effect across all browsers. A constant but dynamic border color change is not displayed.
 
 **Issue 2**
 
@@ -148,6 +153,8 @@ This was solved by changing the border radius property on the after pseudo-eleme
 
 ## Unfixed Bugs
 The code works though one late improvement that can be made is to hide and display each section using classes rather than the existing solution below.
+Full disclosure, I have ran out of time to fully implement and fully debug due to the project deadline.
+It would compliment the css class reusability approach already deployed within the html.
 
 *Current*
 ``` js
