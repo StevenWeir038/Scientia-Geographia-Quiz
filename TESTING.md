@@ -25,12 +25,13 @@ Some alterations were required for cross-browser consistency.
 
 ![Edge Testing](docs/readme/edge-testing.png "Edge Testing")
 
-## Known Bugs and Fixes
+## Issue Tracker and Project Kanban
+### Issues
 
-### Issue Tracker
-
-To keep track of any issues I had on this project, I made use of the GitHub Issues page. There are currently no open issues, however, through the development stage, I have a total of 10 closed cases.  
-At this stage of my developemnt, I used this feature more for practice. It will need to be used for **every** issue in larger/future projects.
+To keep track of any issues I had on this project, I made use of the GitHub Issues page. There are currently no open issues.
+10 closed cases were closed during the development stage, .  
+I used this feature more for practice at this stage of my development and didn't use fully due to a hard deadline.
+I recognise it will need to be used for **every** issue in larger projects in future if I'm on a team.
 
 - [#10](https://github.com/StevenWeir038/Scientia-Geographia-Quiz/issues/10) **Quiz doesn't automatically end after 10 questions**
 - [#9](https://github.com/StevenWeir038/Scientia-Geographia-Quiz/issues/9) **User has the correct answer selected but hasn't clicked next, timer runs out and assumes they submitted no/wrong answer** 
@@ -42,6 +43,13 @@ At this stage of my developemnt, I used this feature more for practice. It will 
 - [#3](https://github.com/StevenWeir038/Scientia-Geographia-Quiz/issues/3) **script.js:149 Uncaught TypeError: Cannot read properties of undefined (reading 'questionText')'**
 - [#2](https://github.com/StevenWeir038/Scientia-Geographia-Quiz/issues/2) **Timer issue when calling next question**
 - [#1](https://github.com/StevenWeir038/Scientia-Geographia-Quiz/issues/1) **#new-game position issue when setting section property to display:block**
+
+### Kanban
+I also experimented linking some of the above issues into the project [Kanban](docs/readme/project-kanban.png "Project Kanban").
+
+![Project Kanban](docs/readme/project-kanban.png "Project Kanban")
+
+## Known Bugs and Fixes
 
 ### Name Input
 **Issue 1**
