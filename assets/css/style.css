@@ -95,7 +95,7 @@ footer p {
 }
 
 .social :hover {
-    color: rgba(var(--theme-two), 1);
+    color: rgba(var(--theme-two));
     animation: wiggle 0.6s;
 }
 
@@ -389,6 +389,19 @@ footer p {
 #home-link a {
     text-decoration: none;
     color: rgba(var(--theme-two), 1);
+}
+
+/* Classes for showing/hiding sections called from script.js */
+.show-section-block {
+    display: "block";
+}
+
+.show-section-inline-flex {
+    display: "inline-flex";
+}
+
+.hide-section {
+    display: "none";
 }
 
 /* for screen resolutions less than 400px remove curved header/footer */
